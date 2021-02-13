@@ -1,0 +1,125 @@
+.top-page-header {
+  width: 1fr;
+  font-size: 14px;
+  padding: 2vh 5vw;
+  display: grid;
+  grid-template:
+    "logo description sign-up login" 60px
+    "margin margin margin margin" 15px
+    "ul ul ul ul" 50px;
+}
+
+.logo-icon {
+  width: 150px;
+  grid-area: logo;
+}
+
+.header-description {
+  line-height: 60px;
+  grid-area: description;
+}
+
+.sign-up-btn {
+  line-height: 60px;
+  grid-area: sign-up;
+}
+
+.login-btn {
+  line-height: 60px;
+  grid-area: login;
+}
+
+.region-list {
+  grid-area: ul;
+  margin: 0 auto;
+}
+
+.region-list li {
+  padding: 10px 3vw;
+  margin-right: 3vw;
+  text-align: center;
+  font-weight: bold;
+  float: left;
+  position: relative;
+  cursor: pointer;
+}
+
+.hokkaido-tohoku{
+  color: #14B714;
+  border-bottom: 2px solid #14B714;
+}
+
+.hokkaido-tohoku:before {
+  content: '';
+  position: absolute;
+  right: -1.5vw;
+  display: inline-block;
+  width: 0.5px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.kanto {
+  color: #194CE5;
+  border-bottom: 2px solid #194CE5;
+}
+
+.kanto:before {
+  content: '';
+  position: absolute;
+  right: -1.5vw;
+  display: inline-block;
+  width: 0.5px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.chubu {
+  color: #E57F19;
+  border-bottom: 2px solid #E57F19;
+}
+
+.chubu:before {
+  content: '';
+  position: absolute;
+  right: -1.5vw;
+  display: inline-block;
+  width: 0.5px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.kinki {
+  color: orangered;
+  border-bottom: 2px solid orangered;
+}
+
+.kinki:before {
+  content: '';
+  position: absolute;
+  right: -1.5vw;
+  display: inline-block;
+  width: 0.5px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.chugoku-shikoku {
+  color: #19E5B2;
+  border-bottom: 2px solid #19E5B2;
+}
+
+.chugoku-shikoku:before {
+  content: '';
+  position: absolute;
+  right: -1.5vw;
+  display: inline-block;
+  width: 0.5px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.kyushu-okinawa {
+  color: #E51919;
+  border-bottom: 2px solid #E51919;
+}

@@ -13,6 +13,8 @@
 |Column|Types|Options|
 |-|-|-|
 |name|string|null:false|
+|region|integer|null:false|
+|prefecture|integer|null:false|
 |birth_of_date|date|null:false|
 |faction|string|null:false|
 |number_of_wins|integer|null:false|

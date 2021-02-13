@@ -1,0 +1,28 @@
+.footer {
+  width: 100vw;
+  height: 5vh;
+  color: #333333;
+  text-align: center;
+  text-decoration: none;
+}
+
+.footer-contents {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+
+li {
+  float: left;
+  margin-right: 3vw;
+}
+
+.footer-link {
+  font-size: 12px;
+  line-height: 3vh;
+  color: #333333;
+}
+
+.footer>p {
+  font-size: 12px;
+}
