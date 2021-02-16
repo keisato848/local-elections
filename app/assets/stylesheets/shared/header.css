@@ -1,0 +1,178 @@
+.top-page-header {
+  padding: 3vh 5vw;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.logo-icon {
+  width: 150px;
+  margin-right: 3vw;
+}
+
+.header-description {
+  line-height: 60px;
+  margin-right: 10vw;
+}
+
+.login-btn {
+  line-height: 60px;
+  margin-right: 10vw;
+}
+
+.region-tab {
+  width: 100vw;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.region-tab li {
+  padding: 10px 40px;
+  margin-right: 5vw;
+  text-align: center;
+  font-weight: bold;
+  float: left;
+  position: relative;
+  cursor: pointer;
+}
+
+.hokkaido-tohoku{
+  color: #14B714;
+  border-bottom: 2px solid #14B714;
+}
+
+.hokkaido-tohoku:before {
+  content: '';
+  position: absolute;
+  right: -1.5vw;
+  display: inline-block;
+  width: 0.5px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.kanto {
+  color: #194CE5;
+  border-bottom: 2px solid #194CE5;
+}
+
+.kanto:before {
+  content: '';
+  position: absolute;
+  right: -1.5vw;
+  display: inline-block;
+  width: 0.5px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.chubu {
+  color: #E57F19;
+  border-bottom: 2px solid #E57F19;
+}
+
+.chubu:before {
+  content: '';
+  position: absolute;
+  right: -1.5vw;
+  display: inline-block;
+  width: 0.5px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.kinki {
+  color: orangered;
+  border-bottom: 2px solid orangered;
+}
+
+.kinki:before {
+  content: '';
+  position: absolute;
+  right: -1.5vw;
+  display: inline-block;
+  width: 0.5px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.chugoku-shikoku {
+  color: #19E5B2;
+  border-bottom: 2px solid #19E5B2;
+}
+
+.chugoku-shikoku:before {
+  content: '';
+  position: absolute;
+  right: -1.5vw;
+  display: inline-block;
+  width: 0.5px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.kyushu-okinawa {
+  color: #E51919;
+  border-bottom: 2px solid #E51919;
+}
+
+
+/* 都道府県リスト */
+
+.active {
+  color: #666666;
+  background-color: #FBB4C4;
+  border: none;
+  border-radius: 4px;
+}
+
+.region-tab li:not(.active):hover {
+  background-color: #FBB4C4;
+  border-radius: 4px;
+  opacity: 0.7;
+  transition: background-color 0.4s;
+}
+
+.hidden div {
+  display: none;
+}
+
+.prefecture-list {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.prefecture-link {
+  padding: 13px 30px;
+  margin-right: 1vw;
+  background-color: #FBB4C4;
+  color: #666666;
+  border-radius: 4px;
+}
+
+.prefecture-link:hover {
+  opacity: 0.7;
+  transition: opacity 0.4s;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 30px;
+  background-color: #666666;
+  font-size: 12px;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  opacity: 0.7;
+  transition: opacity 0.4s;
+}
