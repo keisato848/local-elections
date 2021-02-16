@@ -4,61 +4,31 @@ a {
 
 .main {
   height: 100%;
-  margin: 5vh 5vw;
-  display: grid;
-  grid-template: 
-  "top top top" 50px
-  "margin margin margin" 5vh
-  "update result schedule" 30px
-  "left center right";
+  margin: 15px 5vw;
+  border-bottom: 1px solid #666666;
 }
 
 .main .info {
   padding: 0 50px;
+  margin-bottom: 20px;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
   border-bottom: 1px solid #666666;
-  grid-area: top;
 }
 
-.main h2 {
-  margin-right: 3vw;
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+
+.nav h2 {
   font-weight: bold;
   border-bottom: 1px solid #666666;
 }
 
-.main div {
-  padding-bottom: 10vh;
-  border-bottom: 1px solid #666666;
-}
-
-.main .update {
-  grid-area: update;
-}
-
-.main .election-result {
-  grid-area: result;
-}
-
-.main .election-schedule {
-  grid-area: schedule;
-  margin-right: 0;
-}
-
-.main .update-date {
+.update-date {
   font-size: 12px;
   margin: 15px 0 5px 0;
-}
-
-.update-content {
-  grid-area: left;
-}
-
-.result-content {
-  grid-area: center;
-}
-
-.schedule-content {
-  grid-area: right;
 }
