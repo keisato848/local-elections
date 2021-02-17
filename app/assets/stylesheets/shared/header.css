@@ -1,5 +1,6 @@
 .top-page-header {
   padding: 3vh 5vw;
+  text-align: center;
 }
 
 .top-container {
@@ -8,7 +9,7 @@
 }
 
 .logo-icon {
-  width: 150px;
+  height: 60px;
   margin-right: 3vw;
 }
 
@@ -17,7 +18,7 @@
   margin-right: 10vw;
 }
 
-.login-btn {
+.login-link {
   line-height: 60px;
   margin-right: 10vw;
 }
