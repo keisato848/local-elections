@@ -1,0 +1,2 @@
+class AssemblymenController < ApplicationController
+end
