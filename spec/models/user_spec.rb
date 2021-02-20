@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
       expect(@user).to be_valid
     end
   end
-  
+
   describe 'ユーザー新規登録ができないとき' do
     it 'emailが空だと登録できない' do
       @user.email = nil
