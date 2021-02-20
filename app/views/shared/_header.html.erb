@@ -1,11 +1,16 @@
 <header class='top-page-header'>
   <div class='top-container'>
     <%= link_to image_tag("logo-color.png", class:"logo-icon"), "/" %>
-    <p class='header-description'>
-        地方選や地方議員の情報を掲載！
-    </p>
-    <%= link_to '新規登録', '#', class:'login-btn' %>
-    <%= link_to 'ログイン', '#', class:'login-btn' %>
+    <div class='header-description'>
+      地方選や地方議員の情報を掲載！
+    </div>
+    <% if user_signed_in? %>
+      <%= link_to "こんにちは #{current_user.nickname} さん", '#', class:'login-link' %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'login-link' %>
+    <% else %>
+      <%= link_to '新規登録', new_user_registration_path, class:'login-link' %>
+      <%= link_to 'ログイン', new_user_session_path, class:'login-link' %>
+    <% end %>
   </div>
 
   <%# 地域選択タブ %>
