@@ -45,3 +45,13 @@
   opacity: 0.7;
   transition: opacity 0.4s;
 }
+
+.coming-soon {
+  width: 100%;
+  text-align: center;
+}
+
+.coming-soon > h2 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
