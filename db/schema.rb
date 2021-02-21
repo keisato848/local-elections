@@ -12,6 +12,32 @@
 
 ActiveRecord::Schema.define(version: 2021_02_17_022000) do
 
+  create_table "assemblymen", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.date "birth_of_date", null: false
+    t.string "faction", null: false
+    t.integer "number_of_wins", null: false
+    t.text "img_url", null: false
+    t.bigint "council_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["council_id"], name: "index_assemblymen_on_council_id"
+  end
+
+  create_table "councils", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "prefecture_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["prefecture_id"], name: "index_councils_on_prefecture_id"
+  end
+
+  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -25,4 +51,6 @@ ActiveRecord::Schema.define(version: 2021_02_17_022000) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assemblymen", "councils"
+  add_foreign_key "councils", "prefectures"
 end

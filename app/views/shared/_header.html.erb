@@ -1,4 +1,5 @@
 <header class='top-page-header'>
+
   <div class='top-container'>
     <%= link_to image_tag("logo-color.png", class:"logo-icon"), "/" %>
     <div class='header-description'>
@@ -29,69 +30,44 @@
   <%# 都道府県リスト %>
   <section id='content', class='hidden'>
     <div class='prefecture-list' id='hokkaido-tohoku-list'>
-      <%= link_to '北海道', '#', class: 'prefecture-link' %>
-      <%= link_to '青森県', '#', class: 'prefecture-link' %>
-      <%= link_to '岩手県', '#', class: 'prefecture-link' %>
-      <%= link_to '秋田県', '#', class: 'prefecture-link' %>
-      <%= link_to '宮城県', '#', class: 'prefecture-link' %>
-      <%= link_to '山形県', '#', class: 'prefecture-link' %>
-      <%= link_to '福島県', '#', class: 'prefecture-link' %>
+      <% @prefectures[0..6].each do |prefecture| %>
+        <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+      <% end %>
       <button id='hokkaido-tohoku-close'>閉じる</button>
     </div>
 
     <div class='prefecture-list' id='kanto-list'>
-      <%= link_to '茨城県', '#', class: 'prefecture-link' %>
-      <%= link_to '栃木県', '#', class: 'prefecture-link' %>
-      <%= link_to '群馬県', '#', class: 'prefecture-link' %>
-      <%= link_to '埼玉県', '#', class: 'prefecture-link' %>
-      <%= link_to '千葉県', '#', class: 'prefecture-link' %>
-      <%= link_to '東京都', '#', class: 'prefecture-link' %>
-      <%= link_to '神奈川県', '#', class: 'prefecture-link' %>
-      <%= link_to '山梨県', '#', class: 'prefecture-link' %>
+      <% @prefectures[7..13].each do |prefecture| %>
+        <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+      <% end %>
       <button id='kanto-close'>閉じる</button>
     </div>
 
     <div class='prefecture-list' id='chubu-list'>
-      <%= link_to '長野県', '#', class: 'prefecture-link' %>
-      <%= link_to '新潟県', '#', class: 'prefecture-link' %>
-      <%= link_to '富山県', '#', class: 'prefecture-link' %>
-      <%= link_to '石川県', '#', class: 'prefecture-link' %>
-      <%= link_to '福井県', '#', class: 'prefecture-link' %>
-      <%= link_to '岐阜県', '#', class: 'prefecture-link' %>
-      <%= link_to '静岡県', '#', class: 'prefecture-link' %>
-      <%= link_to '愛知県', '#', class: 'prefecture-link' %>
-      <%= link_to '三重県', '#', class: 'prefecture-link' %>
+      <% @prefectures[14..22].each do |prefecture| %>
+        <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+      <% end %>
       <button id='chubu-close'>閉じる</button>
     </div>
 
     <div class='prefecture-list' id='kinki-list'>
-      <%= link_to '滋賀県', '#', class: 'prefecture-link' %>
-      <%= link_to '京都府', '#', class: 'prefecture-link' %>
-      <%= link_to '大阪府', '#', class: 'prefecture-link' %>
-      <%= link_to '兵庫県', '#', class: 'prefecture-link' %>
-      <%= link_to '奈良県', '#', class: 'prefecture-link' %>
-      <%= link_to '和歌山県', '#', class: 'prefecture-link' %>
+      <% @prefectures[23..29].each do |prefecture| %>
+        <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+      <% end %>
       <button id='kinki-close'>閉じる</button>
     </div>
 
     <div class='prefecture-list' id='chugoku-shikoku-list'>
-      <%= link_to '鳥取県', '#', class: 'prefecture-link' %>
-      <%= link_to '島根県', '#', class: 'prefecture-link' %>
-      <%= link_to '岡山県', '#', class: 'prefecture-link' %>
-      <%= link_to '広島県', '#', class: 'prefecture-link' %>
-      <%= link_to '山口県', '#', class: 'prefecture-link' %>
+      <% @prefectures[30..38].each do |prefecture| %>
+        <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+      <% end %>
       <button id='chugoku-shikoku-close'>閉じる</button>
     </div>
 
     <div class='prefecture-list' id='kyushu-okinawa-list'>
-      <%= link_to '福岡県', '#', class: 'prefecture-link' %>
-      <%= link_to '佐賀県', '#', class: 'prefecture-link' %>
-      <%= link_to '長崎県', '#', class: 'prefecture-link' %>
-      <%= link_to '熊本県', '#', class: 'prefecture-link' %>
-      <%= link_to '大分県', '#', class: 'prefecture-link' %>
-      <%= link_to '宮崎県', '#', class: 'prefecture-link' %>
-      <%= link_to '鹿児島県', '#', class: 'prefecture-link' %>
-      <%= link_to '沖縄県', '#', class: 'prefecture-link' %>
+      <% @prefectures[39..46].each do |prefecture| %>
+        <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+      <% end %>
       <button id='kyushu-okinawa-close'>閉じる</button>
     </div>
 
