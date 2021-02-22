@@ -1,3 +1,3 @@
 class Assemblyman < ApplicationRecord
-  belongs_to :countil
+  belongs_to :council
 end
