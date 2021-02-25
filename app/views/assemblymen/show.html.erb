@@ -1,0 +1,29 @@
+<%= render "shared/header" %>
+<div class='main'>
+  <div class='assemblyman-show-profile'>
+    <div class='background'>
+      <% if @assemblyman.img_url %>
+        <%= image_tag @assemblyman.img_url, class: 'assemblyman-show-img' %>
+      <% else %>
+        <%= image_tag 'assembly-img-dammy.png', class: 'assemblyman-img' %>
+      <% end %>
+    </div>
+    <div class='profile-content'>
+      <p class='assemblyman-name'><%= @assemblyman.name %></p>
+      <div class='profile-wrap'>
+        <p class='profile-heading'>生年月日</p>
+        <p class="profile-text"><%= l @assemblyman.birth_of_date %></p>
+      </div>
+      <div class='profile-wrap'>
+        <p class='profile-heading'>会派</p>
+        <p class="profile-text"><%= @assemblyman.faction %></p>
+      </div>
+      <div class='profile-wrap'>
+        <p class='profile-heading'>職業</p>
+        <p class="profile-text"><%= @assemblyman.job %></p>
+      </div>
+    </div>
+  </div>
+  <%= link_to '議員一覧へ戻る',  "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen", class: 'back-to-assemblymen-list'%>
+</div>
+<%= render 'shared/footer' %>
