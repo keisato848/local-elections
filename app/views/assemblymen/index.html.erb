@@ -19,9 +19,9 @@
           <div class='profile-faction'>
             <%= assemblyman.faction %>
           </div>
-          <div class="show-profile">
-            詳しく見る
-          </div>
+          <%# <div class="show-profile"> %>
+            <%= link_to '詳しく見る', "/prefectures/#{params[:prefecture_id]}/councils/$#{params[:council_id]}/assemblymen/#{assemblyman.id}", class: 'show-profile' %>
+          <%# </div> %>
         </div>
       </div>
     <% end %>
