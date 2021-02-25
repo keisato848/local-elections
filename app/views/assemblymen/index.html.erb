@@ -2,7 +2,7 @@
 <div class='main'>
   <h1 class='prefecture-name'><%= @council.name %>議員一覧</h1>
   <p class='updated-info'>
-    <%= l @assemblyman.updated_at, format: :default %> 現在、<%= @assemblymen.ids.last %>人の議員が在籍しています。
+    <%= l @assemblyman.updated_at, format: :default %>現在の議員数は <%= @assemblymen.ids.last %> 人です。
   </p>
   <div class='assemblymen-list'>
     <% @assemblymen.each do |assemblyman| %>
