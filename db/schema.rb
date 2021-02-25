@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_02_17_022000) do
     t.string "faction", null: false
     t.integer "number_of_wins", null: false
     t.text "img_url", null: false
+    t.string "job"
     t.bigint "council_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -27,8 +28,8 @@ ActiveRecord::Schema.define(version: 2021_02_17_022000) do
   create_table "councils", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "prefecture_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
     t.index ["prefecture_id"], name: "index_councils_on_prefecture_id"
   end
 

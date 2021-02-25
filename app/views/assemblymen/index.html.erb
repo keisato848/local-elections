@@ -1,0 +1,26 @@
+<%= render "shared/header" %>
+<div class='main'>
+  <h1 class='prefecture-name'><%= @council.name %>議員一覧</h1>
+  <p class='updated-info'>
+    <%= l @assemblyman.updated_at, format: :default %> 現在、<%= @assemblymen.ids.last %>人の議員が在籍しています。
+  </p>
+  <div class='assemblymen-list'>
+    <% @assemblymen.each do |assemblyman| %>
+      <div class='assemblyman-profile'>
+        <%= image_tag assemblyman.img_url, class: 'assemblyman-img' %>
+        <div class='assemblyman-content'>
+          <div class='profile-name'>
+            <%= assemblyman.name %>
+          </div>
+          <div class='profile-faction'>
+            <%= assemblyman.faction %>
+          </div>
+          <div class="show-profile">
+            詳しく見る
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'shared/footer' %>

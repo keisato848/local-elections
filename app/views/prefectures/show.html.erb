@@ -6,7 +6,7 @@
       <% @councils.each do |council| %>
         <div class='council-content'>
           <div class='council-name'><%= council.name %></div>
-          <%= link_to '議員一覧へ',  "/prefectures/:prefecture_id/councils/#{council.id}/assemblymen", class: 'show-assembly'%>
+          <%= link_to '議員一覧へ',  "/prefectures/#{params[:id]}/councils/#{council.id}/assemblymen", class: 'show-assembly'%>
         </div>
       <% end %>
     <% else %>
