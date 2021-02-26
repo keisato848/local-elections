@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
   });
 
   // 都道府県リスト
-  const prefecture_list = document.querySelectorAll('.hidden div')
+  const prefecture_list = document.querySelectorAll('.hidden ul')
   
   // 北海道・東北
   const hokkaido = document.getElementById('hokkaido-tohoku');
@@ -25,15 +25,7 @@ window.addEventListener('load', () => {
     prefecture_list.forEach(item => {
       item.setAttribute('style', 'display: none')
     });
-    hokkaido_tohoku_list.setAttribute('style', 'display: block')
-  });
-
-  const hokkaido_tohoku_close = document.getElementById('hokkaido-tohoku-close');
-  
-  hokkaido_tohoku_close.addEventListener('click', () => {
-    prefecture_list.forEach(item => {
-      item.setAttribute('style', 'display: none')
-    });
+    hokkaido_tohoku_list.setAttribute('style', 'display: flex')
   });
 
   // 関東
@@ -44,15 +36,7 @@ window.addEventListener('load', () => {
     prefecture_list.forEach(item => {
       item.setAttribute('style', 'display: none')
     });
-    kanto_list.setAttribute('style', 'display: block')
-  });
-
-  const kanto_close = document.getElementById('kanto-close');
-  
-  kanto_close.addEventListener('click', () => {
-    prefecture_list.forEach(item => {
-      item.setAttribute('style', 'display: none')
-    });
+    kanto_list.setAttribute('style', 'display: flex')
   });
   
   // 中部
@@ -63,15 +47,7 @@ window.addEventListener('load', () => {
     prefecture_list.forEach(item => {
       item.setAttribute('style', 'display: none')
     });
-    chubu_list.setAttribute('style', 'display: block')
-  });
-
-  const chubu_close = document.getElementById('chubu-close');
-  
-  chubu_close.addEventListener('click', () => {
-    prefecture_list.forEach(item => {
-      item.setAttribute('style', 'display: none')
-    });
+    chubu_list.setAttribute('style', 'display: flex')
   });
   
   // 近畿
@@ -82,15 +58,7 @@ window.addEventListener('load', () => {
     prefecture_list.forEach(item => {
       item.setAttribute('style', 'display: none')
     });
-    kinki_list.setAttribute('style', 'display: block')
-  });
-  
-  const kinki_close = document.getElementById('kinki-close');
-
-  kinki_close.addEventListener('click', () => {
-    prefecture_list.forEach(item => {
-      item.setAttribute('style', 'display: none')
-    });
+    kinki_list.setAttribute('style', 'display: flex')
   });
   
   //  四国
@@ -101,15 +69,7 @@ window.addEventListener('load', () => {
     prefecture_list.forEach(item => {
       item.setAttribute('style', 'display: none')
     });
-    chugoku_shikoku_list.setAttribute('style', 'display: block')
-  });
-  
-  const chugoku_shikoku_close = document.getElementById('chugoku-shikoku-close');
-
-  chugoku_shikoku_close.addEventListener('click', () => {
-    prefecture_list.forEach(item => {
-      item.setAttribute('style', 'display: none')
-    });
+    chugoku_shikoku_list.setAttribute('style', 'display: flex')
   });
   
   // 九州・沖縄
@@ -120,15 +80,21 @@ window.addEventListener('load', () => {
     prefecture_list.forEach(item => {
       item.setAttribute('style', 'display: none')
     });
-    kyushu_okinawa_list.setAttribute('style', 'display: block')
+    kyushu_okinawa_list.setAttribute('style', 'display: flex')
   });
   
-  const kyushu_okinawa_close = document.getElementById('kyushu-okinawa-close');
+  // 閉じるボタン
+  const close_btn = document.querySelectorAll('.close-btn');
 
-  kyushu_okinawa_close.addEventListener('click', () => {
-    prefecture_list.forEach(item => {
-      item.setAttribute('style', 'display: none')
-    });
+  close_btn.forEach(btn => {
+    btn.addEventListener('click', () => {
+      prefecture_link.forEach(item => {
+        item.classList.remove('active')
+        });
+        prefecture_list.forEach(item => {
+          item.setAttribute('style', 'display: none')
+        });
+      });
   });
-
+  
 });
