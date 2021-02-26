@@ -29,5 +29,36 @@
     </div>
   </div>
   <%= link_to '議員一覧へ戻る',  "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}", class: 'back-to-assemblymen-list'%>
+
+    <%# コメント投稿フォーム %>
+  <div class="assemblymen-comments">
+    <% if user_signed_in? %>
+      <%= form_with url: prefecture_council_assemblyman_comments_path(assemblyman_id: params[:id]), local: true do |f| %>
+        <div>
+          <%= f.text_field :comment , placeholder: 'コメントを書く', class: 'field' %>
+            <%= f.submit "送信する", class: 'form__btn' %>
+        </div>
+      <% end %>
+    <% else %>
+      <p class='notes'>コメントの投稿には<a href="#">ユーザー登録</a>が必要です</p>
+    <% end %> 
+
+    <%# コメントを一覧表示 %>
+    <ul class="comments-lists">
+      <% if @comments.find_by(assemblyman_id: params[:id]) %>
+        <% @comments.each do |comment| %> 
+          <li class="comments-list">
+            <div class='comment-user'>
+              <%= comment.user.nickname %>
+            </div>
+            <span class='comment-text'><%= comment.comment %></span>
+          </li>
+        <% end %>
+      <% else  %>
+        <div class='notes'>コメントはまだありません。</div>
+      <% end %>
+    </ul>
+  </div>
+  
 </div>
 <%= render 'shared/footer' %>
