@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 2021_02_26_054102) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id_id", null: false
-    t.bigint "assemblyman_id_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "assemblyman_id", null: false
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["assemblyman_id_id"], name: "index_comments_on_assemblyman_id_id"
-    t.index ["user_id_id"], name: "index_comments_on_user_id_id"
+    t.index ["assemblyman_id"], name: "index_comments_on_assemblyman_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "councils", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
