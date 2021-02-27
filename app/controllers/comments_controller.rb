@@ -1,10 +1,17 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
+  def new
+    @assemblyman = Assemblyman.find_by(id: params[:assemblyman_id])  
+  end
+  
   def create
     @comment = Comment.create(comment_params)
     if @comment.save
-      redirect_to "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/#{params[:assemblyman_id]}", class: 'back-to-assemblymen-list'
+      redirect_to "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/#{params[:assemblyman_id]}"
     else
-      render 'assemblymen/show'
+      @assemblyman = Assemblyman.find_by(id: params[:assemblyman_id])  
+      render :new
     end
   end
 

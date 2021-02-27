@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :prefectures, only: [:index, :show] do
     resources :councils, only: :show do
       resources :assemblymen, only: [:show] do
-        resources :comments, only: [:create]
+        resources :comments, only: [:new, :create]
       end
     end
   end
