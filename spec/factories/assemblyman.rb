@@ -6,6 +6,6 @@ FactoryBot.define do
     number_of_wins { Faker::Number.number(digits: 2) }
     img_url { Faker::Internet.url }
     job { Faker::Job.title }
-    council_id {Faker::Number.number(digits: 2)}
+    council_id { Faker::Number.number(digits: 2) }
   end
 end
