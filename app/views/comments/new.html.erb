@@ -1,0 +1,24 @@
+<%= render "shared/header" %>
+<%= render 'shared/error_messages', model: @comment %>
+<div class='main'>
+    <h1 class='prefecture-name'><%= @assemblyman.name %>さんへのコメント</h1>
+  <div class="comments-form">
+    <%= form_with url: prefecture_council_assemblyman_comments_path(assemblyman_id: params[:assemblyman_id]), local: true do |f| %>
+      <div>
+        <%= f.text_area :comment , placeholder: 'コメントを書く(256字以内）', class: 'field' %>
+        <div class='coution'>
+          <h2 class='coution-title'>注意事項</h2>
+          <p>
+            ※犯罪予告や犯罪示唆、誹謗中傷、性的な出会いを目的とした書き込みでないか今一度確認してください。
+          </p>
+          <p>
+            ※投稿者は、投稿に関して発生する責任が全て投稿者に帰すことを承諾します。
+          </p>
+        </div> 
+        <%= f.submit "送信する", class: 'form__btn' %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to '議員情報へ戻る',  "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/#{params[:assemblyman_id]}", class: 'back-to-assemblymen-list'%>
+</div>
+<%= render 'shared/footer' %>
