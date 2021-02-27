@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @assemblyman = Assemblyman.find_by(id: params[:assemblyman_id])  
+    @assemblyman = Assemblyman.find_by(id: params[:assemblyman_id])
+    @comment = Comment.new
   end
   
   def create
