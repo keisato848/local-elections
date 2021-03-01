@@ -1,101 +1,145 @@
 .top-page-header {
-  padding: 3vh 5vw;
+  padding: 3vh 2vw;
+  background-color: #214b7d;
+  color: #ffffff;
   text-align: center;
 }
 
 .top-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: 3vh;
+  padding-bottom: 3vh;
 }
 
 .logo-icon {
-  height: 60px;
-  margin-right: 3vw;
+  max-width: 100%;
+  margin: 0 20px 0 10px;
 }
 
-.header-description {
-  line-height: 60px;
-  font-size: 18px;
-  margin-right: 10vw;
+.user-session {
+  text-align: center;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.registration-link {
+  color: #ffffff;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
 }
 
 .login-link {
-  line-height: 60px;
-  margin-right: 5vw;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+/* ハンバーガーメニュー */
+.material-icons {
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.hamburger-menu {
+  float: right;
+  display: none;
+  position: relative;
+}
+
+.hidden-menu-list {
+  background-color: #313131;
+  color : #ffffff;
+  font-weight: 400;
+  display: none;
+  border-radius: 4px;
+  position: absolute;
+  top: 4vh;
+  right: 0;
+}
+
+.hidden-menu-list>li {
+  padding: 15px 15px;
+}
+
+.hidden-registration-link, .hidden-login-link {
+  color: #ffffff;
+}
+
+.hidden-registration-link:hover, .hidden-login-link:hover {
+  border-bottom: 1px solid #ffffff;
+}
+/* ハンバーガーメニュー */
+
+/* 地域選択タブ */
+.region-tab-nav {
+  display: flex;
+  align-items: baseline;
+  margin: 15px;
+}
+
+.search-img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.search-text {
+  font-weight: 400;
 }
 
 .region-tab {
   width: 100%;
-  margin: 30px 0;
+  background-color: #ffffff;
+  color: #313131;
   display: flex;
-  justify-content: space-between;
-}
-
-.region-tab li {
-  padding: 1vh 2vw;
-  margin: 0;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.hokkaido-tohoku{
-  color: #14B714;
-  border-bottom: 2px solid #14B714;
-}
-
-.kanto {
-  color: #194CE5;
-  border-bottom: 2px solid #194CE5;
-}
-
-.chubu {
-  color: #E57F19;
-  border-bottom: 2px solid #E57F19;
-}
-
-.kinki {
-  color: orangered;
-  border-bottom: 2px solid orangered;
-}
-
-.chugoku-shikoku {
-  color: #19E5B2;
-  border-bottom: 2px solid #19E5B2;
-}
-
-.kyushu-okinawa {
-  color: #E51919;
-  border-bottom: 2px solid #E51919;
-}
-
-
-/* 都道府県リスト */
-
-.active {
-  color: #ffffff;
-  background-color: #214b7d;
-  border: none;
+  justify-content: space-around;
+  flex-wrap: wrap;
   border-radius: 4px;
 }
 
-.region-tab li:not(.active):hover {
-  background-color: #dcdcdc;
-  transition: background-color 0.4s;
+.region-tab li {
+  padding: 2vh 0;
+  padding-right: calc(2px + 2vw);
+  padding-left: calc(2px + 2vw);
+  font-weight: 500;
+  cursor: pointer;
+}
+/* 地域選択タブ */
+
+/* 都道府県リスト */
+.active {
+  background-color: #313131;
+  color: #ffffff;
+  border: none;
 }
 
-.hidden ul {
-  display: none;
+.region-tab li:not(.active):hover {
+  background-color: #313131;
+  transition: background-color 0.4s;
+  color: #ffffff;
+  border-radius: 3px;
+}
+
+.hidden {
+  position: relative;
 }
 
 .prefecture-list {
-  line-height: 40px;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #313131;
   text-align: center;
-  font-size: 90%;
-  justify-content: space-between;
+  border-radius: 4px;
+  display: none;
+  justify-content: space-around;
   align-items: center;
-  padding-bottom: 15px;
-  border-bottom:3px solid #214b7d;
   flex-wrap: wrap;
+  position: absolute;
 }
 
 .prefecture-list > li {
@@ -103,28 +147,55 @@
 }
 
 .prefecture-link {
-  padding: 15px 1vw;
-  background-color: #214b7d;
   color: #ffffff;
+  font-weight: 400;
+  padding: 0 1vw;
   border-radius: 4px;
 }
 
-.prefecture-link:hover {
-  opacity: 0.7;
-  transition: opacity 0.4s;
+.prefecture-link:hover, .close-btn:hover {
+  border-bottom: 1px solid#ffffff;
+  border-radius: 0;
 }
 
 .close-btn {
-  width: 5vw;
-  background-color: #ffffff;
-  color: #214b7d;
-  font-weight: bold;
-  border: 3px solid #214b7d;
-  border-radius: 4px;
+  height: 24px;
+  color: #ffffff;
   cursor: pointer;
 }
 
-.close-btn:hover {
-  opacity: 0.7;
-  transition: opacity 0.4s;
-}
+/* スマホ用レイアウト */
+@media (max-width: 760px) {
+  .hamburger-menu {
+    display: block;
+  }
+  
+  .user-session {
+    display: none;
+  }
+
+  .region-tab>li {
+    font-size: 12px;
+  }
+
+  .region-tab, .prefecture-list {
+    justify-content: space-around;
+  }
+
+  .region-tab>li, .prefecture-link {
+    padding-right: 2px;
+    padding-left: 2px;
+  }
+  
+  .prefecture-list {
+    padding: 1vh 0;
+  }
+
+  .prefecture-link {
+    font-size: 10px;
+  }
+
+  .close-btn {
+    height: 17px;
+  }
+} 

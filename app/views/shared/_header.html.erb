@@ -1,20 +1,49 @@
 <header class='top-page-header'>
-
   <div class='top-container'>
-    <%= link_to image_tag("logo-color.png", class:"logo-icon"), "/" %>
-    <div class='header-description'>
-      地方議員の情報を掲載！
+    <%= link_to image_tag("logo.png", class:"logo-icon"), "/" %>
+    <div class='user-session'>
+      <% if user_signed_in? %>
+        <p class='registration-link'><%= current_user.nickname %></p>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'login-link' %>
+      <% else %>
+        <%= link_to '新規登録', new_user_registration_path, class:'registration-link' %>
+        <%= link_to 'ログイン', new_user_session_path, class:'login-link' %>
+      <% end %>
     </div>
-    <% if user_signed_in? %>
-      <%= link_to "こんにちは #{current_user.nickname} さん", '#', class:'login-link' %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'login-link' %>
-    <% else %>
-      <%= link_to '新規登録', new_user_registration_path, class:'login-link' %>
-      <%= link_to 'ログイン', new_user_session_path, class:'login-link' %>
-    <% end %>
+    <%# ハンバーガーメニュー %>
+    <aside class='hamburger-menu' id='hamburger-menu'>
+    <span class='material-icons' id='open-menu'>menu</span>
+      <nav>
+        <ul class=hidden-menu-list id='hidden-menu-list'>
+          <% if user_signed_in? %>
+            <li>
+              <p class='hidden-registration-link'><%= current_user.nickname %></p>
+            </li>
+            </li>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'hidden-login-link' %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to '新規登録', new_user_registration_path, class:'hidden-registration-link' %>
+            </li>
+            <li>
+              <%= link_to 'ログイン', new_user_session_path, class:'hidden-login-link' %>
+            </li>
+          <% end %>
+          <li>
+            <span class='material-icons' id='close-menu'>close</span>
+          </li>
+        </ul>
+      </nav>
+    </aside>
   </div>
+  <%# ハンバーガ−メニュー %>
 
   <%# 地域選択タブ %>
+  <div class='region-tab-nav'>
+    <%= image_tag 'search.png', class: 'search-img' %>
+    <span class='search-text'>地域から探す</span>
+  </div>
   <ul class='region-tab'>
     <li class="hokkaido-tohoku" id='hokkaido-tohoku'>北海道・東北</li>
     <li class="kanto" id='kanto'>関東</li>
@@ -34,7 +63,9 @@
         </li>
       <% end %>
       <li>
-        <div class='close-btn'>閉じる</div>
+        <div class='close-btn'>
+          <span class='material-icons' id='close-menu'>close</span>
+        </div>
       </li>
     </ul>
 
@@ -45,7 +76,9 @@
         </li>
       <% end %>
       <li>
-        <div class='close-btn'>閉じる</div>
+        <div class='close-btn'>
+          <span class='material-icons' id='close-menu'>close</span>
+        </div>
       </li>
     </ul>
 
@@ -56,7 +89,9 @@
         </li>
       <% end %>
       <li>
-        <div class='close-btn'>閉じる</div>
+        <div class='close-btn'>
+          <span class='material-icons' id='close-menu'>close</span>
+        </div>
       </li>
     </ul>
 
@@ -67,7 +102,9 @@
         </li>
       <% end %>
       <li>
-        <div class='close-btn'>閉じる</div>
+        <div class='close-btn'>
+          <span class='material-icons' id='close-menu'>close</span>
+        </div>
       </li>
     </ul>
 
@@ -78,7 +115,9 @@
         </li>
       <% end %>
       <li>
-        <div class='close-btn'>閉じる</div>
+        <div class='close-btn'>
+          <span class='material-icons' id='close-menu'>close</span>
+        </div>
       </li>
     </ul>
 
@@ -89,7 +128,9 @@
         </li>
       <% end %>
       <li>
-        <div class='close-btn'>閉じる</div>
+        <div class='close-btn'>
+          <span class='material-icons' id='close-menu'>close</span>
+        </div>
       </li>
     </ul>
 

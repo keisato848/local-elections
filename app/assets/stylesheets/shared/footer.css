@@ -1,0 +1,28 @@
+footer {
+  height: 100%;
+  padding: 3vh 2vw;
+  background-color: #214b7d;
+  text-align: center;
+}
+
+.footer-contents {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 3vh;
+}
+
+.footer-link {
+  color: #ffffff;
+  display: block;
+}
+
+footer>p {
+  color: #ffffff;
+}
+
+@media (max-width: 760px) {
+  .footer-link {
+    margin-bottom: 10px;
+  }
+}
