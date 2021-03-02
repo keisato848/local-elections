@@ -1,17 +1,15 @@
 .top-page-header {
-  padding: 3vh 2vw;
-  background-color: #214b7d;
+  background: linear-gradient(-135deg,#2a83a2,#214b7d);
   color: #ffffff;
   text-align: center;
 }
 
 .top-container {
+  padding: 3vh 2vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ffffff;
-  margin-bottom: 3vh;
-  padding-bottom: 3vh;
 }
 
 .logo-icon {
@@ -77,35 +75,17 @@
 /* ハンバーガーメニュー */
 
 /* 地域選択タブ */
-.region-tab-nav {
-  display: flex;
-  align-items: baseline;
-  margin: 15px;
-}
-
-.search-img {
-  height: 20px;
-  margin-right: 10px;
-}
-
-.search-text {
-  font-weight: 400;
-}
-
 .region-tab {
   width: 100%;
-  background-color: #ffffff;
-  color: #313131;
+  color: #ffffff;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
-  border-radius: 4px;
 }
 
 .region-tab li {
-  padding: 2vh 0;
-  padding-right: calc(2px + 2vw);
-  padding-left: calc(2px + 2vw);
+  padding: 2vh calc((100% - 380px) / 14);
+  white-space: nowrap;
   font-weight: 500;
   cursor: pointer;
 }
@@ -113,16 +93,15 @@
 
 /* 都道府県リスト */
 .active {
-  background-color: #313131;
-  color: #ffffff;
-  border: none;
+  background-color: #ffffff;
+  color: #313131;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .region-tab li:not(.active):hover {
-  background-color: #313131;
-  transition: background-color 0.4s;
-  color: #ffffff;
-  border-radius: 3px;
+  background-color: #dcdcdc;
+  transition: background-color 0.7s;
+  color: #313131;
 }
 
 .hidden {
@@ -132,14 +111,14 @@
 .prefecture-list {
   width: 100%;
   padding: 10px 0;
-  background-color: #313131;
+  background-color: #ffffff;
   text-align: center;
-  border-radius: 4px;
   display: none;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   position: absolute;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .prefecture-list > li {
@@ -147,20 +126,20 @@
 }
 
 .prefecture-link {
-  color: #ffffff;
+  color: #313131;
   font-weight: 400;
   padding: 0 1vw;
   border-radius: 4px;
 }
 
 .prefecture-link:hover, .close-btn:hover {
-  border-bottom: 1px solid#ffffff;
   border-radius: 0;
+  text-decoration: underline;
 }
 
 .close-btn {
   height: 24px;
-  color: #ffffff;
+  color: #313131;
   cursor: pointer;
 }
 

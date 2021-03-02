@@ -1,7 +1,7 @@
 .second-header {
   flex: 1;
   height: 15vh;
-  background-color: #214b7d;
+  background: linear-gradient(-135deg,#2a83a2,#214b7d);
   display: flex;
   align-items: center;
   justify-content: center;

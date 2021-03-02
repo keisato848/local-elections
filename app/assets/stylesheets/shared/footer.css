@@ -1,7 +1,8 @@
 footer {
   height: 100%;
   padding: 3vh 2vw;
-  background-color: #214b7d;
+  margin-top: 5vh;
+  background: linear-gradient(-135deg,#666666, #313131);
   text-align: center;
 }
 
