@@ -1,18 +1,14 @@
 .second-footer {
   flex: 1;
-  height: clamp(100px, 15vh, 200px);
+  height: clamp(30px, 5vh, 50px);
   background-color: #214b7d;
+  margin-top: 12vh;
 }
 
 .second-footer-text-wrap {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.second-footer-logo {
-  height: 100px;
-  margin: 0 auto;
+  justify-content: center;
 }
 
 .second-footer-text {

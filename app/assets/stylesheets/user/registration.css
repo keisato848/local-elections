@@ -1,5 +1,6 @@
 .registration-main {
   flex: 1;
+  height: 100%;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
