@@ -1,47 +1,47 @@
 .prefecture-name{
-  font-size: 20px;
-  font-weight: bold;
   text-align: center;
+  font-weight: 400;
 }
 
 .council-list {
-  line-height: 30px;
-  margin: 30px 0px;
+  margin: 3vh 3vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
+  flex: 1;
 }
 
 .council-content {
-  margin: 4vh 2vw;
-  padding: 0px 10px 20px 10px;
+  margin: 3vh 2vw;
+  padding: 0 2vw 2vh;
   border-bottom: 1px solid #666666;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .council-name {
-  width: 110px;
-  font-weight: bold;
-  font-size: 18px;
+  width: clamp(100px, 1rem + 4vw, 150px);
+  white-space: nowrap;
+  font-weight: 400;
   text-align: center;
-  margin-right: 15px;
+  margin-right: 3vw;
 }
 
-.show-assembly {
-  width: 80px;
+.blue-link-btn {
+  width: clamp(80px, 1rem + 2vw, 120px);
   height: 30px;
-  background-color: #E57F19;
+  background-color: #2a83a2;
   padding: 10px 30px;
+  font-size: 16px;
+  line-height: 30px;
   color: #ffffff;
-  text-decoration: none;
   text-align: center;
   border-radius: 4px;
   display: block;
 }
 
-.show-assembly:hover {
+.blue-link-btn:hover {
   opacity: 0.7;
   transition: opacity 0.4s;
 }

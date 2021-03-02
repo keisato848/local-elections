@@ -1,28 +1,35 @@
 <%= render "shared/header" %>
 <div class='main'>
   <h1 class='prefecture-name'><%= @council.name %>議員一覧</h1>
-  <p class='updated-info'>
-    <%= l @assemblyman.updated_at, format: :default %>現在の議員数は <%= @assemblymen.ids.last %> 人です。
-  </p>
-  <div class='assemblymen-list'>
-    <% @assemblymen.each do |assemblyman| %>
-      <div class='assemblyman-profile'>
-        <% if assemblyman.img_url %>
-          <%= image_tag assemblyman.img_url, class: 'assemblyman-img' %>
-        <% else %>
-          <%= image_tag 'assembly-img-dammy.png', class: 'assemblyman-img' %>
-        <% end %>
-        <div class='assemblyman-content'>
-          <div class='profile-name'>
-            <%= assemblyman.name %>
+  <% if @assemblyman%>
+    <p class='updated-info'>
+      <%= l @assemblyman.updated_at, format: :default %>現在の議員数は <%= @assemblymen.ids.last %> 人です。
+    </p>
+    <div class='assemblymen-list'>
+      <% @assemblymen.each do |assemblyman| %>
+        <div class='assemblyman-profile'>
+          <% if assemblyman.img_url %>
+            <%= image_tag assemblyman.img_url, class: 'assemblyman-img' %>
+          <% else %>
+            <%= image_tag 'assembly-img-dammy.png', class: 'assemblyman-img' %>
+          <% end %>
+          <div class='assemblyman-content'>
+            <div class='profile-name'>
+              <%= assemblyman.name %>
+            </div>
+            <div class='profile-faction'>
+              <%= assemblyman.faction %>
+            </div>
+            <%= link_to '詳しく見る', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/assemblymen/#{assemblyman.id}", class: 'show-profile' %>
           </div>
-          <div class='profile-faction'>
-            <%= assemblyman.faction %>
-          </div>
-          <%= link_to '詳しく見る', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/assemblymen/#{assemblyman.id}", class: 'show-profile' %>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class='coming-soon'>
+      <h2>Comming Soon!!</h2>
+      <p>更新までお待ちください。</p>
+    </div>
+  <% end %>
 </div>
 <%= render 'shared/footer' %>
