@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>地方議会ナビ</title>
+    <title>LocalElections</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- GoogleFonts Noto Serif JP -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- GoogleMaterialIcons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-
   <body>
+    <style>
+      body {
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 200;
+        font-size: clamp(16px, 8px + 1vw, 25px)
+      }
+      h1 {
+        font-weight: 300;
+      }
+    </style>
     <%= yield %>
   </body>
 </html>

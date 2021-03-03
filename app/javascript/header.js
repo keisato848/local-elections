@@ -2,6 +2,21 @@
 
 window.addEventListener('load', () => {
 
+  // ハンバーガーメニュー
+  const open_menu = document.getElementById('open-menu')
+  const close_menu = document.getElementById('close-menu')
+  const menu_list = document.getElementById('hidden-menu-list')
+
+  open_menu.addEventListener('click', () => {
+    menu_list.setAttribute('style', 'display: block')
+  });
+
+  close_menu.addEventListener('click', () => {
+    menu_list.removeAttribute('style', 'display: block')
+  });
+
+
+
   // 地域選択タブ
   const prefecture_link = document.querySelectorAll('.region-tab li')
 

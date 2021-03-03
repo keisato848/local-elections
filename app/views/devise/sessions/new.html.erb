@@ -26,10 +26,10 @@
       <label class="form-text">パスワード</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.password_field :password, class:"input-default", id:"password", placeholder:"" %>
+    <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
   </div>
   <div class='login-btn'>
-    <%= f.submit "ログイン" ,class:"login-blue-btn" %>
+    <%= f.submit "ログイン" ,class:"register-blue-btn" %>
   </div>
 </div>
 <% end %>

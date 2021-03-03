@@ -1,0 +1,29 @@
+footer {
+  height: 100%;
+  padding: 3vh 2vw;
+  margin-top: 5vh;
+  background: linear-gradient(-135deg,#666666, #313131);
+  text-align: center;
+}
+
+.footer-contents {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 3vh;
+}
+
+.footer-link {
+  color: #ffffff;
+  display: block;
+}
+
+footer>p {
+  color: #ffffff;
+}
+
+@media (max-width: 760px) {
+  .footer-link {
+    margin-bottom: 10px;
+  }
+}

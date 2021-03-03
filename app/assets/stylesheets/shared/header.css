@@ -1,101 +1,124 @@
 .top-page-header {
-  padding: 3vh 5vw;
+  background: linear-gradient(-135deg,#2a83a2,#214b7d);
+  color: #ffffff;
   text-align: center;
 }
 
 .top-container {
+  padding: 3vh 2vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ffffff;
 }
 
 .logo-icon {
-  height: 60px;
-  margin-right: 3vw;
+  max-width: 100%;
+  margin: 0 20px 0 10px;
 }
 
-.header-description {
-  line-height: 60px;
-  font-size: 18px;
-  margin-right: 10vw;
+.user-session {
+  text-align: center;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.registration-link {
+  color: #ffffff;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
 }
 
 .login-link {
-  line-height: 60px;
-  margin-right: 5vw;
+  color: #ffffff;
+  margin-right: 10px;
 }
 
-.region-tab {
-  width: 100%;
-  margin: 30px 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.region-tab li {
-  padding: 1vh 2vw;
-  margin: 0;
-  font-weight: bold;
+/* ハンバーガーメニュー */
+.material-icons {
+  padding: 0 20px;
   cursor: pointer;
 }
 
-.hokkaido-tohoku{
-  color: #14B714;
-  border-bottom: 2px solid #14B714;
+.hamburger-menu {
+  float: right;
+  display: none;
+  position: relative;
 }
 
-.kanto {
-  color: #194CE5;
-  border-bottom: 2px solid #194CE5;
+.hidden-menu-list {
+  background-color: #313131;
+  color : #ffffff;
+  font-weight: 400;
+  display: none;
+  border-radius: 4px;
+  position: absolute;
+  top: 4vh;
+  right: 0;
 }
 
-.chubu {
-  color: #E57F19;
-  border-bottom: 2px solid #E57F19;
+.hidden-menu-list>li {
+  padding: 15px 15px;
 }
 
-.kinki {
-  color: orangered;
-  border-bottom: 2px solid orangered;
+.hidden-registration-link, .hidden-login-link {
+  color: #ffffff;
 }
 
-.chugoku-shikoku {
-  color: #19E5B2;
-  border-bottom: 2px solid #19E5B2;
+.hidden-registration-link:hover, .hidden-login-link:hover {
+  border-bottom: 1px solid #ffffff;
+}
+/* ハンバーガーメニュー */
+
+/* 地域選択タブ */
+.region-tab {
+  width: 100%;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.kyushu-okinawa {
-  color: #E51919;
-  border-bottom: 2px solid #E51919;
+.region-tab li {
+  padding: 2vh calc((100% - 380px) / 14);
+  white-space: nowrap;
+  font-weight: 500;
+  cursor: pointer;
 }
-
+/* 地域選択タブ */
 
 /* 都道府県リスト */
-
 .active {
-  color: #ffffff;
-  background-color: #214b7d;
-  border: none;
-  border-radius: 4px;
+  background-color: #ffffff;
+  color: #313131;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .region-tab li:not(.active):hover {
   background-color: #dcdcdc;
-  transition: background-color 0.4s;
+  transition: background-color 0.7s;
+  color: #313131;
 }
 
-.hidden ul {
-  display: none;
+.hidden {
+  position: relative;
 }
 
 .prefecture-list {
-  line-height: 40px;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #ffffff;
   text-align: center;
-  font-size: 90%;
-  justify-content: space-between;
+  display: none;
+  justify-content: space-around;
   align-items: center;
-  padding-bottom: 15px;
-  border-bottom:3px solid #214b7d;
   flex-wrap: wrap;
+  position: absolute;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .prefecture-list > li {
@@ -103,28 +126,55 @@
 }
 
 .prefecture-link {
-  padding: 15px 1vw;
-  background-color: #214b7d;
-  color: #ffffff;
+  color: #313131;
+  font-weight: 400;
+  padding: 0 1vw;
   border-radius: 4px;
 }
 
-.prefecture-link:hover {
-  opacity: 0.7;
-  transition: opacity 0.4s;
+.prefecture-link:hover, .close-btn:hover {
+  border-radius: 0;
+  text-decoration: underline;
 }
 
 .close-btn {
-  width: 5vw;
-  background-color: #ffffff;
-  color: #214b7d;
-  font-weight: bold;
-  border: 3px solid #214b7d;
-  border-radius: 4px;
+  height: 24px;
+  color: #313131;
   cursor: pointer;
 }
 
-.close-btn:hover {
-  opacity: 0.7;
-  transition: opacity 0.4s;
-}
+/* スマホ用レイアウト */
+@media (max-width: 760px) {
+  .hamburger-menu {
+    display: block;
+  }
+  
+  .user-session {
+    display: none;
+  }
+
+  .region-tab>li {
+    font-size: 12px;
+  }
+
+  .region-tab, .prefecture-list {
+    justify-content: space-around;
+  }
+
+  .region-tab>li, .prefecture-link {
+    padding-right: 2px;
+    padding-left: 2px;
+  }
+  
+  .prefecture-list {
+    padding: 1vh 0;
+  }
+
+  .prefecture-link {
+    font-size: 10px;
+  }
+
+  .close-btn {
+    height: 17px;
+  }
+} 
