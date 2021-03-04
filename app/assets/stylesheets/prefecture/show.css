@@ -21,15 +21,15 @@
 }
 
 .council-name {
-  width: clamp(100px, 1rem + 4vw, 150px);
+  width: clamp(5vw, 10vw, 15vw);
   white-space: nowrap;
   font-weight: 400;
   text-align: center;
-  margin-right: 3vw;
+  padding-right: 5vw;
 }
 
 .blue-link-btn {
-  width: clamp(80px, 1rem + 2vw, 120px);
+  width: clamp(5vw, 10vw, 15vw);
   height: 30px;
   background-color: #2a83a2;
   padding: 10px 30px;

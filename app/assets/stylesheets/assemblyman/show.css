@@ -101,11 +101,6 @@
   display: inline;  
 }
 
-.notes {
-  margin: 0 0 20px 3vw;
-  display: inline;
-}
-
 @media(max-width: 600px) {
   .assemblyman-profile-details>.council-name {
     font-size: 18px;
