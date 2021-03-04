@@ -22,6 +22,6 @@
 }
 
 .twitter-icon {
-  width: clamp(15px, 5vw, 10vw);
+  width: clamp(3vw, 5vw, 10vw);
   margin: 0 0 2vh 0;
 }
