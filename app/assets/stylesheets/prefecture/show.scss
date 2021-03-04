@@ -12,7 +12,7 @@
 }
 
 .council-content {
-  margin: 3vh 2vw;
+  margin: 4vh 2vw;
   padding: 0 2vw 2vh;
   border-bottom: 1px solid #666666;
   display: flex;
@@ -30,11 +30,9 @@
 
 .blue-link-btn {
   width: clamp(5vw, 10vw, 15vw);
-  height: 30px;
   background-color: #2a83a2;
   padding: 10px 30px;
-  font-size: 16px;
-  line-height: 30px;
+  margin: 0;
   color: #ffffff;
   text-align: center;
   border-radius: 4px;

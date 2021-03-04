@@ -26,8 +26,8 @@
 }
 
 .assemblyman-img {
-  height: clamp(120px, 160px, 200px);
-  width: clamp(90px, 120px, 150px);
+  width: 30%;
+  height: auto;
 }
 
 .profile-content {
@@ -40,14 +40,12 @@
 .profile-content>.council-name {
   width: 100%;
   font-weight: 500;
-  font-size: clamp(12px, 2px + 1vw, 16px);
 }
 
 .profile-faction {
-  width: clamp(100px, 1rem + 3vw, 150px);
-  margin: 2vh auto;
-  padding: 5px 30px;
-  font-size: 16px;
+  width: clamp(5vw, 10vw, 15vw);
+  margin: 4vh auto;
+  padding: 0 2vw;
   color: #ffffff;
   text-align: center;
   white-space: nowrap;
@@ -56,7 +54,7 @@
 }
 
 .profile-content>.blue-link-btn {
-  width: clamp(100px, 1rem + 3vw, 150px);
+  width: clamp(5vw, 10vw, 15vw);
   margin: 0 auto;
 }
 

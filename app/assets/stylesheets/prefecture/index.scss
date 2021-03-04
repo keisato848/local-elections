@@ -60,7 +60,7 @@ a {
 
 .update-content>li {
   width: 100%;
-  font-size: clamp(12px, 1rem + 4px, 25px);
+  font-size: clamp(1rem, 1.2rem, 1.5rempx);
   color: #000000;
   padding: 1vh 5vw;
   border-bottom: 1px solid #dcdcdc;
@@ -76,7 +76,7 @@ a {
 
 .update-text {
   color: #000000;
-  left: 1rem + 30vw;
+  left: 1.5rem;
 }
 
 .update-link {

@@ -4,19 +4,19 @@
   display: flex;
   justify-content: center;
 }
+
 .field{
-  width: 400px;
-  height: 150px;
+  width: 60vw;
+  height: 30vh;
   display: block;
-  padding: 10px auto;
   margin: 0 auto;
   border-radius: 4px;
 }
 
 .form__btn{
   display: block;
-  padding: 0 10px;
-  margin: 30px auto;
+  padding: 2vh 2vw;
+  margin:  5vh auto;
   background-color: #ffffff;
   border-radius: 4px;
 }
@@ -27,16 +27,21 @@
   transition: background-color 0.4s;
 }
 
-.coution {
-  margin-top: 20px;
+.caution {
+  margin: 5vh auto;
 }
 
-.coution-title {
+.caution-title {
+  margin-bottom: 2vh;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 10px;
 }
 
-.coution>p{
-  font-size: 12px;
+.caution>p{
+  font-size: 0.8rem;
+  margin: 0 auto;
+}
+
+.blue-link-btn {
+  margin: 10vh auto 0 auto;
 }
