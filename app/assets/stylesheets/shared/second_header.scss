@@ -1,0 +1,12 @@
+.second-header {
+  flex: 1;
+  height: 15vh;
+  background: linear-gradient(-135deg,#2a83a2,#214b7d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.second-logo {
+  width: clamp(70%, 100%, 110%);
+}
