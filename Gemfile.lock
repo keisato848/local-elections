@@ -10,7 +10,7 @@ GEM
       activejob (= 6.0.3.5)
       activerecord (= 6.0.3.5)
       activestorage (= 6.0.3.5)
-      activesupport (= 6.0.3.5)
+      activesupport (= 6.0.3.5)Your app was upgraded to bundler 2.2.11.
       mail (>= 2.7.1)
     actionmailer (6.0.3.5)
       actionpack (= 6.0.3.5)
