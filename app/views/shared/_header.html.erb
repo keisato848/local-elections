@@ -12,7 +12,7 @@
     </div>
     <%# ハンバーガーメニュー %>
     <aside class='hamburger-menu' id='hamburger-menu'>
-    <span class='material-icons' id='open-menu'>menu</span>
+      <span class='material-icons' id='open-menu'>menu</span>
       <nav>
         <ul class=hidden-menu-list id='hidden-menu-list'>
           <% if user_signed_in? %>
@@ -51,86 +51,81 @@
   <%# 地域選択タブ %>
 
   <%# 都道府県リスト %>
-  <section id='content', class='hidden'>
-    <ul class='prefecture-list' id='hokkaido-tohoku-list'>
-      <% @prefectures[0..6].each do |prefecture| %>
+  <% unless @prefectures == nil %>
+    <section id='content', class='hidden'>
+      <ul class='prefecture-list' id='hokkaido-tohoku-list'>
+        <% @prefectures[0..6].each do |prefecture| %>
+          <li>
+            <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          </li>
+        <% end %>
         <li>
-          <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          <div class='close-btn'>
+            <span class='material-icons' id='close-menu'>close</span>
+          </div>
         </li>
-      <% end %>
-      <li>
-        <div class='close-btn'>
-          <span class='material-icons' id='close-menu'>close</span>
-        </div>
-      </li>
-    </ul>
-
-    <ul class='prefecture-list' id='kanto-list'>
-      <% @prefectures[7..13].each do |prefecture| %>
+      </ul>
+      <ul class='prefecture-list' id='kanto-list'>
+        <% @prefectures[7..13].each do |prefecture| %>
+          <li>
+            <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          </li>
+        <% end %>
         <li>
-          <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          <div class='close-btn'>
+            <span class='material-icons' id='close-menu'>close</span>
+          </div>
         </li>
-      <% end %>
-      <li>
-        <div class='close-btn'>
-          <span class='material-icons' id='close-menu'>close</span>
-        </div>
-      </li>
-    </ul>
-
-    <ul class='prefecture-list' id='chubu-list'>
-      <% @prefectures[14..22].each do |prefecture| %>
+      </ul>
+      <ul class='prefecture-list' id='chubu-list'>
+        <% @prefectures[14..22].each do |prefecture| %>
+          <li>
+            <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          </li>
+        <% end %>
         <li>
-          <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          <div class='close-btn'>
+            <span class='material-icons' id='close-menu'>close</span>
+          </div>
         </li>
-      <% end %>
-      <li>
-        <div class='close-btn'>
-          <span class='material-icons' id='close-menu'>close</span>
-        </div>
-      </li>
-    </ul>
-
-    <ul class='prefecture-list' id='kinki-list'>
-      <% @prefectures[23..29].each do |prefecture| %>
+      </ul>
+      <ul class='prefecture-list' id='kinki-list'>
+        <% @prefectures[23..29].each do |prefecture| %>
+          <li>
+            <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          </li>
+        <% end %>
         <li>
-          <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          <div class='close-btn'>
+            <span class='material-icons' id='close-menu'>close</span>
+          </div>
         </li>
-      <% end %>
-      <li>
-        <div class='close-btn'>
-          <span class='material-icons' id='close-menu'>close</span>
-        </div>
-      </li>
-    </ul>
-
-    <ul class='prefecture-list' id='chugoku-shikoku-list'>
-      <% @prefectures[30..38].each do |prefecture| %>
+      </ul>
+      <ul class='prefecture-list' id='chugoku-shikoku-list'>
+        <% @prefectures[30..38].each do |prefecture| %>
+          <li>
+            <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          </li>
+        <% end %>
         <li>
-          <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          <div class='close-btn'>
+            <span class='material-icons' id='close-menu'>close</span>
+          </div>
         </li>
-      <% end %>
-      <li>
-        <div class='close-btn'>
-          <span class='material-icons' id='close-menu'>close</span>
-        </div>
-      </li>
-    </ul>
-
-    <ul class='prefecture-list' id='kyushu-okinawa-list'>
-      <% @prefectures[39..46].each do |prefecture| %>
+      </ul>
+      <ul class='prefecture-list' id='kyushu-okinawa-list'>
+        <% @prefectures[39..46].each do |prefecture| %>
+          <li>
+            <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          </li>
+        <% end %>
         <li>
-          <%= link_to prefecture.name, prefecture_path(prefecture.id), class: 'prefecture-link' %>
+          <div class='close-btn'>
+            <span class='material-icons' id='close-menu'>close</span>
+          </div>
         </li>
-      <% end %>
-      <li>
-        <div class='close-btn'>
-          <span class='material-icons' id='close-menu'>close</span>
-        </div>
-      </li>
-    </ul>
-
-  </section>
+      </ul>
+    </section>
+  <% end %>
   <%# 都道府県リスト %>
-
 </header>
