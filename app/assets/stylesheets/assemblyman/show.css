@@ -10,13 +10,13 @@
 
 .assemblyman-profile-details>.council-name {
   width: 100%;
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: 500;
   margin: 1vh auto;
 }
 
 .background {
-  padding: 15px;
+  padding: 1rem;
   text-align: center;
   display: flex;
   justify-content: space-around;
@@ -24,18 +24,18 @@
 }
 
 .background>.assemblyman-img {
-  width: 250px;
+  width: 40%;
   height: auto;
   padding: 0 2vw;
 }
 
 .profile-details {
-  width: 300px;
+  width: 40%;
 }
 
 .profile-wrap {
   margin: 2vh auto;
-  font-size: 20px;
+  font-size: 1.2rem;
   white-space: nowrap;
   display: flex;
   justify-content: space-between;
@@ -86,7 +86,7 @@
 
 .comments-list{
   margin: 0;
-  padding: 10px 10px 10px 3vw;
+  padding: 3vh 3vw 3vh 5vw;
   border-top: 1px solid #666666;
 }
 
