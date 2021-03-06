@@ -40,7 +40,7 @@
 
 /* ハンバーガーメニュー */
 .material-icons {
-  padding: 0 20px;
+  padding: 2vh 3vw 0 2vw;
   cursor: pointer;
 }
 
@@ -51,6 +51,7 @@
 }
 
 .hidden-menu-list {
+  width: 25vw;
   background-color: #313131;
   color : #ffffff;
   font-weight: 400;
@@ -61,8 +62,16 @@
   right: 0;
 }
 
-.hidden-menu-list>li {
-  padding: 15px 15px;
+.hidden-menu-list {
+  li {
+    padding: 15px 15px;
+  }
+}
+
+.close-btn {
+  height: 24px;
+  color: #313131;
+  cursor: pointer;
 }
 
 .hidden-registration-link, .hidden-login-link {
@@ -76,22 +85,23 @@
 
 /* 地域選択タブ */
 .region-tab {
-  width: 100%;
+  width: 95vw;
+  margin: 0 auto;
   color: #ffffff;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.region-tab li {
+.region-tab {
+  li {
   padding: 2vh calc((100% - 380px) / 14);
   white-space: nowrap;
   font-weight: 500;
   cursor: pointer;
+  }
 }
-/* 地域選択タブ */
 
-/* 都道府県リスト */
 .active {
   background-color: #ffffff;
   color: #313131;
@@ -99,18 +109,20 @@
 }
 
 .region-tab li:not(.active):hover {
-  background-color: #dcdcdc;
-  transition: background-color 0.7s;
-  color: #313131;
+  padding-top: 10px;
 }
+/* 地域選択タブ */
+
+/* 都道府県リスト */
 
 .hidden {
   position: relative;
 }
 
 .prefecture-list {
-  width: 100%;
-  padding: 10px 0;
+  width: 95vw;
+  padding: 1vh 1vw;
+  margin: 0 auto;
   background-color: #ffffff;
   text-align: center;
   display: none;
@@ -118,33 +130,31 @@
   align-items: center;
   flex-wrap: wrap;
   position: absolute;
+  left: 2.5vw;
   border-bottom: 1px solid #dcdcdc;
-}
-
-.prefecture-list > li {
-  margin: 0;
 }
 
 .prefecture-link {
   color: #313131;
   font-weight: 400;
-  padding: 0 1vw;
-  border-radius: 4px;
-}
-
-.prefecture-link:hover, .close-btn:hover {
-  border-radius: 0;
+  &:hover {
   text-decoration: underline;
+  }
 }
 
 .close-btn {
-  height: 24px;
-  color: #313131;
-  cursor: pointer;
+  .material-icons {
+    padding: 0;
+  } &:hover {
+  border-bottom: 1px solid #313131;
+  }
 }
 
-/* スマホ用レイアウト */
-@media (max-width: 760px) {
+/* レスポンシブ */
+$breakpoint-sm: 420px !default;
+$breakpoint-md: 550px !default;
+
+@media (max-width: #{$breakpoint-md}) {
   .hamburger-menu {
     display: block;
   }
@@ -152,18 +162,22 @@
   .user-session {
     display: none;
   }
-
-  .region-tab>li {
-    font-size: 12px;
+}
+@media (max-width: #{$breakpoint-sm}) {
+  .hidden-menu-list{
+    width: 35vw;
   }
 
+  .region-tab {
+    li {
+      font-size: 0.7rem;
+      padding-right: 2px;
+      padding-left: 2px;
+    }
+  }
+  
   .region-tab, .prefecture-list {
-    justify-content: space-around;
-  }
-
-  .region-tab>li, .prefecture-link {
-    padding-right: 2px;
-    padding-left: 2px;
+    justify-content: space-between;
   }
   
   .prefecture-list {
@@ -171,10 +185,8 @@
   }
 
   .prefecture-link {
-    font-size: 10px;
+    font-size: 0.5rem;
+    padding-right: 1vw;
+    padding-left: 1vw;
   }
-
-  .close-btn {
-    height: 17px;
-  }
-} 
+}

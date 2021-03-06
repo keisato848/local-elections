@@ -1,9 +1,15 @@
 <%= render "shared/header" %>
 <div class='main'>
-  <h1 class='prefecture-name'><%= @council.name %>議員一覧</h1>
-  <% if @assemblyman%>
+  <h1 class='prefecture-name'>
+    <% if @council.name.include?('知事・市長') %>
+      <%= @council.prefecture.name %>の知事・市長等一覧
+    <% else %>
+      <%= @council.name %>議員一覧
+    <% end %>
+  </h1>
+  <% if @assemblyman %>
     <p class='updated-info'>
-      <%= l @assemblyman.updated_at, format: :default %>現在の議員数は <%= @assemblymen.ids.last %> 人です
+      <%= l @assemblyman.updated_at, format: :default %>現在の議員数は <%= @assemblymen.count %> 人です
     </p>
     <div class='assemblymen-list'>
       <% @assemblymen.each do |assemblyman| %>
@@ -20,7 +26,9 @@
             <div class='profile-faction'>
               <%= assemblyman.faction %>
             </div>
-            <%= link_to '詳しく見る', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/assemblymen/#{assemblyman.id}", class: 'blue-link-btn' %>
+            <div>
+              <%= link_to '詳しく見る', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/assemblymen/#{assemblyman.id}", class: 'blue-link-btn' %>
+            </div>
           </div>
         </div>
       <% end %>

@@ -1,7 +1,3 @@
-.prefecture-name {
-  margin-bottom: 3vh;
-}
-
 .updated-info {
   text-align: center;
   font-weight: 400;
@@ -9,76 +5,55 @@
 }
 
 .assemblymen-list {
-  margin: 4vh 2vw;
+  // width: 100%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.assemblyman-content {
-  width: 28vw;
-  padding: 2vh 1vw;
-  margin: 1vh 0;
-  border: 1px solid #666666;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.assemblyman-img {
-  width: 30%;
-  height: auto;
-}
-
-.profile-content {
-  width: 100%;
-  border: none;
-  margin: 0 auto;
-  justify-content: center;
-}
-
-.profile-content>.council-name {
-  width: 100%;
-  font-weight: 500;
-}
-
-.profile-faction {
-  width: clamp(5vw, 10vw, 15vw);
-  margin: 4vh auto;
-  padding: 0 2vw;
-  color: #ffffff;
-  text-align: center;
-  white-space: nowrap;
-  border-radius: 4px;
-  background-color: #666666;
-}
-
-.profile-content>.blue-link-btn {
-  width: clamp(5vw, 10vw, 15vw);
-  margin: 0 auto;
-}
-
-@media(max-width: 1200px) {
+  flex-wrap: wrap;  
   .assemblyman-content {
-    width: 40vw;
+    width: 45vw;
+    padding: 2vh 1vw;
+    margin: 1vh 0;
+    border: 1px solid #666666;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .assemblyman-img {
+      width: 25%;
+      margin: 0 2vw;
+    }
+    .profile-content {
+      width: 80%;
+      .council-name {
+        padding: 0;
+      }
+      .profile-faction {
+        margin: 2.5vh auto;
+        color: #ec6800;
+        font-weight: 500;
+        text-align: center;
+        white-space: nowrap;
+      }
+      .blue-link-btn {
+        margin: 0 auto;
+      }
+    }
   }
+}
+
+// レスポンシブ
+$breakpoint-md: 550px !default;
+$breakpoint-sl: 1200px !default;
+
+@media(min-width: #{$breakpoint-sl}) {
   .profile-faction {
-    font-size: 14px;
+    font-size: 18px;
   }
 }
-@media(max-width: 750px) {
-  .assemblyman-content {
-    width: 80vw;
-  }
-}
-@media(max-width: 300px) {
-  .assemblyman-content {
-    border: none;
-  }
-  .assemblyman-img {
-    width: 70px;
-    height: 100px;
-    padding-top: 10px;
-    margin-right: 1vw;
+@media(max-width: #{$breakpoint-md}) {
+  .assemblymen-list {
+    .assemblyman-content {
+      width: 90vw;
+    }
   }
 }

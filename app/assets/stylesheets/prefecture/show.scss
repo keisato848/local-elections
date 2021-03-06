@@ -1,55 +1,36 @@
-.prefecture-name{
-  text-align: center;
-  font-weight: 400;
-}
-
 .council-list {
-  margin: 3vh 3vw;
+  margin: 3vh 4vw;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  flex: 1;
+  .council-content {
+    margin: 3vh 0;
+    padding: 1vh 2vw;
+    border-bottom: 1px solid #666666;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
-.council-content {
-  margin: 4vh 2vw;
-  padding: 0 2vw 2vh;
-  border-bottom: 1px solid #666666;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
+/* レスポンシブ */
+$breakpoint-sm: 420px !default;
+$breakpoint-md: 550px !default;
+$breakpoint-lg: 768px !default;
 
-.council-name {
-  width: clamp(5vw, 10vw, 15vw);
-  white-space: nowrap;
-  font-weight: 400;
-  text-align: center;
-  padding-right: 5vw;
+@media (max-width: #{$breakpoint-lg}) {
+  .main {
+    font-size: 0.9rem;
+  }
 }
-
-.blue-link-btn {
-  width: clamp(5vw, 10vw, 15vw);
-  background-color: #2a83a2;
-  padding: 10px 30px;
-  margin: 0;
-  color: #ffffff;
-  text-align: center;
-  border-radius: 4px;
-  display: block;
-}
-
-.blue-link-btn:hover {
-  opacity: 0.7;
-  transition: opacity 0.4s;
-}
-
-.coming-soon {
-  width: 100%;
-  text-align: center;
-}
-
-.coming-soon > h2 {
-  font-weight: bold;
-  margin-bottom: 15px;
+@media (max-width: #{$breakpoint-md}) {
+  .main {
+    margin: 0 auto;
+    .council-content {
+      width: 100%;
+      .blue-link-btn {
+        width: 30%;
+      }
+    }
+  }
 }

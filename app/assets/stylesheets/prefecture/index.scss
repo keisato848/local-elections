@@ -1,44 +1,38 @@
-a {
-  text-decoration: none;
-}
-
 .app-introduction {
-  margin: 8vh 2vw;
+  width: 90vw;
+  margin: 5vh auto;
   color: #313131;
+  .catch-copy {
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+    margin: 3vh 0 5vh 0;
+  }
 }
-
-.catch-copy {
-  font-weight: 400;
-  font-size: 30px;
-  text-align: center;
-  margin: 3vh 0 5vw 0;
-}
-
 .main {
-  padding-top: 20px;
-}
-
-.update-title {
-  color: #ffffff;
-  font-size: 18px;
-  background-color: #313131;
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-  top: -5vh;
-}
-
-.update-title>li {
-  text-align: center;
-  white-space: nowrap;
-  padding: 1vh calc((100% - (64px * 3)) / 6);
-  cursor: pointer;
-}
-
-.update-title>li:not(.update-active):hover {
-  color: #313131;
-  background-color: #dcdcdc;
-  transition: background-color 0.7s;
+  a {
+    text-decoration: none;
+  }
+  padding-top: 4vh;
+  .update-title {
+    color: #ffffff;
+    background-color: #313131;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: -5vh;
+    li {
+      text-align: center;
+      white-space: nowrap;
+      padding: 1vh calc((100% - (64px * 3)) / 6);
+      cursor: pointer;
+      &:not(.update-active):hover {
+        color: #313131;
+        background-color: #dcdcdc;
+        transition: background-color 0.7s;
+      }
+    }
+  }
 }
 
 .update-active {
@@ -48,46 +42,44 @@ a {
   border: 1px solid #dcdcdc;
 }
 
-.update-content {
-  position: relative;
-  top: -2.5vh;
-  display: none;
-}
-
 #new-content {
   display: block;
 }
 
-.update-content>li {
-  width: 100%;
-  font-size: clamp(1rem, 1.2rem, 1.5rempx);
-  color: #000000;
-  padding: 1vh 5vw;
-  border-bottom: 1px solid #dcdcdc;
-}
-
-.update-content>li:last-child{
-  border-bottom: none;
-}
-
-.update-date {
-  margin: 0 5vw;
-}
-
-.update-text {
-  color: #000000;
-  left: 1.5rem;
-}
-
-.update-link {
-  color: #000000;
-  margin-left: 5vw;
+.update-content {
   position: relative;
-  top: 1vh;
+  top: -2.5vh;
+  display: none;
+  li {
+    width: 100%;
+    font-size: clamp(1rem, 1.2rem, 1.5rem);
+    color: #000000;
+    padding: 1vh 5vw;
+    border-bottom: 1px solid #dcdcdc;
+    &:last-child{
+      border-bottom: none;
+    }
+    .update-date {
+      margin: 0 5vw;
+    }
+    .update-text {
+      color: #000000;
+      left: 1.5rem;
+    }
+    .update-link {
+      color: #000000;
+      position: relative;
+      top: 1vh;
+      left: 5vw;
+    }
+  }
 }
 
-@media (max-width: 350px) {
+/* レスポンシブ */
+$breakpoint-sm: 420px !default;
+
+@media (max-width: #{$breakpoint-sm}) {
   .update-date {
-    display: none;
+    font-size: 12px;
   }
 }
