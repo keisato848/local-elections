@@ -31,12 +31,9 @@
   <%# Twitterタイムライン表示エリア %>
   <% if @assemblyman.twitter_url %>
     <div class='tweet-area'>
-      <p>
-        <%= image_tag 'Twitter_social_icons-circle-blue.png', class: 'twitter_icon_circle' %>
-        <span><%=@assemblyman.name%>さんのツイート</span>
-      </p>
+      <%= image_tag 'Twitter_social_icons-circle-blue.png', class: 'twitter_icon_circle' %>
       <a class="twitter-timeline" data-width='600px' data-height='400px' data-chrome='noheader nofooter noborders transparent' href="https://twitter.com/<%=@assemblyman.twitter_url%>"><%= @assemblyman.name %>さんのツイート</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <p>※本人のアカウントであることは保証いたしません。</p>
+      <p>※本人のアカウントであることを保証するものではありません。</p>
     </div>
   <% end %>
   <%# Twitterタイムライン表示エリア %>
