@@ -3,52 +3,59 @@
   <div class='assemblyman-profile-details'>
     <h1 class='council-name'><%= @assemblyman.name %></h1>
     <div class='profile-background'>
-      <% if @assemblyman.img_url %>
-        <%= image_tag @assemblyman.img_url, class: 'assemblyman-img' %>
-      <% else %>
-        <%= image_tag 'assemblyman-alt-img.png', class: 'assemblyman-img' %>
-      <% end %>
-      <div class='profile-details'>
-        <div class='profile-wrap'>
-          <span class='profile-heading'>生年月日</span>
-          <span class='profile-text'><%= l @assemblyman.birth_of_date %></span>
-        </div>
-        <div class='profile-wrap'>
-          <span class='profile-heading'>会派</span>
-          <span class='profile-text'><%= @assemblyman.faction %></span>
-        </div>
-        <div class='profile-wrap'>
-          <span class='profile-heading'>当選回数</span>
-          <span class='profile-text'><%= @assemblyman.number_of_wins %> 回</span>
-        </div>
-        <div class='profile-wrap'>
-          <span class='profile-heading'>職業</span>
-          <span class='profile-text'><%= @assemblyman.job %></span>
+      <div class='background'>
+        <% if @assemblyman.img_url %>
+          <%= image_tag @assemblyman.img_url, class: 'assemblyman-img' %>
+        <% else %>
+          <%= image_tag 'assembly-img-dammy.png', class: 'assemblyman-img' %>
+        <% end %>
+        <div class='profile-details'>
+          <div class='profile-wrap'>
+            <span class='profile-heading'>生年月日</span>
+            <span class='profile-text'><%= l @assemblyman.birth_of_date %></span>
+          </div>
+          <div class='profile-wrap'>
+            <span class='profile-heading'>会派</span>
+            <span class='profile-text'><%= @assemblyman.faction %></span>
+          </div>
+          <div class='profile-wrap'>
+            <span class='profile-heading'>当選回数</span>
+            <span class='profile-text'><%= @assemblyman.number_of_wins %> 回</span>
+          </div>
+          <div class='profile-wrap'>
+            <span class='profile-heading'>職業</span>
+            <span class='profile-text'><%= @assemblyman.job %></span>
+          </div>
         </div>
       </div>
     </div>
+    <%= link_to '議員一覧へ',  "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}", class: 'blue-link-btn'%>
   </div>
-  <%= link_to '議員一覧へ',  "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}", class: 'blue-link-btn'%>
+
+
   <%# コメントエリア %>
-  <div class="comments-area">
-    <%# コメントを一覧表示 %>
-    <ul class='comments-list'>
-      <% if @comments.find_by(assemblyman_id: params[:id]) %>
-        <% @comments.each do |comment| %> 
-          <li class="comment-content">
-            <div class='comment-user'>
-              <%= comment.user.nickname %>
-            </div>
-            <span class='comment-text'><%= comment.comment %></span>
-          </li>
-        <% end %>
-      <% else  %>
-        <li class='notes'>コメントはまだありません。</li>
-      <% end %>
-    </ul>
+  <ul class="comments-lists">
     <%# コメント投稿ページへのリンク %>
-    <%= link_to 'コメントを書く', new_prefecture_council_assemblyman_comment_path(assemblyman_id: params[:id]), class: 'comment-link-btn' %>
-  </div>
+    <div class='comment-link'>
+      <%= image_tag 'pen.png', class:'pen-img' %>
+      <%= link_to 'コメントを書く', new_prefecture_council_assemblyman_comment_path(assemblyman_id: params[:id]), class: 'comment-link-text' %>
+    </div>
+    <%# コメント投稿ページへのリンク %>
+    <%# コメントを一覧表示 %>
+    <% if @comments.find_by(assemblyman_id: params[:id]) %>
+      <% @comments.each do |comment| %> 
+        <li class="comments-list">
+          <div class='comment-user'>
+            <%= comment.user.nickname %>
+          </div>
+          <span class='comment-text'><%= comment.comment %></span>
+        </li>
+      <% end %>
+    <% else  %>
+      <div class='notes'>コメントはまだありません。</div>
+    <% end %>
+    <%# コメントを一覧表示 %>
+  </ul>
   <%# コメントエリア %>
 </div>
 <%= render 'shared/footer' %>
