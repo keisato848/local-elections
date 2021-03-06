@@ -35,22 +35,14 @@
   // Twitterタイムライン
   .tweet-area {
     width: 70vw;
-    padding: 5vw;
+    padding: 0 5vw;
     text-align: center;
     margin: 0 auto;
-    p {
-      height: 40px;
-      margin-bottom: 5vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .twitter_icon_circle {
-        height: 40px;
-      }
-      span {
-        font-size: 25px;
-        padding-left: 3vw;
-      }
+    .twitter_icon_circle {
+      width: 10vw;
+      max-width: 100px;
+      padding: 0 30vw;
+      margin: 5vh 0;
     }
   }
   .blue-link-btn {
