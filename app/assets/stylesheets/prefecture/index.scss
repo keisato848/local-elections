@@ -1,7 +1,3 @@
-a {
-  text-decoration: none;
-}
-
 .app-introduction {
   width: 90vw;
   margin: 5vh auto;
@@ -13,14 +9,16 @@ a {
     margin: 3vh 0 5vh 0;
   }
 }
-
 .main {
+  a {
+    text-decoration: none;
+  }
   padding-top: 4vh;
   .update-title {
     color: #ffffff;
     background-color: #313131;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     position: relative;
     top: -5vh;
     li {
@@ -82,6 +80,6 @@ $breakpoint-sm: 420px !default;
 
 @media (max-width: #{$breakpoint-sm}) {
   .update-date {
-    display: none;
+    font-size: 12px;
   }
 }

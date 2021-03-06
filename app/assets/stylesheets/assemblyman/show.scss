@@ -1,119 +1,138 @@
-.assemblyman-profile-details {
+.main {
+  .assemblyman-profile-details {
+    width: 70vw;
+    margin: 2vh auto;
+    padding: 4vh 4vw;
+    border: 1px solid #666666; 
+    .council-name {
+      margin-bottom: 4vh;
+    }
+    .profile-background {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .assemblyman-img {
+        width: 20%;
+        height: auto;
+      }
+      .profile-details {
+        width: 40%;
+        padding-left: 10vw;
+        .profile-wrap {
+          margin: 2vh auto;
+          font-size: 1rem;
+          white-space: nowrap;
+          display: flex;
+          justify-content: space-between;
+          .profile-heading {
+            font-weight: 400;
+            padding: 0 2vw;
+          }
+        }
+      }
+    }  
+  }
+  .blue-link-btn {
+    margin: 3vh auto;
+  }
+  // コメントエリア
+  .comments-list{
+    width: 80vw;
+    margin: 2vw auto;
+    display: flex;
+    flex-direction: column-reverse; 
+    .comment-content{
+      margin: 0;
+      padding: 3vh 3vw 3vh 5vw;
+      border-top: 1px solid #666666;
+      .comment-user{
+        color: #214b7d;
+        font-weight: bolder;
+      }  
+      .comment-text {
+        display: inline;  
+      }
+    }
+    .notes {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+.comment-link-btn {
+  width: 10vw;
+  padding: 1vh 2vw;
   margin: 0 auto;
-}
-
-.profile-background {
-  width: 80vw;
-  margin: 2vw auto;
-  border: 1px solid #666666;
-}
-
-.assemblyman-profile-details>.council-name {
-  width: 100%;
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin: 1vh auto;
-}
-
-.background {
-  padding: 1rem;
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.background>.assemblyman-img {
-  width: 30%;
-  height: auto;
-  padding: 0 2vw;
-}
-
-.profile-details {
-  width: 40%;
-}
-
-.profile-wrap {
-  margin: 2vh auto;
-  font-size: 1.2rem;
-  white-space: nowrap;
-  display: flex;
-  justify-content: space-between;
-}
-
-.profile-heading {
-  font-weight: 400;
-  padding: 0 2vw;
-}
-
-.assemblyman-profile-details>.blue-link-btn {
-  margin: 3vh auto;
-}
-
-.comment-link {
-  position: relative;
-  margin: 2vh auto;
-}
-
-.pen-img {
-  width: auto;
-  height: 4vh;
-  position: absolute;
-  left: 3vw;
-}
-
-.comment-link-text {
   color: #666666;
+  font-weight: 400;
   text-align: center;
-  font-weight: bold;
   white-space: nowrap;
-  padding: 3vh 4vh 3vh 11vw;
-  border: 1px solid #dcdcdc;
+  border: 1px solid #666666;
   border-radius: 4px;
-}
-
-.comment-link-text:hover {
-  background-color: #dcdcdc;
-  transition: background-color 0.7s;
-}
-
-.comments-lists{
-  width: 80vw;
-  margin: 2vw auto;
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.comments-list{
-  margin: 0;
-  padding: 3vh 3vw 3vh 5vw;
-  border-top: 1px solid #666666;
-}
-
-.comment-user{
-  color: #214b7d;
-  font-weight: bolder;
-}
-
-.comment-text {
-  font-size: 1rem;
-  display: inline;  
-}
-
-@media(max-width: 600px) {
-  .assemblyman-profile-details>.council-name {
-    font-size: 1.2rem;
-  }
-  .profile-background {
-    width: 90vw;
-    margin: 4vh auto;
-  }
-  .background>.assemblyman-img {
-    width: 20vw;
-    height: auto;
-    padding-right: 2vw;
-  }
-  .profile-wrap {
-    font-size: clamp(0.8rem, 0.9rem, 1rem);
+  display: block;
+  &:hover {
+    background-color: #dcdcdc;
+    transition: background-color 0.7s;
   }
 }
+
+// レスポンシブ
+$breakpoint-md: 550px !default;
+$breakpoint-lg: 768px !default;
+$breakpoint-sl: 1200px !default;
+
+@media(min-width: #{$breakpoint-sl}) {
+  .assemblyman-profile-details {
+    .council-name {
+      font-size: 30px;
+    }
+    .profile-wrap {
+      padding-bottom: 3vh;
+      .profile-heading {
+        font-size: 1.5rem;
+      }
+      .profile-text {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+@media(max-width: #{$breakpoint-lg}) {
+  .main {  
+    .assemblyman-profile-details {
+      .council-name {
+        font-size: 25px;
+      }
+    }
+    .comment-link-btn {
+     width: 70%;
+    }
+  }
+} 
+@media(max-width: #{$breakpoint-md}) {
+  .main {  
+    .assemblyman-profile-details {
+      .council-name {
+        font-size: 16px;
+        white-space: normal;
+      }
+      .profile-background {
+        display: block;
+        text-align: center;
+        .assemblyman-img {
+          width: 40%;
+          margin: 1vh auto;
+        }
+        .profile-wrap {
+          width: 50vw;
+          .profile-heading {
+            font-size: 14px;
+          }
+          .profile-text {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+} 

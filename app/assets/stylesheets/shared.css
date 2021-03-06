@@ -1,0 +1,74 @@
+/* 以下共有パーツのスタイル */
+
+/* 各ページのタイトル */
+.prefecture-name{
+  font-size: 25px;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* 議会・議員名 */
+.council-name {
+  width: 100%;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  padding-right: 3vw;
+}
+
+/* 未更新ページのスタイリング */
+.coming-soon {
+  width: 100%;
+  height: 45vh;
+  font-size: 20px;
+  text-align: center;
+}
+
+.coming-soon>h2 {
+  font-weight: bold;
+  margin-bottom: 4vh;
+}
+
+/* 青色のリンクボタン */
+.blue-link-btn {
+   width: 10vw;
+   background-color: #2a83a2;
+   padding: 1vh 2vw;
+   margin: 0;
+   color: #ffffff;
+   font-weight: 400;
+   text-align: center;
+   white-space: nowrap;
+   border-radius: 4px;
+   display: block;
+  }
+  
+  .blue-link-btn:hover {
+    opacity: 0.7;
+    transition: opacity 0.4s;
+  }
+
+/* レスポンシブ */
+
+@media (min-width: 1200px) {
+  .council-name {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .main {
+    font-size: 0.9rem;
+  }
+  .blue-link-btn {
+    width: 70%;
+  }
+}
+@media (max-width: 550px) {
+  .main {
+    margin: 0 auto;
+  }
+
+  .council-content {
+    width: 100%;
+  }
+}
