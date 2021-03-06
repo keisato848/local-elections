@@ -2,6 +2,12 @@
   background: linear-gradient(-135deg,#2a83a2,#214b7d);
   color: #ffffff;
   text-align: center;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .top-container {
@@ -76,10 +82,6 @@
 
 .hidden-registration-link, .hidden-login-link {
   color: #ffffff;
-}
-
-.hidden-registration-link:hover, .hidden-login-link:hover {
-  border-bottom: 1px solid #ffffff;
 }
 /* ハンバーガーメニュー */
 

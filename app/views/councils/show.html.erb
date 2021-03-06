@@ -1,16 +1,14 @@
 <%= render "shared/header" %>
 <div class='main'>
-  <h1 class='prefecture-name'>
-    <% if @council.name.include?('知事・市長') %>
-      <%= @council.prefecture.name %>の知事・市長等一覧
-    <% else %>
-      <%= @council.name %>議員一覧
-    <% end %>
-  </h1>
-  <% if @assemblyman %>
+  <% if @council.name.include?('知事・市長') %>
+    <h1 class='prefecture-name'><%= @council.prefecture.name %>の知事・市長等一覧</h1>
+  <% else %>
+    <h1 class='prefecture-name'><%= @council.name %>議員一覧</h1>
     <p class='updated-info'>
       <%= l @assemblyman.updated_at, format: :default %>現在の議員数は <%= @assemblymen.count %> 人です
     </p>
+  <% end %>
+  <% if @assemblyman %>
     <div class='assemblymen-list'>
       <% @assemblymen.each do |assemblyman| %>
         <div class='assemblyman-content'>
@@ -20,6 +18,9 @@
             <%= image_tag 'assembly-img-dammy.png', class: 'assemblyman-img' %>
           <% end %>
           <div class='profile-content'>
+            <% if assemblyman.twitter_url %>
+              <%= link_to image_tag('Twitter_social_icons-circle-blue.png', class: 'twitter-icon-sm'), "https://twitter.com/#{assemblyman.twitter_url}", target: :_blank, rel: "noopener noreferrer"%>
+            <% end %>
             <div class='council-name'>
               <%= assemblyman.name %>
             </div>

@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_054102) do
     t.integer "number_of_wins", null: false
     t.text "img_url", null: false
     t.string "job"
+    t.text "twitter_url"
     t.bigint "council_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

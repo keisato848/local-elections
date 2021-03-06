@@ -28,6 +28,18 @@
       </div>
     </div>
   </div>
+  <%# Twitterタイムライン表示エリア %>
+  <% if @assemblyman.twitter_url %>
+    <div class='tweet-area'>
+      <p>
+        <%= image_tag 'Twitter_social_icons-circle-blue.png', class: 'twitter_icon_circle' %>
+        <span><%=@assemblyman.name%>さんのツイート</span>
+      </p>
+      <a class="twitter-timeline" data-width='600px' data-height='400px' data-chrome='noheader nofooter noborders transparent' href="https://twitter.com/<%=@assemblyman.twitter_url%>"><%= @assemblyman.name %>さんのツイート</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <p>※本人のアカウントであることは保証いたしません。</p>
+    </div>
+  <% end %>
+  <%# Twitterタイムライン表示エリア %>
   <%= link_to '議員一覧へ',  "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}", class: 'blue-link-btn'%>
   <%# コメントエリア %>
   <div class="comments-area">
