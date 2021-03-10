@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_054102) do
 
   create_table "assemblymen", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "sex", null: false
     t.date "birth_of_date", null: false
     t.string "faction", null: false
     t.integer "number_of_wins", null: false
