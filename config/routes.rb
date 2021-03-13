@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'search/index'
   devise_for :users
   root to: 'prefectures#index'
   resources :prefectures, only: [:index, :show] do
