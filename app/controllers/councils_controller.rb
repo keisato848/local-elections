@@ -1,5 +1,5 @@
 class CouncilsController < ApplicationController
-  before_action :search_council
+  before_action :find_council
 
   def show
     @assemblyman = Assemblyman.find_by(council_id: params[:id])
@@ -7,7 +7,7 @@ class CouncilsController < ApplicationController
   end
 
   def search
-    select_content
+    find_value
     search_params
   end
 
@@ -21,15 +21,12 @@ class CouncilsController < ApplicationController
 
   private
 
-  def search_council
+  def find_council
     @council = Council.find_by(id: params[:id])
   end
 
-  def search_params
-    params.permit(:prefecture_id, :id, :faction, :sex, :job)
-  end
-
-  def select_content
+  # フォームに表示する値をDBから取得
+  def find_value
     @assemblymen = Assemblyman.where(council_id: params[:id])
     @factions = []
     @jobs = []
@@ -39,8 +36,12 @@ class CouncilsController < ApplicationController
     end
   end
 
+  def search_params
+    params.permit(:prefecture_id, :id, :faction, :sex, :job)
+  end
+
   def incorrect_search
-    select_content
+    find_value
     search_params
     render :search
   end
