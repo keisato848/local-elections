@@ -6,6 +6,7 @@
     <h1 class='prefecture-name'><%= @council.name %>議員一覧</h1>
     <p class='updated-info'>
       <%= l @assemblyman.updated_at, format: :default %>現在の議員数は <%= @assemblymen.count %> 人です
+    <%= link_to '議員検索', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/search", class: 'search-btn' %>
     </p>
   <% end %>
   <% if @assemblyman %>

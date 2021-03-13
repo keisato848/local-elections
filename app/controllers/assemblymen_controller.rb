@@ -5,7 +5,8 @@ class AssemblymenController < ApplicationController
   end
 
   private
+
   def search_comment
-    @comments = Comment.where(assemblyman_id: params[:id])    
+    @comments = Comment.where(assemblyman_id: params[:id])
   end
 end

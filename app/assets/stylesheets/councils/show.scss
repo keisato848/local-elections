@@ -1,3 +1,15 @@
+.search-btn {
+  width: 150px;
+  text-align: center;
+  color: #000;
+  margin: 2vh 0 2vh 3vw;
+  padding: 2px 10px;
+  border: 1px solid #666666;
+  &:hover {
+    background-color: #dcdcdc;
+    transition: background-color 0.7s;
+  }
+}
 .updated-info {
   text-align: center;
   font-weight: 400;
