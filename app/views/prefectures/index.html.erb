@@ -1,9 +1,9 @@
 <%= render "shared/header" %>
 
 <div class='app-introduction'>
-  <h1 class='catch-copy'>あなたの声を地域のリーダーに届けよう―</h1>
+  <h1 class='catch-copy'>あなたの声を地域のリーダーへ―</h1>
   <p class>
-     Local Electionsは地方議員や地方選の情報を共有するためのサービスです。"どんな議員がいるのか？"、"誰に投票しようか？"、"移住したばかりで、議員がわからない" など、悩みや疑問を投票前に解消しましょう！
+     Local Electionsは地方議員の情報や活動を共有するためのサービスです。"どんな議員がいるの？"、"誰に投票しよう？"、"移住したばかりで、議員がわからない" など、悩みや疑問を選挙前に解消しましょう！
   <p>
 </div>
 <div class='main'>
@@ -15,22 +15,16 @@
     </ul>
     <ul class='update-content' id='new-content'>
       <li>
+        <span class='update-date'>2021-3-16</span>
+        <%= link_to '富山県の知事・市長等', '/prefectures/16/councils/1', class:'update-text' %>
+      </li>
+      <li>
+        <span class='update-date'>2021-3-14</span>
+        <%= link_to '富山市議会議員', '/prefectures/16/councils/3', class:'update-text' %>
+      </li>
+      <li>
         <span class='update-date'>2021-2-21</span>
-        <%= link_to '富山県議会議員一覧', '/prefectures/16/councils/2', class:'update-text' %>
-      </li>
-      <li>
-        <span class='update-date'>2021- 2- 1</span>
-        <%= link_to '〇〇県の議員情報', '#', class:'update-text' %>
-      </li>
-      <li>
-        <span class='update-date'>2021- 1- 1</span>
-        <%= link_to '〇〇県の議員情報', '#', class:'update-text' %>
-      </li>
-      <li>
-        <span class='update-date'>2021- 1- 1</span>
-        <%= link_to '〇〇県の議員情報', '#', class:'update-text' %>
-      <li>
-        <%= link_to '新着情報一覧へ', '#', class:'update-link' %>
+        <%= link_to '富山県議会議員', '/prefectures/16/councils/2', class:'update-text' %>
       </li>
     </ul>
     <ul class='update-content' id='election-content'>
