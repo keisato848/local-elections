@@ -2,7 +2,6 @@ class CouncilsController < ApplicationController
   before_action :find_council
 
   def show
-    @assemblyman = Assemblyman.find_by(council_id: params[:id])
     @assemblymen = Assemblyman.where(council_id: params[:id])
   end
 
