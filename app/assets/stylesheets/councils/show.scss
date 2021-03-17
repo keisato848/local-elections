@@ -11,13 +11,13 @@
 
 .chart-area {
   width: 90%;
-  height: 30%;
+  height: 300px;
   display: flex;
   justify-content: space-around;
-  margin: 3vh auto;
+  margin: 0 auto;
   .chart-content {
-    width: 40% ;
-    // height: 100%;
+    width: 40%;
+    height: 250px;
     p {
       text-align: center;
       font-weight: 400;
@@ -82,7 +82,7 @@ $breakpoint-sl: 1200px !default;
 @media(max-width: #{$breakpoint-md}) {
   .chart-area {
     display: block;
-    height: 50%;
+    height: 60%;
     padding-bottom: 3vh;
     .chart-content {
       width: 90%;
