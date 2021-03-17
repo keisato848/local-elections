@@ -1,12 +1,13 @@
 .council-list {
   margin: 3vh 4vw;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   .council-content {
-    margin: 3vh 0;
+    width: 25%;
+    margin: 1vh 0;
     padding: 1vh 2vw;
-    border-bottom: 1px solid #666666;
+    border: 1px solid #666666;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,6 +22,9 @@ $breakpoint-lg: 768px !default;
 @media (max-width: #{$breakpoint-lg}) {
   .main {
     font-size: 0.9rem;
+    .council-content {
+      width: 40%;
+    }
   }
 }
 @media (max-width: #{$breakpoint-md}) {

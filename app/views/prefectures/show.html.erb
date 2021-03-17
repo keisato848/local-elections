@@ -1,9 +1,9 @@
 <%= render "shared/header" %>
 <div class='main'>
-  <h1 class='prefecture-name'><%= @prefecture.name %>の議員情報</h1>
+  <h1 class='prefecture-name'><%= @prefecture.name %>のデータ</h1>
   <div class='council-list'>
     <% if Council.find_by(prefecture_id: params[:id]) %>
-      <% @councils.each do |council| %>
+      <% @councils.each do |council, i| %>
         <div class='council-content'>
           <div class='council-name'><%= council.name %></div>
           <%= link_to '詳しく見る', "#{params[:id]}/councils/#{council.id}", class: 'blue-link-btn' %>

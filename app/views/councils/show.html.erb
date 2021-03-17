@@ -1,15 +1,22 @@
 <%= render "shared/header" %>
 <div class='main'>
   <% if @council.name.include?('知事・市長') %>
-    <h1 class='prefecture-name'><%= @council.prefecture.name %>の知事・市長等</h1>
+    <h1 class='prefecture-name'><%= @council.prefecture.name %>の知事・市長等のデータ</h1>
   <% else %>
-    <h1 class='prefecture-name'><%= @council.name %>議員一覧</h1>
-    <p class='updated-info'>
-      <%= l @assemblyman.updated_at, format: :default %>現在の議員数は <%= @assemblymen.count %> 人です
-    <%= link_to '議員検索', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/search", class: 'search-btn' %>
-    </p>
+    <h1 class='prefecture-name'><%= @council.name %>のデータ</h1>
+    <%= link_to '議員検索はこちら', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/search", class: 'search-btn' %>
   <% end %>
-  <% if @assemblyman %>
+  <div class='chart-area'>
+    <div class='chart-content'>
+      <p>男女比</p>
+      <%= pie_chart @assemblymen.group(:sex).count, height: '90%', legend: 'bottom', donut: true, suffix: '人' %>
+    </div>
+    <div class='chart-content'>
+      <p>所属会派</p>
+      <%= pie_chart @assemblymen .group(:faction).count, height: '100%', legend: 'bottom', donut: true, suffix: '人' %>
+    </div>
+  </div>
+  <% if @assemblymen %>
     <div class='assemblymen-list'>
       <% @assemblymen.each do |assemblyman| %>
         <div class='assemblyman-content'>
