@@ -55,10 +55,10 @@
 }
 
 .input-default {
-  width: calc(100% - 2vw);
+  width: 70%;
   height: clamp(30px, 6vh, 50px);
   padding-left: 2vw;
-  margin-top: 2vh;
+  margin: 1vh auto;
   border-radius: 4px;
   border: 1px solid #ccc;
   background: #fff;
