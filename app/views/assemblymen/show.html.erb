@@ -12,22 +12,33 @@
         <%= image_tag 'assemblyman-alt-img.png', class: 'assemblyman-img' %>
       <% end %>
       <div class='profile-details'>
-        <div class='profile-wrap'>
-          <span class='profile-heading'>生年月日</span>
-          <span class='profile-text'><%= l @assemblyman.birth_of_date %></span>
-        </div>
-        <div class='profile-wrap'>
+        <% if @assemblyman.birth_of_date %>
+          <div class='profile-wrap'>
+            <span class='profile-heading'>生年月日</span>
+            <span class='profile-text'><%= l @assemblyman.birth_of_date %></span>
+          </div>
+        <% end %>
         <% if @assemblyman.council.name.include?('知事・市長') %>
+          <div class='profile-wrap'>
           <span class='profile-heading'>党派</span>
         <% else %>
-          <span class='profile-heading'>会派</span>
+          <% if @assemblyman.position %>
+            <div class='profile-wrap'>
+              <span class='profile-heading'>役職等</span>
+              <span class='profile-text'><%= @assemblyman.position %></span>
+            </div>
+          <% end %>
+          <div class='profile-wrap'>
+            <span class='profile-heading'>所属政党・会派等</span>
         <% end %>
           <span class='profile-text'><%= @assemblyman.faction %></span>
         </div>
+        <% if @assemblyman.number_of_wins %>
         <div class='profile-wrap'>
           <span class='profile-heading'>当選回数</span>
           <span class='profile-text'><%= @assemblyman.number_of_wins %> 回</span>
         </div>
+        <% end %>
         <% if @assemblyman.job %>
           <div class='profile-wrap'>
             <span class='profile-heading'>職業</span>

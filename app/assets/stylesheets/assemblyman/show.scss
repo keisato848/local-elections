@@ -1,9 +1,7 @@
 .main {
   .assemblyman-profile-details {
-    width: 70vw;
-    margin: 2vh auto;
-    padding: 4vh 4vw;
-    border: 1px solid #666666; 
+    width: 90vw;
+    margin: 1vh auto;
     .council-name {
       margin-bottom: 4vh;
     }
@@ -21,11 +19,11 @@
         .profile-wrap {
           margin: 2vh auto;
           font-size: 1rem;
-          white-space: nowrap;
           display: flex;
           justify-content: space-between;
           .profile-heading {
             font-weight: 400;
+            white-space: nowrap;
             padding: 0 2vw;
           }
         }
@@ -68,15 +66,17 @@
     }
     .notes {
       width: 100%;
+      font-size: 90%;
       text-align: center;
     }
   }
 }
 .comment-link-btn {
-  width: 10vw;
-  padding: 1vh 2vw;
+  width: 8vw;
+  padding: 0.5vh 2vw;
   margin: 0 auto;
   color: #666666;
+  font-size: 80%;
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
@@ -133,11 +133,11 @@ $breakpoint-sl: 1200px !default;
         display: block;
         text-align: center;
         .assemblyman-img {
-          width: 40%;
+          width: 70vw;
           margin: 1vh auto;
         }
         .profile-wrap {
-          width: 50vw;
+          width: 70vw;
           .profile-heading {
             font-size: 14px;
           }
