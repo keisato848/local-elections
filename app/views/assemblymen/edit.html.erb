@@ -1,0 +1,77 @@
+<%= render "shared/second-header"%>
+
+<%= form_with model: @assemblyman, url: prefecture_council_assemblyman_path(params[:id]), method: :patch, class: 'registration-main', local: true do |f| %>
+
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      議員情報の編集
+    </h1>
+  </div>
+
+  <%# <%= render 'shared/error_messages', model: @user %>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">氏名</label>
+    </div>
+    <%= f.text_field :name, class:"input-default", id:"name", placeholder:"例）議会 太郎(ぎかい たろう)", autofocus: true %>
+    <p class='info-text'>※氏名の間には半角スペースを入れてください。</p>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">性別</label>
+    </div>
+    <%= f.text_field :sex, class:"input-default", id:"sex", placeholder:"男性 or 女性 or その他", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">生年月日</label>
+    </div>
+    <%= f.text_field :birth_of_date, class:"input-default", id:"birth_of_date", placeholder:"例）1900-12-31", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">役職等</label>
+    </div>
+    <%= f.text_field :position, class:"input-default", id:"position", placeholder:"例）議長/議会運営委員長", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">党派・会派等</label>
+    </div>
+    <%= f.text_field :faction, class:"input-default", id:"faction", placeholder:"所属政党/所属会派", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">当選回数</label>
+    </div>
+    <%= f.text_field :number_of_wins, class:"input-default", id:"number_of_wins", placeholder:"例）1", autofocus: true %>
+    <p class='info-text'>※半角数字のみで入力してください。</p>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">職業</label>
+    </div>
+    <%= f.text_field :job, class:"input-default", id:"job", placeholder:"例）議員専業", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">画像URL</label>
+    </div>
+    <%= f.text_field :img_url, class:"input-default", id:"img_url", placeholder:"https://~~", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">Twitterのアカウント名</label>
+    </div>
+    <%= f.text_field :twitter_url, class:"input-default", id:"twitter_url", placeholder:"local_elections", autofocus: true %>
+    <p class='info-text'>※@は入力しないでください。</p>
+  </div>
+  <div class='register-btn'>
+    <%= f.submit "編集する" ,class:"register-blue-btn" %>
+  </div>
+</div>
+<% end %>
+
+<%= render "shared/second-footer"%>
