@@ -32,11 +32,12 @@
 
 /* 青色のリンクボタン */
 .blue-link-btn {
-   width: 10vw;
+   width: 8vw;
    background-color: #2a83a2;
-   padding: 1vh 2vw;
+   padding: 0.5vh 2vw;
    margin: 0;
    color: #ffffff;
+   font-size: 90%;
    font-weight: 400;
    text-align: center;
    white-space: nowrap;
