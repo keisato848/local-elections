@@ -4,6 +4,18 @@
     margin: 1vh auto;
     .council-name {
       margin-bottom: 4vh;
+      font-size: 30px;
+    }
+    .edit-assemblyman-link {
+      padding: 5px;
+      margin-left: 75vw;
+      position: relative;
+      top: -7.5vh;
+      &:hover {
+        background-color: #dcdcdc;
+        border-radius: 50%;
+        transition: background-color 0.4s;
+      }
     }
     .profile-background {
       display: flex;
@@ -96,9 +108,6 @@ $breakpoint-sl: 1200px !default;
 
 @media(min-width: #{$breakpoint-sl}) {
   .assemblyman-profile-details {
-    .council-name {
-      font-size: 30px;
-    }
     .profile-wrap {
       padding-bottom: 3vh;
       .profile-heading {
@@ -115,10 +124,14 @@ $breakpoint-sl: 1200px !default;
     .assemblyman-profile-details {
       .council-name {
         font-size: 25px;
+        margin-bottom: 2vh;
+      }
+      .edit-assemblyman-link {
+        top: -6vh;
       }
     }
     .comment-link-btn {
-     width: 70%;
+     width: 25%;
     }
   }
 } 
@@ -126,15 +139,15 @@ $breakpoint-sl: 1200px !default;
   .main {  
     .assemblyman-profile-details {
       .council-name {
-        font-size: 16px;
+        font-size: 18px;
         white-space: normal;
       }
       .profile-background {
         display: block;
         text-align: center;
         .assemblyman-img {
-          width: 70vw;
-          margin: 1vh auto;
+          width: 50vw;
+          margin: 0 auto;
         }
         .profile-wrap {
           width: 70vw;
