@@ -4,7 +4,7 @@
     <h1 class='prefecture-name'><%= @council.prefecture.name %>の知事・市長等のデータ</h1>
   <% else %>
     <h1 class='prefecture-name'><%= @council.name %>のデータ</h1>
-    <%= link_to '議員検索はこちら', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/search", class: 'search-btn' %>
+    <%= link_to '議員検索はこちらから', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/search", class: 'search-btn' %>
   <% end %>
   <div class='chart-area'>
     <div class='chart-content'>
@@ -12,7 +12,7 @@
       <%= pie_chart @assemblymen.group(:sex).count, height: '90%', legend: 'bottom', donut: true, suffix: '人' %>
     </div>
     <div class='chart-content'>
-      <p>所属会派</p>
+      <p>所属党派・会派</p>
       <%= pie_chart @assemblymen .group(:faction).count, height: '100%', legend: 'bottom', donut: true, suffix: '人' %>
     </div>
   </div>
@@ -29,13 +29,16 @@
             <div class='council-name'>
               <%= assemblyman.name %>
             </div>
-            <div class='profile-faction'>
-              <% if @council.name.include?('知事・市長') %>             
+            <% if assemblyman.position %>
+              <div class='profile-faction'>
                 <%= assemblyman.position %>
-              <% else %>
+              </div>
+            <% end %>
+            <% if assemblyman.faction %>             
+              <div class='profile-faction'>
                 <%= assemblyman.faction %>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
             <div>
               <%= link_to '詳しく見る', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/assemblymen/#{assemblyman.id}", class: 'blue-link-btn' %>
             </div>
