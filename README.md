@@ -30,14 +30,17 @@
 ## assemblymen table
 |Column|Types|Options|
 |-|-|-|
-|prefecture|string|null:false|
-|council_name|string|null:false|
 |name|string|null:false|
-|birth_of_date|date|null:false|
-|faction|string|null:false|
-|number_of_wins|integer|null:false|
-|img_url|text|null:false|
+|sex|string||
+|birth_of_date|date||
+|position|string||
+|faction|string||
+|number_of_wins|integer||
+|img_url|text||
+|job|string||
+|twitter_url|text||
 |council|references|null:false, foreign_key: true|
+|user|references||
 
 ### Association
 - belongs_to :council
