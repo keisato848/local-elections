@@ -7,7 +7,7 @@ Rails.application.routes.draw do
         get 'search'
         post 'search_result' 
       end
-      resources :assemblymen, only: [:show] do
+      resources :assemblymen, only: [:show, :edit, :update] do
         resources :comments, only: [:new, :create]
       end
     end

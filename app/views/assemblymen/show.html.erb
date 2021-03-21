@@ -1,45 +1,54 @@
-<%= render "shared/header" %>
+<%= render "shared/second-header" %>
 <div class='main'>
-  <% if @assemblyman.council.name.include?('知事・市長') %>
-    <h1 class='council-name'><%= @assemblyman.position %></h1>
-  <% end %>
   <div class='assemblyman-profile-details'>
+    <%# 更新情報 %>
+    <div class='update'>
+      <div class='profile-heading'>更新日時：<%= l @assemblyman.updated_at %></div>
+      <% if @assemblyman.user %>
+        <div class='profile-heading'>更新者：<%= @assemblyman.user.nickname%></div>
+      <% end %>
+      <%= link_to '編集', edit_prefecture_council_assemblyman_path(params[:id]), class: 'edit-assemblyman-link' %>
+    </div>
+    <%# 議員氏名 %>
     <h1 class='council-name'><%= @assemblyman.name %></h1>
     <div class='profile-background'>
-      <% if @assemblyman.img_url %>
+      <%# 議員画像 %>
+      <% if @assemblyman.img_url && @assemblyman.img_url != ""%>
         <%= image_tag @assemblyman.img_url, class: 'assemblyman-img' %>
       <% else %>
         <%= image_tag 'assemblyman-alt-img.png', class: 'assemblyman-img' %>
       <% end %>
       <div class='profile-details'>
-        <% if @assemblyman.birth_of_date %>
+        <%# 役職等 %>
+        <% if @assemblyman.position && @assemblyman.position != ""%>
+          <div class='profile-wrap'>
+            <span class='profile-heading'>役職等</span>
+            <span class='profile-text'><%= @assemblyman.position %></span>
+          </div>
+        <% end %>
+        <%# 生年月日 %>
+        <% if @assemblyman.birth_of_date && @assemblyman.birth_of_date != ""%>
           <div class='profile-wrap'>
             <span class='profile-heading'>生年月日</span>
             <span class='profile-text'><%= l @assemblyman.birth_of_date %></span>
           </div>
         <% end %>
-        <% if @assemblyman.council.name.include?('知事・市長') %>
-          <div class='profile-wrap'>
-          <span class='profile-heading'>党派</span>
-        <% else %>
-          <% if @assemblyman.position %>
-            <div class='profile-wrap'>
-              <span class='profile-heading'>役職等</span>
-              <span class='profile-text'><%= @assemblyman.position %></span>
-            </div>
-          <% end %>
+        <%# 所属政党・会派等 %>
+        <% if @assemblyman.faction && @assemblyman.faction != ""%>
           <div class='profile-wrap'>
             <span class='profile-heading'>所属政党・会派等</span>
+            <span class='profile-text'><%= @assemblyman.faction %></span>
+          </div>
         <% end %>
-          <span class='profile-text'><%= @assemblyman.faction %></span>
-        </div>
-        <% if @assemblyman.number_of_wins %>
+        <%# 当選回数 %>
+        <% if @assemblyman.number_of_wins && @assemblyman.number_of_wins != ""%>
         <div class='profile-wrap'>
           <span class='profile-heading'>当選回数</span>
           <span class='profile-text'><%= @assemblyman.number_of_wins %> 回</span>
         </div>
         <% end %>
-        <% if @assemblyman.job %>
+        <%# 職業 %>
+        <% if @assemblyman.job && @assemblyman.job != "" %>
           <div class='profile-wrap'>
             <span class='profile-heading'>職業</span>
             <span class='profile-text'><%= @assemblyman.job %></span>
@@ -49,7 +58,7 @@
     </div>
   </div>
   <%# Twitterタイムライン表示エリア %>
-  <% if @assemblyman.twitter_url %>
+  <% if @assemblyman.twitter_url && @assemblyman.twitter_url != ""%>
     <div class='tweet-area'>
       <%= image_tag 'Twitter_social_icons-circle-blue.png', class: 'twitter_icon_circle' %>
       <a class="twitter-timeline" data-width='600px' data-height='400px' data-chrome='noheader nofooter noborders transparent' href="https://twitter.com/<%=@assemblyman.twitter_url%>"><%= @assemblyman.name %>さんのツイート</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

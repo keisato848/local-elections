@@ -2,6 +2,16 @@
 ja:
   activerecord:
     attributes:
+      assemblyman:
+        name: 氏名
+        sex: 性別
+        birth_of_date: 生年月日
+        position: 役職等
+        faction: 党派・会派等
+        number_of_wins: 当選回数
+        job: 職業
+        img_url: 画像URL
+        twitter_url: アカウント名
       comment:
         comment: コメント
     errors:

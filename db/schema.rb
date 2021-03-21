@@ -14,18 +14,20 @@ ActiveRecord::Schema.define(version: 2021_02_26_054102) do
 
   create_table "assemblymen", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "sex"
+    t.date "birth_of_date"
     t.string "position"
-    t.string "sex", null: false
-    t.date "birth_of_date", null: false
-    t.string "faction", null: false
-    t.integer "number_of_wins", null: false
-    t.text "img_url"
+    t.string "faction"
+    t.integer "number_of_wins"
+    t.string "img_url"
     t.string "job"
     t.text "twitter_url"
     t.bigint "council_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["council_id"], name: "index_assemblymen_on_council_id"
+    t.index ["user_id"], name: "index_assemblymen_on_user_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -41,15 +43,15 @@ ActiveRecord::Schema.define(version: 2021_02_26_054102) do
   create_table "councils", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "prefecture_id", null: false
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["prefecture_id"], name: "index_councils_on_prefecture_id"
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
