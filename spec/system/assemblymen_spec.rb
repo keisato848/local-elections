@@ -7,7 +7,7 @@ RSpec.describe '議員情報編集', type: :system do
     @council = create(:council, prefecture_id: @prefecture.id)
     @assemblyman = create(:assemblyman, council_id: @council.id)
   end
-  
+
   context '議員情報を編集できるとき' do
     it '正しい情報を入力すれば議員情報を編集でき、議員詳細画面に移動する' do
       # 議員詳細ページへ移動
@@ -43,28 +43,28 @@ RSpec.describe '議員情報編集', type: :system do
       expect(page).to have_content(@edited_assemblyman.job)
     end
   end
-  
+
   context '議員情報を編集できないとき' do
     it '誤った情報では議員情報を編集できず、レンダリングされ、エラーメッセージが出力される' do
-       # 議員詳細ページへ移動
-       visit "/prefectures/#{@assemblyman.id}/councils/#{@assemblyman.id}/assemblymen/#{@assemblyman.id}"
-       # 議員情報編集ページへ遷移するリンクがあることを確認しクリックする
-       expect(page).to have_content('編集')
-       click_on('編集')
-       # ログインを要求されるのでユーザー情報を入力しログイン
-       fill_in 'email', with: @user.email
-       fill_in 'password', with: @user.password
-       click_on('ログイン')
-       # 議員情報編集ページに遷移したことを確認する
-       expect(current_path).to eq("/prefectures/#{@assemblyman.id}/councils/#{@assemblyman.id}/assemblymen/#{@assemblyman.id}/edit")
-       # 編集後のデータをフォームに入力し編集をクリックする
-       fill_in 'name', with: ''
-       fill_in 'sex', with: '123'
-       fill_in 'birth_of_date', with: 'hoge'
-       fill_in 'number_of_wins', with: 'hoge'
-       fill_in 'img_url', with: 'hoge'
-       fill_in 'twitter_url', with: 'アカウント名'
-       click_on('編集する')
+      # 議員詳細ページへ移動
+      visit "/prefectures/#{@assemblyman.id}/councils/#{@assemblyman.id}/assemblymen/#{@assemblyman.id}"
+      # 議員情報編集ページへ遷移するリンクがあることを確認しクリックする
+      expect(page).to have_content('編集')
+      click_on('編集')
+      # ログインを要求されるのでユーザー情報を入力しログイン
+      fill_in 'email', with: @user.email
+      fill_in 'password', with: @user.password
+      click_on('ログイン')
+      # 議員情報編集ページに遷移したことを確認する
+      expect(current_path).to eq("/prefectures/#{@assemblyman.id}/councils/#{@assemblyman.id}/assemblymen/#{@assemblyman.id}/edit")
+      # 編集後のデータをフォームに入力し編集をクリックする
+      fill_in 'name', with: ''
+      fill_in 'sex', with: '123'
+      fill_in 'birth_of_date', with: 'hoge'
+      fill_in 'number_of_wins', with: 'hoge'
+      fill_in 'img_url', with: 'hoge'
+      fill_in 'twitter_url', with: 'アカウント名'
+      click_on('編集する')
       # 議員編集ページがレンダリングされたことを確認する
       expect(current_path).to eq("/prefectures/#{@assemblyman.id}/councils/#{@assemblyman.id}/assemblymen/#{@assemblyman.id}")
       # エラーメッセージが出力されていることを確認する
@@ -73,6 +73,6 @@ RSpec.describe '議員情報編集', type: :system do
       expect(page).to have_content('当選回数は数値で入力してください')
       expect(page).to have_content('アカウント名は半角アルファベット（大文字・小文字）、数値で入力してください')
       expect(page).to have_content('画像URLは無効な値です')
-      end
+    end
   end
 end
