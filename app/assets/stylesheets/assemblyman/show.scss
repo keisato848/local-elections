@@ -1,35 +1,44 @@
 .main {
   .assemblyman-profile-details {
-    width: 90vw;
+    width: 80vw;
     margin: 1vh auto;
-    .council-name {
-      margin-bottom: 4vh;
-      font-size: 30px;
-    }
-    .edit-assemblyman-link {
-      padding: 5px;
-      margin-left: 75vw;
-      position: relative;
-      top: -7.5vh;
-      &:hover {
-        background-color: #dcdcdc;
-        border-radius: 50%;
-        transition: background-color 0.4s;
+    .update {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0 10vw 5vh 10vw;
+      .profile-heading {
+        margin-right: 20px;
+      }
+      .edit-assemblyman-link {
+        color: #666;
+        margin-left: 20px;
+        padding: 5px 10px;
+        border: 1px solid #666;
+        border-radius: 4px;
+        &:hover {
+          background-color: #dcdcdc;
+          transition: background-color 0.7s;
+        }
       }
     }
+    .council-name {
+      margin-bottom: 5vh;
+      font-size: 30px;
+    }
     .profile-background {
+      margin: 0 10vw;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       .assemblyman-img {
-        width: 20%;
+        width: 30%;
         height: auto;
       }
       .profile-details {
-        width: 40%;
-        padding-left: 10vw;
+        width: 60%;
         .profile-wrap {
-          margin: 2vh auto;
+          margin: 3vh auto;
           font-size: 1rem;
           display: flex;
           justify-content: space-between;
@@ -138,6 +147,18 @@ $breakpoint-sl: 1200px !default;
 @media(max-width: #{$breakpoint-md}) {
   .main {  
     .assemblyman-profile-details {
+      .update {
+        justify-content: center;
+        flex-wrap: wrap;
+        .profile-heading {
+          width: 100%;
+          text-align: center;
+          margin: 0 auto;
+        }
+        .edit-assemblyman-link {
+          margin-top: 4vh
+        }
+      }
       .council-name {
         font-size: 18px;
         white-space: normal;
@@ -146,11 +167,12 @@ $breakpoint-sl: 1200px !default;
         display: block;
         text-align: center;
         .assemblyman-img {
-          width: 50vw;
+          width: 40vw;
           margin: 0 auto;
         }
         .profile-wrap {
-          width: 70vw;
+          width: 60vw;
+          margin: 0 auto;
           .profile-heading {
             font-size: 14px;
           }
