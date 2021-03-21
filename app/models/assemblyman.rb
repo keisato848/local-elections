@@ -1,6 +1,7 @@
 class Assemblyman < ApplicationRecord
   belongs_to :council
-  has_many :comments, dependent: :destroy
+  belongs_to :user
+  has_one :comments, dependent: :destroy
   
   validates :name, presence: true
   with_options allow_blank: true do

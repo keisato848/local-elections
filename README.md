@@ -7,7 +7,9 @@
 |nickname|string|null:false|
 
 ### Association
-- has_many :comments
+- has_many :comments, 
+<!-- 議員情報編集者の管理 -->
+- has_many :assemblymen
 
 ## prefecture table
 |Column|Types|Options|
@@ -44,7 +46,9 @@
 
 ### Association
 - belongs_to :council
-- has_one :comments
+<!-- 議員情報編集者の管理 -->
+- belongs_to :user
+- has_one :comments, dependent: :destroy
 
 ## comments table
 |Column|Types|Options|
