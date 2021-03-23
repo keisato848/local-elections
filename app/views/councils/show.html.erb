@@ -1,11 +1,9 @@
-<%= render "shared/header" %>
+<%= render "shared/second-header" %>
+<% breadcrumb :council, @council %>
+<%= render 'shared/breadclumbs' %>
 <div class='main'>
-  <% if @council.name.include?('知事・市長') %>
-    <h1 class='prefecture-name'><%= @council.prefecture.name %>の知事・市長等のデータ</h1>
-  <% else %>
-    <h1 class='prefecture-name'><%= @council.name %>のデータ</h1>
-    <%= link_to '議員検索はこちらから', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/search", class: 'search-btn' %>
-  <% end %>
+  <h1 class='prefecture-name'><%= @council.name %>のデータ</h1>
+  <%= link_to '議員検索はこちらから', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/search", class: 'search-btn' %>
   <div class='chart-area'>
     <div class='chart-content'>
       <p>男女比</p>

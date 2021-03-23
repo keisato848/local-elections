@@ -1,4 +1,6 @@
 <%= render "shared/second-header" %>
+<% breadcrumb :assemblyman, @assemblyman %>
+<%= render 'shared/breadclumbs' %>
 <div class='main'>
   <div class='assemblyman-profile-details'>
     <%# 更新情報 %>
@@ -7,7 +9,7 @@
       <% if @assemblyman.user %>
         <div class='profile-heading'>更新者：<%= @assemblyman.user.nickname%></div>
       <% end %>
-      <%= link_to '編集', edit_prefecture_council_assemblyman_path(params[:id]), class: 'edit-assemblyman-link' %>
+      <%= link_to '編集', edit_prefecture_council_assemblyman_path(assemblyman_id: params[:id]), class: 'edit-assemblyman-link' %>
     </div>
     <%# 議員氏名 %>
     <h1 class='council-name'><%= @assemblyman.name %></h1>
