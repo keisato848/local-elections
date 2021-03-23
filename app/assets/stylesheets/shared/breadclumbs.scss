@@ -1,0 +1,38 @@
+.breadclumbs {
+  padding: 10px 4vw;
+  font-size: 14px;
+  color: #666;
+  ul {
+    display: flex;
+    align-items: center;
+    span {
+      padding: 0 5px;
+      cursor: auto;
+    }
+    li {
+      line-height: 24px;
+      a {
+        color: #000;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .current {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+  // レスポンシブ
+$breakpoint-md: 550px !default;
+
+@media(max-width: #{$breakpoint-md}) {
+  .breadclumbs {
+    padding: 10px 0;
+    ul {
+      justify-content: center;
+    }
+  }
+}
