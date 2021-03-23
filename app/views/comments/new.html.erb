@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
 <%= render 'shared/error_messages', model: @comment %>
+<% breadcrumb :comment %>
 <div class='main'>
   <h1 class='prefecture-name'><%= @assemblyman.name %>さんへのコメント</h1>
   <div class="comments-form">

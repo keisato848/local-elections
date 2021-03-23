@@ -13,14 +13,11 @@
   a {
     text-decoration: none;
   }
-  padding-top: 4vh;
   .update-title {
     color: #ffffff;
     background-color: #313131;
     display: flex;
     justify-content: space-between;
-    position: relative;
-    top: -5vh;
     li {
       text-align: center;
       white-space: nowrap;
@@ -47,8 +44,6 @@
 }
 
 .update-content {
-  position: relative;
-  top: -2.5vh;
   display: none;
   li {
     width: 100%;
