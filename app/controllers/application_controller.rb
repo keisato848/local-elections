@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :prefecture_selections
+  before_action :find_prefectures
 
   private
 
@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
 
-  def prefecture_selections
+  def find_prefectures
     @prefectures = Prefecture.all
   end
 end
