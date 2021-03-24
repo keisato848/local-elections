@@ -1,37 +1,50 @@
 <%= render "shared/second-header"%>
-
 <%= form_with model: @user, url: new_user_session_path, class: 'registration-main', local: true do |f| %>
-
-<div class='form-wrap'>
-  <div class='form-header'>
-    <h1 class='form-header-text'>
-      会員情報入力
-    </h1>
-  </div>
-
   <div class='login-flash-message'>
     <%= flash[:notice] %>
     <%= flash[:alert] %>
   </div>
-  
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">メールアドレス</label>
-      <span class="indispensable">必須</span>
+  <div class='form-wrap'>
+    <div class='form-header'>
+      <h1 class='form-header-text'>
+        会員情報入力
+      </h1>
     </div>
-    <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">パスワード</label>
-      <span class="indispensable">必須</span>
+    <div class='form-group'>
+      <h2>SNSアカウントでログイン</h2>
+      <div class='sns-authorization'>
+        <p>
+          <%= image_tag 'f_logo_RGB-Blue_58.png', class: 'sns-logo' %>
+          <%= link_to 'Facebook', user_facebook_omniauth_authorize_path, method: :post, class: 'sns-provider' %>
+        </p>
+        <p>
+          <%= image_tag '2021_Twitter_logo_blue.png', class: 'sns-logo' %>
+          <%= link_to 'Twitter', user_twitter_omniauth_authorize_path, method: :post, class: 'sns-provider' %>
+        </p>
+        <p>
+          <%= image_tag 'logo-for-google-authorization.png', class: 'sns-logo' %>
+          <%= link_to 'Google', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'sns-provider' %>
+        </p>
+      </div>
     </div>
-    <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">メールアドレス</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">パスワード</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
+    </div>
+    <div class='login-btn'>
+      <%= f.submit "ログイン" ,class:"register-blue-btn" %>
+    </div>
   </div>
-  <div class='login-btn'>
-    <%= f.submit "ログイン" ,class:"register-blue-btn" %>
-  </div>
-</div>
 <% end %>
 
 <%= render "shared/second-footer"%>

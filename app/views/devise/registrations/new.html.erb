@@ -1,57 +1,76 @@
 <%= render "shared/second-header"%>
-
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
-
-<div class='form-wrap'>
-  <div class='form-header'>
-    <h1 class='form-header-text'>
-      会員情報入力
-    </h1>
-  </div>
-
   <%= render 'shared/error_messages', model: @user %>
-
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">メールアドレス</label>
-      <span class="indispensable">必須</span>
+  <div class='form-wrap'>
+    <div class='form-header'>
+      <h1 class='form-header-text'>
+        会員情報入力
+      </h1>
     </div>
-    <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">パスワード</label>
-      <span class="indispensable">必須</span>
+    <div class='form-group'>
+      <h2>SNSアカウントで登録</h2>
+      <div class='sns-authorization'>
+        <p>
+          <%= image_tag 'f_logo_RGB-Blue_58.png', class: 'sns-logo' %>
+          <%= link_to 'Facebook', user_facebook_omniauth_authorize_path, method: :post, class: 'sns-provider' %>
+        </p>
+        <p>
+          <%= image_tag '2021_Twitter_logo_blue.png', class: 'sns-logo' %>
+          <%= link_to 'Twitter', user_twitter_omniauth_authorize_path, method: :post, class: 'sns-provider' %>
+        </p>
+        <p>
+          <%= image_tag 'logo-for-google-authorization.png', class: 'sns-logo' %>
+          <%= link_to 'Google', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'sns-provider' %>
+        </p>
+      </div>
     </div>
-    <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
-    <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">パスワード(確認)</label>
-      <span class="indispensable">必須</span>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">メールアドレス</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
     </div>
-    <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">ニックネーム</label>
-      <span class="indispensable">必須</span>
+    <%# SNS認証時はパスワード入力不要のため以下を非表示 %>
+    <% if @sns_id.present? %>
+      <%= hidden_field_tag :sns_auth, true %>
+    <% else %>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">パスワード</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
+        <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">パスワード(確認)</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力" %>
+      </div>
+    <% end %>
+    <%# SNS認証時はパスワード入力不要のため以上を非表示 %>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">ニックネーム</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :nickname, class:"input-default", id:"nickname", placeholder:"例) 議会太郎", maxlength:"40" %>
     </div>
-    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) 議会太郎", maxlength:"40" %>
+    <div class="form-group">
+      <h2 class='form-bottom-text'>
+        「会員登録」のボタンを押すことにより、
+        <span>利用規約</span>
+        <br>に同意したものとみなします
+      </h2>
+    </div>
+    <div class='register-btn'>
+      <%= f.submit "会員登録" ,class:"register-blue-btn" %>
+    </div>
+    <p class='register-info'>本人情報の登録について</p>
   </div>
-  <div class="form-group">
-    <h2 class='form-bottom-text'>
-      「会員登録」のボタンを押すことにより、
-      <span>利用規約</span>
-      <br>に同意したものとみなします
-    </h2>
-  </div>
-  <div class='register-btn'>
-    <%= f.submit "会員登録" ,class:"register-blue-btn" %>
-  </div>
-  <p class='register-info'>本人情報の登録について</p>
-</div>
 <% end %>
 
 <%= render "shared/second-footer"%>
