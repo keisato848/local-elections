@@ -8,14 +8,50 @@
 }
 
 .form-wrap {
-  width: clamp(40%, 50%, 60%);
+  width: clamp(60%, 70%, 80%);
   background-color: white;
   padding-bottom: 70px;
 }
 
+h2 {
+  text-align: center;
+  font-weight: 300;
+  margin: 10px auto;
+}
+
+.sns-authorization {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sns-authorization>p{
+  width: 125px;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sns-logo {
+  height: 20px;
+}
+
+.sns-provider {
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.sns-provider:hover {
+  text-decoration: underline;
+}
+
 .form-header {
   width: 100%;
-  height: 120px;
+  margin-bottom: 15px;
   text-align: center;
 }
 
@@ -98,7 +134,7 @@
   width: 100%;
   background: #214b7d;
   border: 1px solid #214b7d;
-  margin: 4vh auto;
+  margin: 2vh auto;
   color: #fff;
   line-height: 48px;
   cursor: pointer;
