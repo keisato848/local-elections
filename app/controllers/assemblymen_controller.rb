@@ -13,7 +13,7 @@ class AssemblymenController < ApplicationController
   def update
     find_assemblyman
     if @assemblyman.update(assemblyman_params)
-      redirect_to prefecture_council_assemblyman_path(params[:id])
+      redirect_to "/prefectures/#{@assemblyman.council.prefecture.id}/councils/#{@assemblyman.council.id}/assemblymen/#{@assemblyman.id}"
     else
       render :edit
     end
