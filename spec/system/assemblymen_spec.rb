@@ -63,7 +63,7 @@ RSpec.describe '議員情報編集', type: :system do
       fill_in 'birth_of_date', with: 'hoge'
       fill_in 'number_of_wins', with: 'hoge'
       fill_in 'img_url', with: 'hoge'
-      fill_in 'twitter_url', with: 'アカウント名'
+      fill_in 'twitter_url', with: '@abcde0123456789'
       click_on('編集する')
       # 議員編集ページがレンダリングされたことを確認する
       expect(current_path).to eq("/prefectures/#{@assemblyman.id}/councils/#{@assemblyman.id}/assemblymen/#{@assemblyman.id}")
@@ -71,7 +71,7 @@ RSpec.describe '議員情報編集', type: :system do
       expect(page).to have_content('氏名を入力してください')
       expect(page).to have_content('性別は全角文字で入してください')
       expect(page).to have_content('当選回数は数値で入力してください')
-      expect(page).to have_content('アカウント名は半角アルファベット（大文字・小文字）、数値で入力してください')
+      expect(page).to have_content('アカウント名は＠を含まずに15文字以内で入力してください（半角英数、アンダーバーのみ利用可）')
       expect(page).to have_content('画像URLは無効な値です')
     end
   end
