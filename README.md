@@ -9,7 +9,7 @@
 ### Association
 - has_many :comments
 - has_many :assemblymen
-- has_many :manifests, dependent: :destroy
+- has_one :manifests, dependent: :destroy
 
 ## prefecture table
 |Column|Types|Options|
