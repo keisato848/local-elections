@@ -1,0 +1,2 @@
+class Manifest < ApplicationRecord
+end
