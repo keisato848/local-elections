@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
+
   root to: 'prefectures#index'
   resources :prefectures, only: [:index, :show] do
     resources :councils, only: [:show, :search] do
@@ -15,4 +16,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :manifests, only:[:new, :create]
 end
