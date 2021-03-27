@@ -9,11 +9,41 @@
 <div class='main'>
   <div class='update-lists'>
     <ul class='update-title'>
-      <li class='update-active' id='new'>新着情報</li>
-      <li id='election'>選挙情報</li>
+      <li class='update-active' id='new'>マニュフェスト</li>
       <li id='info'>お知らせ</li>
+      <li id='election'>選挙情報</li>
     </ul>
     <ul class='update-content' id='new-content'>
+      <% unless @manifests.empty? %>
+        <% @manifests.each do |manifest| %>
+          <li>
+            <a href='#' class='manifest-link'>
+              <span class='posted-user'>
+                <%= l manifest.created_at %>
+              </span>
+              <span class='posted-user'>
+                <%= manifest.user.nickname %>
+              </span>
+              <span>
+                <%= "「#{manifest.title}」" %>
+              </span>
+            </a>
+            <div>
+              <% manifest.tags.each do |tag| %>
+                <%= link_to "#{tag.name}", '#', class: 'tag-link' %>
+              <% end %>
+            </div>
+          </li>
+          <li>
+          </li>
+        <% end %>
+      <% else %>
+        <li>
+          <%= link_to 'マニフェストを投稿する', new_manifest_path, class:'update-text' %>
+        </li>
+      <% end %>
+    </ul>
+    <ul class='update-content' id='info-content'>
       <li>
         <span class='update-date'>2021-3-16</span>
         <%= link_to '富山県の知事・市長等', '/prefectures/16/councils/1', class:'update-text' %>
@@ -29,31 +59,7 @@
     </ul>
     <ul class='update-content' id='election-content'>
       <li>
-        <span class='update-date'>2021-2-21</span>
-        <%= link_to '〇〇県議会選挙', '#', class:'update-text' %>
-      </li>
-      <li>
-        <span class='update-date'>2021- 2- 1</span>
-        <%= link_to '〇〇県の議員情報', '#', class:'update-text' %>
-      </li>
-      <li>
-        <span class='update-date'>2021- 1- 1</span>
-        <%= link_to '〇〇県の議員情報', '#', class:'update-text' %>
-      </li>
-      <li>
-        <span class='update-date'>2021- 1- 1</span>
-        <%= link_to '〇〇県の議員情報', '#', class:'update-text' %>
-      <li>
-        <%= link_to '選挙情報一覧へ', '#', class:'update-link' %>
-      </li>
-    </ul>
-    <ul class='update-content' id='info-content'>
-      <li>
-        <span class='update-date'>2021- 4- 1</span>
-        <%= link_to 'サービスの運用開始', '#', class:'update-text' %>
-      </li>
-      <li>
-        <%= link_to 'お知らせ一覧へ', '#', class:'update-link' %>
+        <%= link_to '更新までしばらくお待ちください', '#', class:'update-link' %>
       </li>
     </ul>
   </div>

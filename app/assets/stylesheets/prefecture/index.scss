@@ -14,14 +14,16 @@
     text-decoration: none;
   }
   .update-title {
+    width: 100%;
     color: #ffffff;
     background-color: #313131;
     display: flex;
     justify-content: space-between;
     li {
+      width: 32%;
       text-align: center;
       white-space: nowrap;
-      padding: 1vh calc((100% - (64px * 3)) / 6);
+      padding: 1vh calc((100% - (32% * 3)) / 6);
       cursor: pointer;
       &:not(.update-active):hover {
         color: #313131;
@@ -46,10 +48,9 @@
 .update-content {
   display: none;
   li {
-    width: 100%;
-    font-size: clamp(1rem, 1.2rem, 1.5rem);
+    font-size: clamp(0.8rem, 1rem, 1.2rem);
     color: #000000;
-    padding: 1vh 5vw;
+    padding: 1vh 0 1vh 3vw;
     border-bottom: 1px solid #dcdcdc;
     &:last-child{
       border-bottom: none;
@@ -66,6 +67,32 @@
       position: relative;
       top: 1vh;
       left: 5vw;
+    }
+    .manifest-link {
+      display: block;
+      margin-right: 3vw;
+      color: #000;
+      &:hover {
+        border-bottom: 1px solid #666;
+      }
+    }
+    .posted-user {
+      margin: 0 2vw;
+    }
+    .manifest-description {
+      height: 20px;
+    }
+    .tag-link {
+      display: inline-block;
+      padding: 2px 4px;
+      margin: 0 2vw;
+      background-color: #dcdcdc;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #666;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
