@@ -1,0 +1,37 @@
+<%= render 'shared/second-header' %>
+
+<%= form_with model: @manifest, url: manifests_path, class: 'registration-main', local: true do |f| %>
+  <div class='form-wrap'>
+    <%= render 'shared/error_messages', model: @manifest %>
+    <div class='form-header'>
+      <h1 class='form-header-text'>
+        マニュフェスト投稿
+      </h1>
+    </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">タイトル</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :title, class:"input-default", id:"title", placeholder:"例）地方議会への候補者クオータ制の導入", autofocus: true %>
+  </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">説明文</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :description, class:"form-text-area", id:"description", size: '20x12',  value: "以下、投稿テンプレート（適宜削除してご利用ください）\r【現状の課題・背景】\r日本の女性国会議員比率はG20諸国で最下位（列国議会同盟、女性の議会進出に関するレポートの2018年版）であり、女性地方議員比率も10％程度。また、近年は人口減少や行財政改革の推進により議員定数の削減が進められています。女性の声を安定的に地方政治に反映するため、地方議会でのクオータ制の導入が必要だと思います。\r【想定メリット】\r・出産・育児等のライフイベントに対する議論の活性化\r・女性が働きやすい環境が整備される（産休・育児などの規則整備）\r【想定デメリット・課題】\r・現職の男性議員からの反発や自由な競争が行われないおそれがある" %>
+      <p class='info-text'>※改行はそのまま表示されます。</p>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">タグ</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :name, class:"input-default", id:"password-confirmation", placeholder:"関連するタグを入力（例：行政・議会改革）" %>
+      </div>
+    <div class='register-btn'>
+      <%= f.submit "投稿する" ,class:"register-blue-btn" %>
+    </div>
+  </div>
+<% end %>
