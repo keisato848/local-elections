@@ -1,4 +1,6 @@
 class ManifestsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @manifest = ManifestTag.new
   end
@@ -16,6 +18,6 @@ class ManifestsController < ApplicationController
   private
 
   def manifest_params
-    params.require(:manifest_tag).permit(:title, :description, :name )
+    params.require(:manifest_tag).permit(:title, :description, :name).merge(user_id: current_user.id)
   end
 end
