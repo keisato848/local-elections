@@ -60,8 +60,10 @@ ActiveRecord::Schema.define(version: 2021_03_26_105953) do
   create_table "manifests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_manifests_on_user_id"
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,5 +104,6 @@ ActiveRecord::Schema.define(version: 2021_03_26_105953) do
   add_foreign_key "councils", "prefectures"
   add_foreign_key "manifest_tag_relations", "manifests"
   add_foreign_key "manifest_tag_relations", "tags"
+  add_foreign_key "manifests", "users"
   add_foreign_key "sns_credentials", "users"
 end
