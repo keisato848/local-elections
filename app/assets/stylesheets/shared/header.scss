@@ -23,6 +23,35 @@
   margin: 0 20px 0 10px;
 }
 
+.manifest-session {
+  margin-right: 50px;
+  padding: 5px 15px;
+  background-color: #333;
+  line-height: 20px;
+  vertical-align: center;
+  border-radius: 4px;
+  &:hover {
+    background-color: #111;
+    transition: background-color 0.4s;
+  }
+  .material-icons {
+    color: #fff;
+    line-height: 20px;
+    padding: 0;
+    margin-right: 2px;
+  }
+  .post-link {
+    line-height: 20px;
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+}
+
 .user-session {
   text-align: center;
   margin-right: 10px;
@@ -155,6 +184,13 @@
 /* レスポンシブ */
 $breakpoint-sm: 420px !default;
 $breakpoint-md: 550px !default;
+$breakpoint-lg: 768px !default;
+
+@media(max-width: #{$breakpoint-lg}){
+  .manifest-session {
+    display: none;
+  }
+}
 
 @media (max-width: #{$breakpoint-md}) {
   .hamburger-menu {
