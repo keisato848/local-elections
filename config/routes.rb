@@ -17,5 +17,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :manifests, only:[:new, :create]
+  resources :manifests, only:[:new, :create,] do
+    collection do
+      get 'search'
+    end
+  end
 end

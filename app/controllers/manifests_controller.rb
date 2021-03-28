@@ -15,6 +15,12 @@ class ManifestsController < ApplicationController
     end
   end
 
+  def search
+    return nil if params[:keyword] == ''
+    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}"])
+    render json:{ keyword: tag }
+  end
+
   private
 
   def manifest_params
