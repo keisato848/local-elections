@@ -28,7 +28,9 @@
           <label class="form-text">タグ</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :name, class:"input-default", id:"password-confirmation", placeholder:"関連するタグを入力（例：行政・議会改革）" %>
+        <%= f.text_field :name, class:"input-default", id:"tag-name", placeholder:"関連するタグを入力（例：行政・議会改革）" %>
+      </div>
+      <div id='search-result'>
       </div>
     <div class='register-btn'>
       <%= f.submit "投稿する" ,class:"register-blue-btn" %>
