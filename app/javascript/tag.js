@@ -1,10 +1,14 @@
-if (location.pathname.match('manifests/new')){
+if (location.pathname.match('manifests')){
   document.addEventListener('DOMContentLoaded', () => {
     const inputElement = document.getElementById('tag-name');
     inputElement.addEventListener('keyup', () => {
       const keyword = inputElement.value;
       const XHR = new XMLHttpRequest();
-      XHR.open('GET', `search/?keyword=${keyword}`, true);
+      if (location.pathname.match('new')){
+        XHR.open('GET', `search/?keyword=${keyword}`, true);
+      } else if (location.pathname.match('edit')){
+        XHR.open('GET', `../search/?keyword=${keyword}`, true);
+      };
       XHR.responseType = 'json';
       XHR.send();
       XHR.onload = () => {

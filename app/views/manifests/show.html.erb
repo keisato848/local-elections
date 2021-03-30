@@ -1,0 +1,28 @@
+<%= render "shared/second-header" %>
+<div class='manifest-area'>
+  <div class='manifest-content'>
+    <div class='top-container'>
+      <%= @manifest.user.nickname %>が<%= l @manifest.updated_at %>に更新
+      <div>
+        <% if user_signed_in? %>
+          <% if current_user.id == @manifest.user.id %>
+            <%= link_to '編集', edit_manifest_path(params[:id]), class: 'edit-manifest-link' %>
+            <%= link_to '削除', manifest_path(params[:id]), method: :delete, class: 'delete-manifest-link' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <h1 class='prefecture-name'><%= @manifest.title %></h1>
+    <ul class='tag-list'>
+      <li><span class='material-icons'>label</span></li>
+      <% @manifest.tags.each do |tag| %>
+        <li><%= link_to tag.name, "#", class: 'tag-link' %></li>
+      <% end %>
+    </ul>
+    <h2 class='council-name'>マニュフェストの説明</h2>
+    <div class='manifest-description'>
+      <%= safe_join(@manifest.description.split("\n"), tag(:br)) %>
+    </div>
+  </div>
+</div>
+<%= render 'shared/footer' %>

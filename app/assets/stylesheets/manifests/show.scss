@@ -1,0 +1,71 @@
+.manifest-area {
+  margin: 0;
+  background: linear-gradient(-135deg,#fff, #e9e4d4);
+  background-color: #CCFFFF;
+  padding: 40px 10vw;
+  a {
+    text-decoration: none;
+  }
+  .manifest-content {
+    background-color: #fff;
+    padding: 5%;
+    box-sizing: inherit;
+    .top-container {
+      display: flex;
+      justify-content: space-between;
+      .edit-manifest-link {
+        color: #666;
+        margin-left: 20px;
+        padding: 5px 10px;
+        border: 1px solid #666;
+        border-radius: 4px;
+        &:hover {
+          background-color: #dcdcdc;
+          transition: background-color 0.7s;
+        }
+      }
+      .delete-manifest-link {
+        color: #e95464;
+        margin-left: 20px;
+        padding: 5px 10px;
+        border: 1px solid #e95464;
+        border-radius: 4px;
+        &:hover {
+          background-color: #fcd9d8;
+          transition: background-color 0.7s;
+        }
+      }
+    }
+    .prefecture-name {
+      margin-top: 30px;
+      padding-bottom: 10px;
+    }
+    .tag-list {
+      display: flex;
+      justify-content: flex-start;
+      .material-icons {
+        padding: 0;
+        display: block;
+      }
+      .tag-link {
+        margin: 0 2vw;
+        font-size: 12px;
+        position: relative;
+        top: -2px;
+        color: #666;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .council-name {
+      margin: 15px 0;
+      padding: 0 0 10px 0;
+      border-bottom: 1px solid #dcdcdc;
+    }
+    .manifest-description {
+      margin-top: 20px;
+      line-height: 35px;
+    }
+  }
+}

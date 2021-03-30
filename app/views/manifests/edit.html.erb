@@ -1,0 +1,39 @@
+<%= render 'shared/second-header' %>
+
+<%= form_with model: @manifest_tag, url: manifest_path, method: :patch, class: 'registration-main', local: true do |f| %>
+  <div class='form-wrap'>
+    <%= render 'shared/error_messages', model: @manifest %>
+    <div class='form-header'>
+      <h1 class='form-header-text'>
+        マニュフェスト編集
+      </h1>
+    </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">タイトル</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :title, class:"input-default", id:"title", placeholder:"例）地方議会への候補者クオータ制の導入", value: @manifest.title, autofocus: true %>
+  </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">説明文</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :description, class:"form-text-area", id:"description", size: '20x12',  value: @manifest.description %>
+      <p class='info-text'>※改行はそのまま表示されます。</p>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">タグ</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :name, class:"input-default", id:"tag-name", placeholder:"関連するタグを入力（例：行政・議会改革）", value: @tag_names %>
+      </div>
+      <div id='search-result'>
+      </div>
+    <div class='register-btn'>
+      <%= f.submit "投稿する" ,class:"register-blue-btn" %>
+    </div>
+  </div>
+<% end %>
