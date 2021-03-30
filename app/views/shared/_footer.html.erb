@@ -4,6 +4,8 @@
     <li><%= link_to 'プライバシーポリシー', "#", class: "footer-link" %></li>
     <li><%= link_to '利用規約', "#", class: "footer-link" %></li>
   </ul>
-  <p><%= link_to (image_tag 'Twitter_social_icons-rounded_square-blue', class:'twitter-icon'), '#' %></p>
-  <p>© Local Elections</p>
+  <div class='footer-bottom'>
+    <%= link_to (image_tag 'Twitter_social_icons-rounded_square-blue', class:'twitter-icon'), 'https://twitter.com/LocalElections_' %>
+    <p>© Local Elections</p>
+  </div>
 </footer>
