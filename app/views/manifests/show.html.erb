@@ -16,7 +16,7 @@
     <ul class='tag-list'>
       <li><span class='material-icons'>label</span></li>
       <% @manifest.tags.each do |tag| %>
-        <li><%= link_to tag.name, "#", class: 'tag-link' %></li>
+        <li><%= link_to tag.name, tag_path(tag.id), class: 'tag-link' %></li>
       <% end %>
     </ul>
     <h2 class='council-name'>マニュフェストの説明</h2>

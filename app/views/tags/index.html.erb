@@ -1,0 +1,14 @@
+<%= render 'shared/second-header' %>
+<div class='main'>
+  <h1 class='prefecture-name'>タグ一覧</h1>
+  <% @tags.each do |tag| %>
+    <ul class='manifest-list'>
+      <li class='manifest-content'>
+        <a href=<%= "/tags/#{tag.id}" %>>
+          <h2 class='council-name'><%= tag.name %></h2>
+        </a>
+      </li>
+    </ul>
+  <% end %>
+</div>
+<%= render 'shared/footer' %>

@@ -9,15 +9,15 @@
 <div class='main'>
   <div class='update-lists'>
     <ul class='update-title'>
-      <li class='update-active' id='new'>マニュフェスト</li>
+      <li class='update-active' id='new'>新着マニュフェスト</li>
       <li id='info'>お知らせ</li>
       <li id='election'>選挙情報</li>
     </ul>
     <ul class='update-content' id='new-content'>
-      <% unless @manifests.empty? %>
+      <% if @manifests.any? %>
         <% @manifests.each do |manifest| %>
-          <li>
-            <a href='#' class='manifest-link'>
+          <li class='manifest-content'>
+            <a href="/manifests/<%= manifest.id %>" class='manifest-link'>
               <span class='posted-user'>
                 <%= l manifest.created_at %>
               </span>
@@ -27,19 +27,15 @@
               <span>
                 <%= "「#{manifest.title}」" %>
               </span>
-            </a>
-            <div>
               <% manifest.tags.each do |tag| %>
-                <%= link_to "#{tag.name}", '#', class: 'tag-link' %>
+                <%= link_to tag.name, tag_path(tag.id), class: 'tag-link' %>
               <% end %>
-            </div>
-          </li>
-          <li>
+            </a>
           </li>
         <% end %>
       <% else %>
         <li>
-          <%= link_to 'マニフェストを投稿する', new_manifest_path, class:'update-text' %>
+          <%= link_to '投稿する', new_manifest_path, class:'update-text' %>
         </li>
       <% end %>
     </ul>

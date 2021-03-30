@@ -68,12 +68,24 @@
       top: 1vh;
       left: 5vw;
     }
+  }
+  .manifest-content {
+    padding-top: 0;
+    padding-left: 0;
+    font-size: clamp(0.8rem, 1rem, 1.2rem);
+    color: #000000;
+    display: flex;
+    align-items: center;
     .manifest-link {
       display: block;
-      margin-right: 3vw;
+      width: 100%;
+      padding: 1vh 0 1vh 3vw;
       color: #000;
+      position: relative;
+      border-bottom: 1px solid #dcdcdc;
       &:hover {
-        border-bottom: 1px solid #666;
+        background-color: #dcdcdc;
+        transition: background-color 0.4s;
       }
     }
     .posted-user {
@@ -85,11 +97,12 @@
     .tag-link {
       display: inline-block;
       padding: 2px 4px;
-      margin: 0 2vw;
       background-color: #dcdcdc;
       border-radius: 4px;
-      font-size: 12px;
+      font-size: 13px;
       color: #666;
+      position: absolute;
+      left: 70%;
       &:hover {
         text-decoration: underline;
       }

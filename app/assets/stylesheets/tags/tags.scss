@@ -1,0 +1,30 @@
+.main {
+  margin-top: 30px;
+  .manifest-list {
+    .manifest-content {
+      width: 100vw;
+      border-bottom: 1px solid #666;
+      padding: 1vh 2vw 1vh 4vw;
+      &:hover {
+        background-color: #dcdcdc;
+        transition: background-color 0.4s;
+      }
+      a {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: #000;
+      }
+      p {
+        min-width: 20%;
+        margin-right: 20px;
+      }
+      .council-name {
+        text-align: initial;
+      }
+      .manifest-description {
+        height: 20px;
+      }
+    }
+  }
+}
