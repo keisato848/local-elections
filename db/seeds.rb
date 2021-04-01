@@ -1,9 +1,10 @@
-# Assemblyman.create(name: '',
-#   position: '',
-#   sex: '',
-#   faction: '',
-#   number_of_wins: ,
-#   img_url: '',
-#   job: '',
-#   twitter_url: '',
-#   council_id: ,)
+Tag.create(name: '社会保障')
+Tag.create(name: '税財政・財政再建')
+Tag.create(name: '産業経済')
+Tag.create(name: '労働')
+Tag.create(name: '社会資本整備')
+Tag.create(name: '環境・エネルギー')
+Tag.create(name: '教育・子育て')
+Tag.create(name: '行政・議会改革')
+Tag.create(name: '農林漁業')
+Tag.create(name: '安全・防災')
