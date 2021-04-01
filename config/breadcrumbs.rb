@@ -8,8 +8,13 @@ crumb :tag do
 end
 
 crumb :show_tag do |tag|
-  tag = Tag.find(params[:id])
-  link tag.name, tag_path(params[:id])
+  if controller_name == 'tags'
+    tag = Tag.find(params[:id])
+    link tag.name, tag_path(params[:id])
+  elsif controller_name == 'manifests'
+    manifest = Manifest.find(params[:id])
+    link manifest.tags[0].name, tag_path(manifest.tags[0].id)
+  end
   parent :tag
 end
 
