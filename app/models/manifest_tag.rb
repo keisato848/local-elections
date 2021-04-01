@@ -17,17 +17,19 @@ class ManifestTag
     ManifestTagRelation.create(manifest_id: manifest.id, tag_id: tag.id)
   end
   
-  def update
-    manifest = Manifest.update(title: title, description: description)
+  def update(manifest_id)
+    manifest = Manifest.find(manifest_id)
+    manifest.update(title: title, description: description)
     tag = Tag.where(name: name).first_or_initialize
     tag.save
-    
-    ManifestTagRelation.update(tag_id: tag.id)
+    manifest_tag = ManifestTagRelation.find_by(manifest_id: manifest_id)
+    manifest_tag.update(tag_id: tag.id)
   end
-
-  def destroy
-    manifest = Manifest.destroy(title: title, description: description, user_id: user_id)
-
-    ManifestTagRelation.destoroy(manifest_id: manifest.id, tag_id: tag.id)
+  
+  def destroy(manifest_id)
+    manifest_tag = ManifestTagRelation.find_by(manifest_id: manifest_id)
+    manifest_tag.destroy
+    manifest = Manifest.find(manifest_id)
+    manifest.destroy
   end
 end

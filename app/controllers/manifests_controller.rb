@@ -33,7 +33,7 @@ class ManifestsController < ApplicationController
   def update
     @manifest = ManifestTag.new(manifest_params)
     if @manifest.valid?
-      @manifest.update
+      @manifest.update(params[:id])
       return redirect_to manifest_path(params[:id])
     else
       render :edit
@@ -41,9 +41,8 @@ class ManifestsController < ApplicationController
   end
   
   def destroy
-    manifest_tag_relation = ManifestTagRelation.find_by(manifest_id: params[:id])
-    manifest = Manifest.find(params[:id])
-    if manifest.destroy
+    manifest = ManifestTag.new
+    if manifest.destroy(params[:id])
       redirect_to root_path
     else
       render :show
