@@ -1,16 +1,23 @@
 <%= render 'shared/second-header' %>
+<% breadcrumb :show_tag %>
+<%= render 'shared/breadclumbs' %>
 <div class='main'>
   <h1 class='prefecture-name'><%= @tag.name %>に関連するマニュフェスト
 </h1>
-  <% @manifests.each do |manifest| %>
-    <ul class='manifest-list'>
-      <li class='manifest-content'>
-        <a href=<%= "/manifests/#{manifest.id}" %>>
-          <p><%= manifest.user.nickname %>が更新</p>
-          <h2 class='council-name'><%= manifest.title %></h2>
-        </a>
-      </li>
-    </ul>
+  <% if @manifests.any? %>
+    <% @manifests.each do |manifest| %>
+      <ul class='manifest-list'>
+        <li class='manifest-content'>
+          <a href=<%= "/manifests/#{manifest.id}" %>>
+            <p><%= manifest.user.nickname %>が更新</p>
+            <h2 class='council-name'><%= manifest.title %></h2>
+          </a>
+        </li>
+      </ul>
+    <% end %>
+  <% else %>
+    <h2>関連マニュフェストはありません。</h2>
+    <%= link_to '新規投稿する', new_manifest_path, class: 'manifest-link' %>
   <% end %>
 </div>
 <%= render 'shared/footer' %>

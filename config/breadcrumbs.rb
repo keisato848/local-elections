@@ -2,6 +2,23 @@ crumb :root do
   link "ホーム", root_path
 end
 
+crumb :tag do
+  link "タグ一覧", tags_path
+  parent :root
+end
+
+crumb :show_tag do |tag|
+  tag = Tag.find(params[:id])
+  link tag.name, tag_path(params[:id])
+  parent :tag
+end
+
+crumb :manifest do |manifest|
+  manifest = Manifest.find(params[:id])
+  link manifest.title, manifest_path(params[:id])
+  parent :show_tag
+end
+
 crumb :prefecture do |prefecture|
   if controller_name == 'prefectures'
     prefecture = Prefecture.find(params[:id])
