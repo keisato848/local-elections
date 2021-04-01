@@ -4,7 +4,7 @@
 <div class='manifest-area'>
   <div class='manifest-content'>
     <div class='top-container'>
-      <%= @manifest.user.nickname %>が<%= l @manifest.updated_at %>に更新
+      <p><%= @manifest.user.nickname %>が<%= l @manifest.updated_at %>に更新</p>
       <div>
         <% if user_signed_in? %>
           <% if current_user.id == @manifest.user.id %>

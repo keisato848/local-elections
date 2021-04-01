@@ -10,8 +10,12 @@
 
 .child {
   width: 70%;
+  padding: 10px 0;
   margin: 0 auto;
-  padding: 5px;
   border-bottom: 1px solid #666;
   cursor: pointer;
+  &:hover {
+    background-color: #dcdcdc;
+    transition: background-color 0.4s;
+  }
 }

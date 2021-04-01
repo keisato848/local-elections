@@ -52,8 +52,9 @@
     color: #000000;
     padding: 1vh 0 1vh 3vw;
     border-bottom: 1px solid #dcdcdc;
-    &:last-child{
-      border-bottom: none;
+    &:hover {
+      background-color: #dcdcdc;
+      transition: background-color 0.4s;
     }
     .update-date {
       margin: 0 5vw;
@@ -64,29 +65,21 @@
     }
     .update-link {
       color: #000000;
-      position: relative;
-      top: 1vh;
-      left: 5vw;
     }
   }
   .manifest-content {
-    padding-top: 0;
     padding-left: 0;
     font-size: clamp(0.8rem, 1rem, 1.2rem);
     color: #000000;
     display: flex;
     align-items: center;
-    .manifest-link {
+    .show-manifest-link {
       display: block;
       width: 100%;
-      padding: 1vh 0 1vh 3vw;
+      padding: 0 3vw;
+      margin-left: 0;
       color: #000;
       position: relative;
-      border-bottom: 1px solid #dcdcdc;
-      &:hover {
-        background-color: #dcdcdc;
-        transition: background-color 0.4s;
-      }
     }
     .posted-user {
       margin: 0 2vw;

@@ -2,7 +2,7 @@
 
 <div class='app-introduction'>
   <h1 class='catch-copy'>あなたの声を地域のリーダーへ―</h1>
-  <p class>
+  <p>
      Local Electionsは地方議員の情報や活動を共有するためのサービスです。"どんな議員がいるの？"、"誰に投票しよう？"、"移住したばかりで、議員がわからない" など、悩みや疑問を選挙前に解消しましょう！
   <p>
 </div>
@@ -17,7 +17,7 @@
       <% if @manifests.any? %>
         <% @manifests.each do |manifest| %>
           <li class='manifest-content'>
-            <a href="/manifests/<%= manifest.id %>" class='manifest-link' id='manifest-link'>
+            <a href="/manifests/<%= manifest.id %>" class='show-manifest-link' id='manifest-link'>
               <span class='posted-user'>
                 <%= l manifest.updated_at %>
               </span>
