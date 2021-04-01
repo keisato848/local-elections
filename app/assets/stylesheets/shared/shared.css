@@ -1,5 +1,21 @@
 /* 以下共有パーツのスタイル */
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 200;
+  font-size: clamp(0.8rem, 1rem, 1.5rem);
+  min-height: 100vh;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+}
 
+h1 {
+  font-weight: 300;
+}
+
+.main {
+  position: relative;
+  padding-bottom: 80px;
+}
 /* 各ページのタイトル */
 .prefecture-name{
   font-size: 25px;
