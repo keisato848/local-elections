@@ -7,9 +7,9 @@
 |nickname|string|null:false|
 
 ### Association
-- has_many :comments, 
-<!-- 議員情報編集者の管理 -->
+- has_many :comments
 - has_many :assemblymen
+- has_one :manifests, dependent: :destroy
 
 ## prefecture table
 |Column|Types|Options|
@@ -42,13 +42,43 @@
 |job|string||
 |twitter_url|text||
 |council|references|null:false, foreign_key: true|
-|user|references||
+|user|references|foreign_key: true|
 
 ### Association
 - belongs_to :council
-<!-- 議員情報編集者の管理 -->
-- belongs_to :user
+- belongs_to :user, optional: true
 - has_one :comments, dependent: :destroy
+
+## manifest table
+|Column|Types|Options|
+|-|-|-|
+|title|string|null:false|
+|description|text|null:false|
+|user|references|null:false, foreign_key:true|
+
+### Association
+- belongs_to :user
+- has_many :manifest_tag_relations
+- has_many :tags, through: :manifest_tag_relations
+
+## tags table
+|Column|Types|Options|
+|-|-|
+|name|string|null:false, uniqueness: true|
+
+### Association
+- has_many :manifest_tag_relations
+- has_many :manifests, through: :manifest_tag_relations
+
+## manifest_tag_relations table
+|Column|Types|Options|
+|-|-|
+|manifest|references|foreign_key: true|
+|tag|references|foreign_key: true|
+
+### Association
+- belongs_to :manifest
+- belongs_to :tag 
 
 ## comments table
 |Column|Types|Options|

@@ -7,24 +7,23 @@ footer {
   position: absolute;
   bottom: 0;
   position: fixed;
+  .footer-contents {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    align-items: center;
+  }
+  div>p {
+    color: #ffffff;
+  }
 }
 
-.footer-contents {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
 
-.footer-link {
-  color: #ffffff;
-  text-decoration: none;
-  display: block;
-  align-items: center;
-}
-
-div>p {
-  color: #ffffff;
-}
 
 @media (max-width: 760px) {
   .footer-link {

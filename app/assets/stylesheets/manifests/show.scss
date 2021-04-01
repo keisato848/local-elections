@@ -1,0 +1,97 @@
+.manifest-area {
+  padding: 40px 10vw;
+  margin: 0;
+  a {
+    text-decoration: none;
+  }
+  .manifest-content {
+    padding: 0 5vw;
+    .top-container {
+      display: flex;
+      justify-content: space-between;
+      .edit-manifest-link {
+        display: inline-block;
+        padding: 5px 10px;
+        margin-left: 20px;
+        border: 1px solid #666;
+        border-radius: 4px;
+        color: #666;
+        white-space: nowrap;
+        &:hover {
+          background-color: #dcdcdc;
+          transition: background-color 0.4s;
+        }
+      }
+      .delete-manifest-link {
+        display: inline-block;
+        padding: 5px 10px;
+        margin-left: 20px;
+        border: 1px solid #e95464;
+        border-radius: 4px;
+        color: #e95464;
+        white-space: nowrap;
+        &:hover {
+          background-color: #fcd9d8;
+          transition: background-color 0.4s;
+        }
+      }
+    }
+    .prefecture-name {
+      margin: 3vh 0;
+    }
+    .tag-list {
+      display: flex;
+      justify-content: flex-start;
+      .material-icons {
+        display: block;
+        padding: 0;
+      }
+      .tag-link {
+        margin: 0 2vw;
+        color: #222;
+        font-size: 14px;
+        font-weight: 400;
+        position: relative;
+        top: -2px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .council-name {
+      padding-bottom: 20px;
+      margin: 3vh 0;
+      border-bottom: 1px solid #dcdcdc;
+    }
+    .manifest-description {
+      margin-top: 3vh;
+      line-height: 35px;
+    }
+  }
+}
+
+/* レスポンシブ */
+$breakpoint-md: 575px !default;
+
+@media (max-width: #{$breakpoint-md}) {
+  .manifest-area {
+    padding-top: 0;
+    .top-container {
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 auto;
+      p {
+        margin: 0 auto;
+      }
+      div {
+        margin: 0 auto;
+        .edit-manifest-link {
+          margin: 15px 0 0 0;
+        }
+        .delete-manifest-link {
+          margin: 15px 0 0 0;
+        }
+      }
+    }
+  }
+}
