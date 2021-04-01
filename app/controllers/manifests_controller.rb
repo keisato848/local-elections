@@ -43,7 +43,7 @@ class ManifestsController < ApplicationController
   def destroy
     manifest_tag_relation = ManifestTagRelation.find_by(manifest_id: params[:id])
     manifest = Manifest.find(params[:id])
-    if manifest_tag_relation.destroy && manifest.destroy
+    if manifest.destroy
       redirect_to root_path
     else
       render :show

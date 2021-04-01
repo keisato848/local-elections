@@ -18,7 +18,7 @@ class ManifestTag
   end
   
   def update
-    manifest = Manifest.update(title: title, description: description, user_id: user_id)
+    manifest = Manifest.update(title: title, description: description)
     tag = Tag.where(name: name).first_or_initialize
     tag.save
     
@@ -27,9 +27,7 @@ class ManifestTag
 
   def destroy
     manifest = Manifest.destroy(title: title, description: description, user_id: user_id)
-    tag = Tag.where(name: name).first_or_initialize
-    tag.save
 
-    ManifestTagRelation.create(manifest_id: manifest.id, tag_id: tag.id)
+    ManifestTagRelation.destoroy(manifest_id: manifest.id, tag_id: tag.id)
   end
 end
