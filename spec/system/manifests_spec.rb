@@ -32,7 +32,7 @@ RSpec.describe 'manifests', type: :system do
       expect(page).to have_content(@tag.name)
     end
   end
-  
+
   context 'マニュフェストを投稿できないとき' do
     it 'データを入力しなければマニュフェストを登録できず、投稿ページがレンダリングされ、エラーメッセージが出力される' do
       # ログイン
@@ -52,7 +52,7 @@ RSpec.describe 'manifests', type: :system do
       expect(page).to have_content('タグを入力してください')
     end
   end
-  
+
   context 'マニュフェストを編集できるとき' do
     it '投稿したユーザーは詳細ページから遷移し、マニュフェストを編集できる' do
       @manifest = create(:manifest, user_id: @user.id)
@@ -84,7 +84,7 @@ RSpec.describe 'manifests', type: :system do
       expect(page).to have_content(@edited_manifest.title)
     end
   end
-  
+
   context 'マニュフェストを編集できないとき' do
     it '投稿ユーザー以外には編集ページへのリンクが表示されず、編集できない' do
       @manifest = create(:manifest, user_id: @user.id)
@@ -109,7 +109,7 @@ RSpec.describe 'manifests', type: :system do
       expect(current_path).to eq root_path
     end
   end
-  
+
   context 'マニュフェストを削除できるとき' do
     it '投稿したユーザーは詳細ページから遷移し、マニュフェストを削除できる' do
       @manifest = create(:manifest, user_id: @user.id)
@@ -121,9 +121,9 @@ RSpec.describe 'manifests', type: :system do
       # 削除ボタンが存在することを確認
       expect(page).to have_content('削除')
       # 投稿を削除するとレコードの数が１減ることを確認
-      expect{
+      expect do
         click_on '削除'
-      }.to change { Manifest.count }.by(-1)
+      end.to change { Manifest.count }.by(-1)
       # 削除したデータがトップページで表示されていないことを確認
       visit root_path
       expect(page).to have_no_content(@manifest.title)

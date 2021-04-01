@@ -16,7 +16,7 @@ class ManifestTag
 
     ManifestTagRelation.create(manifest_id: manifest.id, tag_id: tag.id)
   end
-  
+
   def update(manifest_id)
     manifest = Manifest.find(manifest_id)
     manifest.update(title: title, description: description)
@@ -25,7 +25,7 @@ class ManifestTag
     manifest_tag = ManifestTagRelation.find_by(manifest_id: manifest_id)
     manifest_tag.update(tag_id: tag.id)
   end
-  
+
   def destroy(manifest_id)
     manifest_tag = ManifestTagRelation.find_by(manifest_id: manifest_id)
     manifest_tag.destroy
