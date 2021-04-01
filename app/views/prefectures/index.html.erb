@@ -17,9 +17,9 @@
       <% if @manifests.any? %>
         <% @manifests.each do |manifest| %>
           <li class='manifest-content'>
-            <a href="/manifests/<%= manifest.id %>" class='manifest-link'>
+            <a href="/manifests/<%= manifest.id %>" class='manifest-link' id='manifest-link'>
               <span class='posted-user'>
-                <%= l manifest.created_at %>
+                <%= l manifest.updated_at %>
               </span>
               <span class='posted-user'>
                 <%= manifest.user.nickname %>
@@ -35,7 +35,7 @@
         <% end %>
       <% else %>
         <li>
-          <%= link_to '投稿する', new_manifest_path, class:'update-text' %>
+          <%= link_to '新規投稿する', new_manifest_path, class:'update-text' %>
         </li>
       <% end %>
     </ul>

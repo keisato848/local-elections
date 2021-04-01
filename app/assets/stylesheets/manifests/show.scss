@@ -1,15 +1,12 @@
 .manifest-area {
   margin: 0;
-  background: linear-gradient(-135deg,#fff, #e9e4d4);
-  background-color: #CCFFFF;
   padding: 40px 10vw;
   a {
     text-decoration: none;
   }
   .manifest-content {
     background-color: #fff;
-    padding: 5%;
-    box-sizing: inherit;
+    padding: 0 5vw;
     .top-container {
       display: flex;
       justify-content: space-between;
