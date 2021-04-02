@@ -9,7 +9,14 @@
       <% if @assemblyman.user %>
         <div class='profile-heading'>更新者：<%= @assemblyman.user.nickname%></div>
       <% end %>
-      <%= link_to '編集', edit_prefecture_council_assemblyman_path(assemblyman_id: params[:id]), class: 'edit-assemblyman-link' %>
+      <%# 編集ボタン（選挙記述当日は非表示） %>
+      <% if @assemblyman.election_day || @assemblyman.council.election_day %>
+        <% if @assemblyman.election_day != Date.current && @assemblyman.council.election_day != Date.current %>
+          <%= link_to '編集', edit_prefecture_council_assemblyman_path(assemblyman_id: params[:id]), class: 'edit-assemblyman-link' %>
+        <% end %>
+      <% else %>
+        <%= link_to '編集', edit_prefecture_council_assemblyman_path(assemblyman_id: params[:id]), class: 'edit-assemblyman-link' %>
+      <% end %>
     </div>
     <%# 議員氏名 %>
     <h1 class='council-name'><%= @assemblyman.name %></h1>
@@ -86,8 +93,14 @@
         <li class='notes'>コメントはまだありません。</li>
       <% end %>
     </ul>
-    <%# コメント投稿ページへのリンク %>
-    <%= link_to 'コメントを書く', new_prefecture_council_assemblyman_comment_path(assemblyman_id: params[:id]), class: 'comment-link-btn' %>
+    <%# コメント投稿ページへのリンク（選挙期日当日は非表示） %>
+    <% if @assemblyman.election_day || @assemblyman.council.election_day %>
+      <% if @assemblyman.election_day != Date.current && @assemblyman.council.election_day != Date.current %>
+        <%= link_to 'コメントを書く', new_prefecture_council_assemblyman_comment_path(assemblyman_id: params[:id]), class: 'comment-link-btn' %>
+      <% end %>
+    <% else %>
+      <%= link_to 'コメントを書く', new_prefecture_council_assemblyman_comment_path(assemblyman_id: params[:id]), class: 'comment-link-btn' %>
+    <% end %>
   </div>
   <%# コメントエリア %>
 </div>
