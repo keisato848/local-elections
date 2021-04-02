@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   }
 
   root to: 'prefectures#index'
-  resources :prefectures, only: [:index, :show] do
-    resources :councils, only: [:show, :search] do
+  resources :prefectures, only: [:index] do
+    resources :councils, only: [:index, :show, :search] do
       member do
         get 'search'
         post 'search_result' 
       end
-      resources :assemblymen, only: [:show, :edit, :update] do
+      resources :assemblymen, only: [:index, :show, :edit, :update] do
         resources :comments, only: [:new, :create]
       end
     end

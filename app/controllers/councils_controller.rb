@@ -1,8 +1,9 @@
 class CouncilsController < ApplicationController
-  before_action :find_council
+  before_action :find_council, only: [:search, :search_result]
 
-  def show
-    @assemblymen = Assemblyman.where(council_id: params[:id])
+  def index
+    @prefecture = Prefecture.find(params[:prefecture_id])
+    @councils = Council.where(prefecture_id: params[:prefecture_id])
   end
 
   def search
@@ -21,8 +22,7 @@ class CouncilsController < ApplicationController
   private
 
   def find_council
-    @council = Council.find_by(id: params[:id])
-  end
+c  end
 
   # フォームに表示する値をDBから取得
   def find_value

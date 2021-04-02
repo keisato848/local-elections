@@ -1,0 +1,114 @@
+.search-btn {
+  width: 150px;
+  padding: 10px;
+  border: 1px solid #666;
+  border-radius: 4px;
+  color: #000;
+  white-space: nowrap;
+  position: relative;
+  top: -5px;
+  right: -80%;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.chart-area {
+  width: 90%;
+  height: 170px;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+  .chart-content {
+    width: 40%;
+    height: 250px;
+    p {
+      text-align: center;
+      font-weight: 400;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.assemblymen-list {
+  margin: 2vh auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-content: space-between;
+  flex-wrap: wrap;  
+  a {
+    &:hover {
+      background-color: #dcdcdc;
+      transition: 0.4s;
+    }
+    .assemblyman-content {
+      width: 30vw;
+      max-height: 180px;
+      padding: 1vh 1vw;
+      border-top: 1px solid #666666;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .img-background {
+        text-align: center;
+        .assemblyman-img {
+          width: 80%;
+          height: 80%;
+          max-width: 150px;
+          max-height: 150px;
+        }
+        .reference {
+          padding: 0;
+        }
+      }
+      .profile-content {
+        width: 80%;
+        .council-name {
+          font-size: 90%;
+        }
+        .profile-faction {
+          margin-top: 1vh;
+          font-size: 90%;
+          font-weight: 400;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+  
+  // レスポンシブ
+  $breakpoint-md: 550px !default;
+  $breakpoint-lg: 768px !default;
+  $breakpoint-sl: 1200px !default;
+  
+  @media(min-width: #{$breakpoint-sl}) {
+    .profile-faction {
+      font-size: 18px;
+    }
+  }
+@media(max-width: #{$breakpoint-lg}) {
+  .assemblymen-list {
+    .assemblyman-content {
+      width: 45vw;
+    }
+  }
+}
+@media(max-width: #{$breakpoint-md}) {
+  .chart-area {
+    display: block;
+    height: 60%;
+    padding-bottom: 3vh;
+    .chart-content {
+      width: 90%;
+      height: 200px;
+      padding-bottom: 15px;
+      margin: 2vh auto;
+    }
+  }
+  .assemblymen-list {
+    .assemblyman-content {
+      width: 90vw;
+    }
+  }
+}

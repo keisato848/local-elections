@@ -2,6 +2,11 @@ class AssemblymenController < ApplicationController
   before_action :search_comment, only: :show
   before_action :authenticate_user!, only: [:edit, :update]
 
+  def index
+    @council = Council.find_by(id: params[:council_id])
+    @assemblymen = Assemblyman.where(council_id: params[:council_id])
+  end
+  
   def show
     find_assemblyman
   end
