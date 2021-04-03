@@ -1,0 +1,21 @@
+<%= render 'shared/header' %>
+<div class='main'>
+  <%# 政党・性別が一致した議員を表示 %>
+  <% if @both_match.present? %>
+    <h2>政党・性別が一致した議員</h2>
+    <%= render 'shared/assemblyman-list', model: @both_match %>
+  <% else %>
+    <%# 政党が一致した議員を表示 %>
+    <% if @faction_match.present? %>
+      <h2>政党が一致した議員</h2>
+      <%= render 'shared/assemblyman-list', model: @faction_match %>
+    <% end %> 
+    <%# 性別が一致した議員を表示 %>
+    <% if @sex_match.present? %>
+      <h2>性別が一致した議員</h2>
+      <%= render 'shared/assemblyman-list', model: @sex_match %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render 'shared/footer' %>

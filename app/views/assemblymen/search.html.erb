@@ -1,11 +1,11 @@
-<%= render 'shared/header' %>
+<%= render 'shared/second-header' %>
 <div class='main'>
-  <h1 class='prefecture-name'><%= @council.name %>議員検索フォーム</h1>
-  <%= form_with(model: @target_assemblyman, url: search_result_prefecture_council_path, method: :post, class: 'registration-main', local: true) do |f| %>
+  <h1>検索フォーム</h1>
+  <%= form_with(model: @target_assemblyman, url: search_result_prefecture_council_assemblymen_path, method: :post, class: 'registration-main', local: true) do |f| %>
     <div>
       <div class="form-group">
         <div class='form-text-wrap'>
-          <label class="form-text">政党を選択してください</label>
+          <label class="form-text">所属政党・会派を選択してください</label>
           <span class="indispensable">任意</span>
         </div>
         <%= f.select(:faction, @factions.uniq, {:prompt => "特になし"}, class: 'select_field') %>
@@ -16,13 +16,6 @@
           <span class="indispensable">任意</span>
         </div>
         <%= f.select(:sex, ['男性', '女性'], {:prompt => "特になし"}, class: 'select_field') %>
-      </div>
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">職業を選択してください</label>
-          <span class="indispensable">任意</span>
-        </div>
-        <%= f.select(:job, @jobs.uniq, {:prompt => "特になし"}, class: 'select_field') %>
       </div>
       <%= f.submit '検索', class: 'register-blue-btn' %>
     </div>  

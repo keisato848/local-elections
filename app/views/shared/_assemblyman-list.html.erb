@@ -1,0 +1,39 @@
+<div class='assemblymen-list'>
+  <% model.each do |assemblyman| %>
+    <a href=<%= "#{assemblyman.id}" %>>
+      <div class='assemblyman-content'>
+        <div class='img-background'>
+          <% if assemblyman.img_url %>
+            <%= image_tag assemblyman.img_url, class: 'assemblyman-img' %>
+            <% if assemblyman.council.name.include?('知事・市長') %>
+              <% if assemblyman.position.include?('知事') %>
+                <p class='reference'>© <%= assemblyman.position.delete('知事') %></p>
+              <% elsif assemblyman.position.include?('長') %>
+                <p class='reference'>© <%= assemblyman.position.delete('長') %></p>
+              <% end %>
+            <% else %>
+              <p class='reference'>© <%= assemblyman.council.name %></p>
+            <% end %>
+          <% else %>
+            <%= image_tag 'assemblyman-alt-img.png', class: 'assemblyman-img' %>
+          <% end %>
+        </div>
+        <div class='profile-content'>
+          <div class='council-name'>
+            <%= assemblyman.name %>
+          </div>
+          <% if assemblyman.position %>
+            <div class='profile-faction'>
+              <%= assemblyman.position %>
+            </div>
+          <% end %>
+          <% if assemblyman.faction %>             
+            <div class='profile-faction'>
+              <%= assemblyman.faction %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </a>
+  <% end %>
+</div>

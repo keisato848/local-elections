@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   root to: 'prefectures#index'
   resources :prefectures, only: [:index] do
     resources :councils, only: [:index, :show, :search] do
-      member do
-        get 'search'
-        post 'search_result' 
-      end
       resources :assemblymen, only: [:index, :show, :edit, :update] do
+        collection do
+          get 'search'
+          post 'search_result' 
+        end
         resources :comments, only: [:new, :create]
       end
     end
