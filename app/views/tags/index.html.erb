@@ -1,6 +1,9 @@
 <%= render 'shared/second-header' %>
+
+<%# パンくずリスト %>
 <% breadcrumb :tag %>
-<%= render 'shared/breadclumbs' %>
+<%= render 'shared/breadcrumbs' %>
+
 <div class='main'>
   <h1 class='prefecture-name'>タグ一覧</h1>
   <% @tags.each do |tag| %>

@@ -1,7 +1,9 @@
 <%= render "shared/second-header" %>
+<%# パンくずリスト %>
 <% breadcrumb :prefecture, @prefecture %>
+<%= render 'shared/breadcrumbs' %>
+
 <div class='main'>
-  <%= render 'shared/breadclumbs' %>
   <h1><%= @prefecture.name %>のデータ</h1>
   <% if @councils %>
     <ul class='council-list'>

@@ -1,8 +1,8 @@
 <%= render "shared/second-header" %>
 <% breadcrumb :council, @council %>
+<%= render 'shared/breadcrumbs' %>
 <div class='main'>
-  <%= render 'shared/breadclumbs' %>
-  <%= link_to '議員検索', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:id]}/search", class: 'search-btn' %>
+  <%= link_to '議員検索', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/search", class: 'search-btn' %>
   <h1 class='prefecture-name'><%= @council.name %>のデータ</h1>
   <div class='chart-area'>
     <div class='chart-content'>
@@ -23,7 +23,7 @@
             <div class='img-background'>
               <% if assemblyman.img_url %>
                 <%= image_tag assemblyman.img_url, class: 'assemblyman-img' %>
-                <% if @council.name.include?('知事・市長') %>
+                <% if assemblyman.council.name.include?('知事・市長') %>
                   <% if assemblyman.position.include?('知事') %>
                     <p class='reference'>© <%= assemblyman.position.delete('知事') %></p>
                   <% elsif assemblyman.position.include?('長') %>

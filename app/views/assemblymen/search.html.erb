@@ -1,4 +1,9 @@
 <%= render 'shared/second-header' %>
+
+<%# パンくずリスト %>
+<% breadcrumb :search %>
+<%= render 'shared/breadcrumbs' %>
+
 <div class='main'>
   <h1>検索フォーム</h1>
   <%= form_with(model: @target_assemblyman, url: search_result_prefecture_council_assemblymen_path, method: :post, class: 'registration-main', local: true) do |f| %>

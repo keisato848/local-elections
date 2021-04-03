@@ -1,5 +1,9 @@
 <%= render 'shared/second-header' %>
 
+<%# パンくずリスト %>
+<% breadcrumb :edit_manifest %>
+<%= render 'shared/breadcrumbs' %>
+
 <%= form_with model: @manifest_tag, url: manifest_path, method: :patch, class: 'registration-main', local: true do |f| %>
   <div class='form-wrap'>
     <%= render 'shared/error_messages', model: @manifest %>

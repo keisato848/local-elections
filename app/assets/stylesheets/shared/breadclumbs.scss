@@ -1,5 +1,5 @@
-.breadclumbs {
-  padding: 10px 4vw;
+.breadcrumbs {
+  padding: 10px 0 0 4vw;
   font-size: 14px;
   color: #666;
   ul {
@@ -29,8 +29,9 @@
 $breakpoint-md: 550px !default;
 
 @media(max-width: #{$breakpoint-md}) {
-  .breadclumbs {
+  .breadcrumbs {
     padding: 10px 0;
+    font-size: 12px;
     ul {
       justify-content: center;
     }
