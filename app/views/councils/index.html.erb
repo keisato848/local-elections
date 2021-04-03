@@ -1,4 +1,5 @@
 <%= render "shared/second-header" %>
+
 <%# パンくずリスト %>
 <% breadcrumb :prefecture, @prefecture %>
 <%= render 'shared/breadcrumbs' %>
@@ -8,11 +9,11 @@
   <% if @councils %>
     <ul class='council-list'>
       <% @councils.each_with_index do |council, i| %>
-        <a href=<%= "/prefectures/#{council.prefecture.id}/councils/#{council.id}/assemblymen" %>>
-          <li class='council-content'>
+        <li class='council-content'>
+          <a href=<%= "/prefectures/#{council.prefecture.id}/councils/#{council.id}/assemblymen" %>>
             <%= i + 1 %> . <%= council.name %>
-          </li>
-        </a>
+          </a>
+        </li>
       <% end %>
     </ul>
   <% else %>

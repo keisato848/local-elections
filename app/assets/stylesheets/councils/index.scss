@@ -1,20 +1,19 @@
 .council-list {
-  margin: 1vh 10vw;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  a {
-    display: block;
+  .council-content {
+    width: 100vw;
     padding: 1vh 0;
     margin: 0 auto;
-    color: #222;
-    font-size: 1.2rem;
+    border-bottom: 1px solid #666;
+    text-align: center;
+    font-size: 1.3rem;
     font-weight: 400;
+    cursor: pointer;
     &:hover {
-      font-size: 1.4em;
-      text-decoration: underline;
+      background-color: #dcdcdc;
       transition: background-color 0.4s;
+      a {
+        color: #000;
+      }
     }
   }
 }

@@ -1,12 +1,17 @@
 <%= render "shared/header" %>
 
+<%# アプリの紹介部分 %>
+<%= image_tag 'top-background-img.jpeg', class: 'top-background-img' %>
 <div class='app-introduction'>
-  <h1 class='catch-copy'>あなたの声を地域のリーダーへ―</h1>
-  <p>
-     Local Electionsは地方議員の情報や活動を共有するためのサービスです。"どんな議員がいるの？"、"誰に投票しよう？"、"移住したばかりで、議員がわからない" など、悩みや疑問を選挙前に解消しましょう！
+  <h1 class='fadein catch-copy'>あなたの声を地域のリーダーへ―</h1>
+  <p class='fadein app-description'>
+     Local Electionsは地方議会に関する悩みを解決するサービスです。<br />
+     議員情報を参照したり、あなただけのマニュフェストを投稿しましょう！
   <p>
 </div>
-<div class='main'>
+
+<%# 新着リスト %>
+<div class='top-main'>
   <div class='update-lists'>
     <ul class='update-title'>
       <li class='update-active' id='new'>新着マニュフェスト</li>
@@ -18,7 +23,7 @@
         <% @manifests.each do |manifest| %>
           <li class='manifest-content'>
             <a href="/manifests/<%= manifest.id %>" class='show-manifest-link' id='manifest-link'>
-              <span class='posted-user'>
+              <span class='update-date'>
                 <%= l manifest.updated_at %>
               </span>
               <span class='posted-user'>
@@ -41,16 +46,16 @@
     </ul>
     <ul class='update-content' id='info-content'>
       <li>
-        <span class='update-date'>2021-3-16</span>
-        <%= link_to '富山県の知事・市長等', '/prefectures/16/councils/1', class:'update-text' %>
+        <span class='update-date'>2021年04月02日</span>
+        <%= link_to '富山県の情報を更新しました', '/prefectures/16', class:'update-text' %>
       </li>
       <li>
-        <span class='update-date'>2021-3-14</span>
-        <%= link_to '富山市議会議員', '/prefectures/16/councils/3', class:'update-text' %>
+        <span class='update-date'>2021年03月14日</span>
+        <%= link_to '富山市議会議員', '/prefectures/16/councils/3/asemblymen', class:'update-text' %>
       </li>
       <li>
-        <span class='update-date'>2021-2-21</span>
-        <%= link_to '富山県議会議員', '/prefectures/16/councils/2', class:'update-text' %>
+        <span class='update-date'>2021月02月21日</span>
+        <%= link_to '富山県議会議員', '/prefectures/16/councils/2/assemblymen', class:'update-text' %>
       </li>
     </ul>
     <ul class='update-content' id='election-content'>

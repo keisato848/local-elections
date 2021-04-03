@@ -1,204 +1,208 @@
 .top-page-header {
-  background: linear-gradient(-135deg,#2a83a2,#214b7d);
+  background: linear-gradient(-135deg,#92d9f3,#214b7d);
   color: #ffffff;
   text-align: center;
-  a {
-    text-decoration: none;
+  .top-container {
+    padding: 1vh 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ffffff;
+    .logo-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .logo-icon {
+        max-width: 100%;
+      }
+      .logo-text {
+        color: #fff;
+        font-size: 30px;
+        font-weight: 400;
+      }
+    }
+  }
+  .manifest-session {
+    margin-right: 50px;
+    padding: 5px 15px;
+    background-color: #333;
+    line-height: 20px;
+    vertical-align: center;
+    border-radius: 4px;
+    &:hover {
+      background-color: #111;
+      transition: background-color 0.4s;
+    }
+    .material-icons {
+      color: #fff;
+      line-height: 20px;
+      padding: 0;
+      margin-right: 2px;
+    }
+    .post-link {
+      line-height: 20px;
+      display: inline-block;
+      color: #fff;
+      font-weight: 400;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  
+  .user-session {
+    text-align: center;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .registration-link {
+    color: #ffffff;
+    margin-right: 20px;
+    padding: 5px 10px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
     &:hover {
       text-decoration: underline;
     }
   }
-}
-
-.top-container {
-  padding: 3vh 2vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ffffff;
-}
-
-.logo-icon {
-  max-width: 100%;
-  margin: 0 20px 0 10px;
-}
-
-.manifest-session {
-  margin-right: 50px;
-  padding: 5px 15px;
-  background-color: #333;
-  line-height: 20px;
-  vertical-align: center;
-  border-radius: 4px;
-  &:hover {
-    background-color: #111;
-    transition: background-color 0.4s;
-  }
-  .material-icons {
-    color: #fff;
-    line-height: 20px;
-    padding: 0;
-    margin-right: 2px;
-  }
-  .post-link {
-    line-height: 20px;
-    display: inline-block;
-    color: #fff;
-    font-weight: 400;
+  
+  .login-link {
+    color: #ffffff;
+    margin-right: 10px;
     &:hover {
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
-
-}
-
-.user-session {
-  text-align: center;
-  margin-right: 10px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.registration-link {
-  color: #ffffff;
-  margin-right: 20px;
-  padding: 5px 10px;
-  border: 1px solid #ffffff;
-  border-radius: 4px;
-}
-
-.login-link {
-  color: #ffffff;
-  margin-right: 10px;
-}
-
-/* ハンバーガーメニュー */
-.material-icons {
-  padding: 2vh 3vw 0 2vw;
-  cursor: pointer;
-}
-
-.hamburger-menu {
-  float: right;
-  display: none;
-  position: relative;
-}
-
-.hidden-menu-list {
-  width: 25vw;
-  background-color: #313131;
-  color : #ffffff;
-  font-weight: 400;
-  display: none;
-  border-radius: 4px;
-  position: absolute;
-  top: 4vh;
-  right: 0;
-}
-
-.hidden-menu-list {
-  li {
-    padding: 15px 15px;
-  }
-}
-
-.close-btn {
-  height: 24px;
-  color: #313131;
-  cursor: pointer;
-}
-
-.hidden-registration-link, .hidden-login-link {
-  color: #ffffff;
-}
-/* ハンバーガーメニュー */
-
-/* 地域選択タブ */
-.region-tab {
-  width: 95vw;
-  margin: 0 auto;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.region-tab {
-  li {
-  padding: 2vh calc((100% - 380px) / 14);
-  white-space: nowrap;
-  font-weight: 500;
-  cursor: pointer;
-  }
-}
-
-.active {
-  background-color: #ffffff;
-  color: #313131;
-  border-bottom: 1px solid #dcdcdc;
-}
-
-.region-tab li:not(.active):hover {
-  padding-top: 10px;
-}
-/* 地域選択タブ */
-
-/* 都道府県リスト */
-
-.hidden {
-  position: relative;
-}
-
-.prefecture-list {
-  width: 95vw;
-  padding: 1vh 1vw;
-  margin: 0 auto;
-  background-color: #ffffff;
-  text-align: center;
-  display: none;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  position: absolute;
-  left: 2.5vw;
-  border-bottom: 1px solid #dcdcdc;
-}
-
-.prefecture-link {
-  color: #313131;
-  font-weight: 400;
-  &:hover {
-  text-decoration: underline;
-  }
-}
-
-.close-btn {
+  
+  
+  /* ハンバーガーメニュー */
   .material-icons {
-    padding: 0;
-  } &:hover {
-  border-bottom: 1px solid #313131;
-  }
-}
-
-/* レスポンシブ */
-$breakpoint-sm: 420px !default;
-$breakpoint-md: 550px !default;
-$breakpoint-lg: 768px !default;
-
-@media(max-width: #{$breakpoint-lg}){
-  .manifest-session {
-    display: none;
-  }
-}
-
-@media (max-width: #{$breakpoint-md}) {
-  .hamburger-menu {
-    display: block;
+    padding: 2vh 3vw 0 2vw;
+    cursor: pointer;
   }
   
-  .user-session {
+  .hamburger-menu {
     display: none;
+    position: absolute;
+    left: 85vw;
+  }
+  
+  .hidden-menu-list {
+    width: 20vw;
+    background-color: #214b7d;
+    color: #fff;
+    font-weight: 400;
+    display: none;
+    border-radius: 4px;
+    position: relative;
+    right: 10vw;
+  }
+  
+  .hidden-menu-list {
+    li {
+      padding: 15px 15px;
+    }
+  }
+  
+  .close-btn {
+    height: 24px;
+    color: #313131;
+    cursor: pointer;
+  }
+  
+  .hidden-registration-link, .hidden-login-link {
+    color: #ffffff;
+  }
+  /* ハンバーガーメニュー */
+  
+  /* 地域選択タブ */
+  .region-tab {
+    width: 95vw;
+    margin: 0 auto;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .region-tab {
+    li {
+      padding: 2vh calc((100% - 380px) / 14);
+      white-space: nowrap;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+  
+  .active {
+    background-color: #ffffff;
+    color: #313131;
+    border-bottom: 1px solid #dcdcdc;
+  }
+  
+  .region-tab li:not(.active):hover {
+    padding-top: 10px;
+  }
+  /* 地域選択タブ */
+  
+  /* 都道府県リスト */
+  .hidden {
+    position: relative;
+  }
+  
+  .prefecture-list {
+    width: 100vw;
+    padding: 1vh 1vw;
+    margin: 0 auto;
+    background-color: #ffffff;
+    text-align: center;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #dcdcdc;
+  }
+  
+  .prefecture-link {
+    color: #313131;
+    font-weight: 400;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .close-btn {
+    .material-icons {
+      padding: 0;
+    } &:hover {
+      border-bottom: 1px solid #313131;
+    }
+  }
+  }
+  
+/* レスポンシブ */
+$breakpoint-sm: 420px !default;
+$breakpoint-lg: 800px !default;
+  
+@media(max-width: #{$breakpoint-lg}){
+  .top-container {
+    .logo-area {
+      .logo-icon {
+        height: 80px;
+      }
+    }
+    .manifest-session {
+      display: none;
+    }
+    .user-session {
+      display: none;
+    }
+    .hamburger-menu {
+      display: block;
+    }
   }
 }
 @media (max-width: #{$breakpoint-sm}) {
