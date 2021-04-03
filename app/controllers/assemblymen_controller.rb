@@ -6,7 +6,7 @@ class AssemblymenController < ApplicationController
     @council = Council.find(params[:council_id])
     @assemblymen = Assemblyman.where(council_id: params[:council_id])
   end
-  
+
   def show
     @comments = Comment.where(assemblyman_id: params[:id])
   end
@@ -57,9 +57,8 @@ class AssemblymenController < ApplicationController
       @factions << assemblyman.faction
     end
   end
-  
+
   def search_params
     params.permit(:prefecture_id, :id, :faction, :sex, :job)
   end
-
 end
