@@ -1,17 +1,22 @@
 .council-list {
+  width: 90vw;
+  margin: 15px auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   .council-content {
-    width: 100vw;
-    padding: 1vh 0;
-    margin: 0 auto;
-    border-bottom: 1px solid #666;
+    min-width: 150px;
+    padding: 10px 10px 10px 0;
+    margin: 0 10px 20px 0;
+    border: 1px solid #666;
     text-align: center;
-    font-size: 1.3rem;
     font-weight: 400;
     cursor: pointer;
     &:hover {
       background-color: #dcdcdc;
       transition: background-color 0.4s;
       a {
+        display: block;
         color: #000;
       }
     }
@@ -26,8 +31,6 @@ $breakpoint-lg: 768px !default;
 @media (max-width: #{$breakpoint-lg}) {
   .main {
     font-size: 0.9rem;
-    .council-content {
-    }
   }
 }
 @media (max-width: #{$breakpoint-md}) {
