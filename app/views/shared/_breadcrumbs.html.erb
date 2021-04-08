@@ -1,0 +1,19 @@
+<div class='breadcrumbs'>
+  <% breadcrumbs.tap do |links| %>
+    <% if links.any? %>
+    <ul>
+      <% links.each_with_index do |link, index| %>
+        <% if index == 0 %>
+          <span class="material-icons">home</span>
+        <% end %>
+        <li>
+          <%= link_to link.text, link.url, class: (link.current? ? "current" : 'link') %>
+        </li>
+        <% unless index == links.size - 1 %>
+          <span class="material-icons">chevron_right</span>
+        <% end %>
+      <% end %>
+    </ul>
+    <% end %>
+  <% end %>
+</div>

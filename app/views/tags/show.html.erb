@@ -1,6 +1,9 @@
 <%= render 'shared/second-header' %>
+
+<%# パンくずリスト %>
 <% breadcrumb :show_tag %>
-<%= render 'shared/breadclumbs' %>
+<%= render 'shared/breadcrumbs' %>
+
 <div class='main'>
   <h1 class='prefecture-name'><%= @tag.name %>に関連するマニュフェスト
 </h1>

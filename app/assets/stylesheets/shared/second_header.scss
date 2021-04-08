@@ -1,13 +1,24 @@
 .second-header {
-  flex: 1;
-  height: 70px;
-  text-align: center;
-  background: linear-gradient(-135deg,#2a83a2,#214b7d);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.second-logo {
-  width: clamp(50%, 70%, 90%);
+  height: 80px;
+  width: 100%;
+  background: linear-gradient(-135deg,#92d9f3,#214b7d);
+  .logo-text {
+    display: block;
+    text-align: center;
+    line-height: 80px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 400;
+  }
+  .footer-contents {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    align-items: center;
+  }
 }

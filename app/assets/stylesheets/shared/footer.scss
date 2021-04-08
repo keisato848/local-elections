@@ -1,12 +1,11 @@
 footer {
   height: 100px;
-  width: 100%;
-  padding: 2vh 2vw;
+  width: 100vw;
+  padding: 2vh 0;
   background: linear-gradient(-135deg,#666666, #313131);
   text-align: center;
   position: absolute;
   bottom: 0;
-  position: fixed;
   .footer-contents {
     display: flex;
     justify-content: space-around;
@@ -17,6 +16,10 @@ footer {
     text-decoration: none;
     display: block;
     align-items: center;
+  }
+  .twitter-icon {
+    width: 30px;
+    margin: 1vh 0;
   }
   div>p {
     color: #ffffff;

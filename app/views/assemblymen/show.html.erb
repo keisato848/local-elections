@@ -1,79 +1,87 @@
 <%= render "shared/second-header" %>
+
+<%# パンくずリスト %>
 <% breadcrumb :assemblyman, @assemblyman %>
-<%= render 'shared/breadclumbs' %>
+<%= render 'shared/breadcrumbs' %>
+
+<%# 更新情報 %>
+<div class='update'>
+  <div class='profile-heading'>更新日時：<%= l @assemblyman.updated_at %></div>
+  <% if @assemblyman.user %>
+    <div class='profile-heading'>更新者：<%= @assemblyman.user.nickname%></div>
+  <% end %>
+  <%# 編集ボタン%>
+  <% if @assemblyman.election_day || @assemblyman.council.election_day %>
+    <%# 選挙期日以外は表示  %>
+    <% if @assemblyman.council.election_day != Date.current || @assemblyman.election_day != Date.current %>
+      <%= link_to '編集', "#{params[:id]}/edit", class: 'edit-assemblyman-link' %>
+    <% end %>
+  <% else %>
+    <%= link_to '編集', "#{params[:id]}/edit", class: 'edit-assemblyman-link' %>
+  <% end %>
+</div>
+
+<%# 議員情報 %>
 <div class='main'>
-  <div class='assemblyman-profile-details'>
-    <%# 更新情報 %>
-    <div class='update'>
-      <div class='profile-heading'>更新日時：<%= l @assemblyman.updated_at %></div>
-      <% if @assemblyman.user %>
-        <div class='profile-heading'>更新者：<%= @assemblyman.user.nickname%></div>
-      <% end %>
-      <%= link_to '編集', edit_prefecture_council_assemblyman_path(assemblyman_id: params[:id]), class: 'edit-assemblyman-link' %>
-    </div>
-    <%# 議員氏名 %>
-    <h1 class='council-name'><%= @assemblyman.name %></h1>
-    <div class='profile-background'>
+  <%# 議員氏名 %>
+  <h1 class='council-name'><%= @assemblyman.name %></h1>
+  <div class='profile-area'>
+    <div class='profile-details'>
       <%# 議員画像 %>
       <% if @assemblyman.img_url && @assemblyman.img_url != ""%>
         <%= image_tag @assemblyman.img_url, class: 'assemblyman-img' %>
       <% else %>
         <%= image_tag 'assemblyman-alt-img.png', class: 'assemblyman-img' %>
       <% end %>
-      <div class='profile-details'>
-        <%# 役職等 %>
-        <% if @assemblyman.position && @assemblyman.position != ""%>
-          <div class='profile-wrap'>
-            <span class='profile-heading'>役職等</span>
-            <span class='profile-text'><%= @assemblyman.position %></span>
-          </div>
-        <% end %>
-        <%# 生年月日 %>
-        <% if @assemblyman.birth_of_date && @assemblyman.birth_of_date != ""%>
-          <div class='profile-wrap'>
-            <span class='profile-heading'>生年月日</span>
-            <span class='profile-text'><%= l @assemblyman.birth_of_date %></span>
-          </div>
-        <% end %>
-        <%# 所属政党・会派等 %>
-        <% if @assemblyman.faction && @assemblyman.faction != ""%>
-          <div class='profile-wrap'>
-            <span class='profile-heading'>所属政党・会派等</span>
-            <span class='profile-text'><%= @assemblyman.faction %></span>
-          </div>
-        <% end %>
-        <%# 当選回数 %>
-        <% if @assemblyman.number_of_wins && @assemblyman.number_of_wins != ""%>
+      <%# 役職等 %>
+      <% if @assemblyman.position && @assemblyman.position != ""%>
         <div class='profile-wrap'>
-          <span class='profile-heading'>当選回数</span>
-          <span class='profile-text'><%= @assemblyman.number_of_wins %> 回</span>
+          <span class='profile-heading'>役職等</span>
+          <span class='profile-text'><%= @assemblyman.position %></span>
         </div>
-        <% end %>
-        <%# 職業 %>
-        <% if @assemblyman.job && @assemblyman.job != "" %>
-          <div class='profile-wrap'>
-            <span class='profile-heading'>職業</span>
-            <span class='profile-text'><%= @assemblyman.job %></span>
-          </div>
-        <% end %>
+      <% end %>
+      <%# 生年月日 %>
+      <% if @assemblyman.birth_of_date && @assemblyman.birth_of_date != ""%>
+        <div class='profile-wrap'>
+          <span class='profile-heading'>生年月日</span>
+          <span class='profile-text'><%= l @assemblyman.birth_of_date %></span>
+        </div>
+      <% end %>
+      <%# 所属政党・会派等 %>
+      <% if @assemblyman.faction && @assemblyman.faction != ""%>
+        <div class='profile-wrap'>
+          <span class='profile-heading'>所属政党・会派等</span>
+          <span class='profile-text'><%= @assemblyman.faction %></span>
+        </div>
+      <% end %>
+      <%# 当選回数 %>
+      <% if @assemblyman.number_of_wins && @assemblyman.number_of_wins != ""%>
+      <div class='profile-wrap'>
+        <span class='profile-heading'>当選回数</span>
+        <span class='profile-text'><%= @assemblyman.number_of_wins %> 回</span>
       </div>
+      <% end %>
+      <%# 職業 %>
+      <% if @assemblyman.job && @assemblyman.job != "" %>
+        <div class='profile-wrap'>
+          <span class='profile-heading'>職業</span>
+          <span class='profile-text'><%= @assemblyman.job %></span>
+        </div>
+      <% end %>
     </div>
+    <%# Twitterタイムライン %>
+    <% if @assemblyman.twitter_url && @assemblyman.twitter_url != ""%>
+      <div class='tweet-area'>
+        <a class="twitter-timeline" data-width='20vw' data-height='60vh' data-chrome='noheader nofooter noborders transparent' href="https://twitter.com/<%=@assemblyman.twitter_url%>"><%= @assemblyman.name %>さんのツイート</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    <% end %>
   </div>
-  <%# Twitterタイムライン表示エリア %>
-  <% if @assemblyman.twitter_url && @assemblyman.twitter_url != ""%>
-    <div class='tweet-area'>
-      <%= image_tag 'Twitter_social_icons-circle-blue.png', class: 'twitter_icon_circle' %>
-      <a class="twitter-timeline" data-width='600px' data-height='400px' data-chrome='noheader nofooter noborders transparent' href="https://twitter.com/<%=@assemblyman.twitter_url%>"><%= @assemblyman.name %>さんのツイート</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <p>※本人のアカウントであることを保証するものではありません。</p>
-    </div>
-  <% end %>
-  <%# Twitterタイムライン表示エリア %>
-  <%= link_to '議員一覧へ',  "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}", class: 'blue-link-btn'%>
+  
   <%# コメントエリア %>
-  <div class="comments-area">
+  <div class="comment-area">
     <%# コメントを一覧表示 %>
-    <ul class='comments-list'>
-      <% if @comments.find_by(assemblyman_id: params[:id]) %>
+    <% if @comments.find_by(assemblyman_id: params[:id]) %>
+      <ul class='comment-list'>
         <% @comments.each do |comment| %> 
           <li class="comment-content">
             <div class='comment-user'>
@@ -82,13 +90,17 @@
             <span class='comment-text'><%= comment.comment %></span>
           </li>
         <% end %>
-      <% else  %>
-        <li class='notes'>コメントはまだありません。</li>
+      </ul>
+    <% end %>
+    <%# 投稿ページへのリンク（選挙期日当日は非表示） %>
+    <% if @assemblyman.election_day || @assemblyman.council.election_day %>
+      <% if @assemblyman.election_day != Date.current && @assemblyman.council.election_day != Date.current %>
+        <%= link_to 'コメントを書く', new_prefecture_council_assemblyman_comment_path(assemblyman_id: params[:id]), class: 'comment-link-btn' %>
       <% end %>
-    </ul>
-    <%# コメント投稿ページへのリンク %>
-    <%= link_to 'コメントを書く', new_prefecture_council_assemblyman_comment_path(assemblyman_id: params[:id]), class: 'comment-link-btn' %>
+    <% else %>
+      <%= link_to 'コメントを書く', new_prefecture_council_assemblyman_comment_path(assemblyman_id: params[:id]), class: 'comment-link-btn' %>
+    <% end %>
   </div>
-  <%# コメントエリア %>
 </div>
+
 <%= render 'shared/footer' %>

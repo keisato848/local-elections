@@ -1,112 +1,104 @@
-.main {
-  .assemblyman-profile-details {
-    width: 80vw;
-    margin: 0 auto;
-    .update {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      margin: 0 10vw 5vh 10vw;
-      .profile-heading {
-        margin-right: 20px;
-      }
-      .edit-assemblyman-link {
-        color: #666;
-        margin-left: 20px;
-        padding: 5px 10px;
-        border: 1px solid #666;
-        border-radius: 4px;
-        &:hover {
-          background-color: #dcdcdc;
-          transition: background-color 0.7s;
-        }
-      }
-    }
-    .council-name {
-      margin-bottom: 5vh;
-      font-size: 30px;
-    }
-    .profile-background {
-      margin: 0 10vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .assemblyman-img {
-        width: 30%;
-        height: auto;
-      }
-      .profile-details {
-        width: 60%;
-        .profile-wrap {
-          margin: 3vh auto;
-          font-size: 1rem;
-          display: flex;
-          justify-content: space-between;
-          .profile-heading {
-            font-weight: 400;
-            white-space: nowrap;
-            padding: 0 2vw;
-          }
-        }
-      }
-    }  
+.update {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 2vh 10vw;
+  .profile-heading {
+    margin-right: 20px;
   }
-  // Twitterタイムライン
-  .tweet-area {
-    width: 70vw;
-    padding: 0 5vw;
-    text-align: center;
-    margin: 0 auto;
-    .twitter_icon_circle {
-      width: 10vw;
-      max-width: 100px;
-      padding: 0 30vw;
-      margin: 5vh 0;
-    }
-  }
-  .blue-link-btn {
-    margin: 3vh auto;
-  }
-  // コメントエリア
-  .comments-list{
-    width: 80vw;
-    margin: 2vw auto;
-    display: flex;
-    flex-direction: column-reverse; 
-    .comment-content{
-      margin: 0;
-      padding: 3vh 3vw 3vh 5vw;
-      border-top: 1px solid #666666;
-      .comment-user{
-        color: #214b7d;
-        font-weight: bolder;
-      }  
-      .comment-text {
-        display: inline;  
-      }
-    }
-    .notes {
-      width: 100%;
-      font-size: 90%;
-      text-align: center;
+  .edit-assemblyman-link {
+    color: #666;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    &:hover {
+      background-color: #dcdcdc;
+      transition: background-color 0.7s;
     }
   }
 }
-.comment-link-btn {
-  width: 8vw;
-  padding: 0.5vh 2vw;
-  margin: 0 auto;
-  color: #666666;
-  font-size: 80%;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  border: 1px solid #666666;
-  border-radius: 4px;
-  display: block;
-  &:hover {
-    background-color: #dcdcdc;
-    transition: background-color 0.7s;
+
+.main {
+  h1 {
+    font-size: 30px;
+  }
+  .profile-area {
+    width: 70vw;
+    height: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .profile-details {
+      width: 40vw;
+      height: 40%;
+      text-align: center;
+      .assemblyman-img {
+        width: 240px;
+        height: 320px;
+        margin: 3vh 0;
+      }
+      .profile-wrap {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        .profile-heading {
+          font-weight: 400;
+          white-space: nowrap;
+          padding: 0 2vw;
+        }
+      }
+    }
+  }
+  .tweet-area {
+    max-width: 40vw;
+    max-height: 50%;
+    margin-left: 10vw;
+    padding-top: 5%;
+    text-align: center;
+  }
+  .comment-area {
+    margin: 3vh auto;
+    .comment-list{
+      width: 80vw;
+      margin: 2vw auto;
+      display: flex;
+      flex-direction: column-reverse; 
+      .comment-content{
+        margin: 0;
+        padding: 3vh 3vw 3vh 5vw;
+        border-top: 1px solid #666666;
+        .comment-user{
+          color: #214b7d;
+          font-weight: bolder;
+        }  
+        .comment-text {
+          display: inline;  
+        }
+      }
+    }
+    p {
+      background-color: #dcdcdc;
+      text-align: center;
+    }
+    .comment-link-btn {
+      width: 150px;
+      padding: 1vh 2vw;
+      margin: 0 auto;
+      color: #666666;
+      font-weight: 400;
+      text-decoration: none;
+      text-align: center;
+      white-space: nowrap;
+      border: 1px solid #666666;
+      border-radius: 4px;
+      display: block;
+      &:hover {
+        background-color: #dcdcdc;
+        transition: background-color 0.7s;
+      }
+    }
   }
 }
 

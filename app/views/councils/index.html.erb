@@ -1,0 +1,26 @@
+<%= render "shared/second-header" %>
+
+<%# パンくずリスト %>
+<% breadcrumb :prefecture, @prefecture %>
+<%= render 'shared/breadcrumbs' %>
+
+<div class='main'>
+  <h1><%= @prefecture.name %>のデータ</h1>
+  <% if @councils %>
+    <ul class='council-list'>
+      <% @councils.each_with_index do |council, i| %>
+        <li class='council-content'>
+          <a href=<%= "/prefectures/#{council.prefecture.id}/councils/#{council.id}/assemblymen" %>>
+            <%= i + 1 %> . <%= council.name %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div class='coming-soon'>
+      <h1>Comming Soon!!</h1>
+      <p>更新までお待ちください。</p>
+    </div>
+  <% end %>
+</div>
+<%= render 'shared/footer' %>

@@ -1,0 +1,43 @@
+.council-list {
+  width: 90vw;
+  margin: 15px auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .council-content {
+    min-width: 150px;
+    padding: 10px 10px 10px 0;
+    margin: 0 10px 20px 0;
+    border: 1px solid #666;
+    text-align: center;
+    font-weight: 400;
+    cursor: pointer;
+    &:hover {
+      background-color: #dcdcdc;
+      transition: background-color 0.4s;
+      a {
+        display: block;
+        color: #000;
+      }
+    }
+  }
+}
+
+/* レスポンシブ */
+$breakpoint-sm: 420px !default;
+$breakpoint-md: 550px !default;
+$breakpoint-lg: 768px !default;
+
+@media (max-width: #{$breakpoint-lg}) {
+  .main {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: #{$breakpoint-md}) {
+  .main {
+    margin: 0 auto;
+    .council-content {
+      width: 100%;
+    }
+  }
+}

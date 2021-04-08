@@ -1,6 +1,9 @@
 <%= render "shared/header" %>
 <%= render 'shared/error_messages', model: @comment %>
+<%# パンくずリスト %>
 <% breadcrumb :comment %>
+<%= render 'shared/breadcrumbs' %>
+
 <div class='main'>
   <h1 class='prefecture-name'><%= @assemblyman.name %>さんへのコメント</h1>
   <div class="comments-form">
@@ -15,8 +18,6 @@
             ※投稿者は、投稿に関して発生する責任が全て投稿者に帰すことを承諾します。
           </p>
         <%= f.submit "送信する", class: 'form__btn' %>
-        <%= link_to '戻る',  "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/#{params[:assemblyman_id]}", class: 'blue-link-btn'%>
-      </div>
     <% end %>
   </div>
 </div>

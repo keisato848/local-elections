@@ -2,26 +2,25 @@
 body {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 200;
-  font-size: clamp(0.8rem, 1rem, 1.5rem);
+  font-size: clamp(0.8rem, 0.9rem, 1.1rem);
   min-height: 100vh;
-  padding-bottom: 80px;
+  position: relative;
+  padding-bottom: 140px;
   box-sizing: border-box;
 }
 
 h1 {
-  font-weight: 300;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 400;
 }
 
-.main {
-  position: relative;
-  padding-bottom: 80px;
-}
-/* 各ページのタイトル */
-.prefecture-name{
-  font-size: 25px;
-  text-align: center;
-  font-weight: 400;
-  margin-bottom: 3vh;
+a {
+  color: #000;
+  text-decoration: none;
 }
 
 /* 議会・議員名 */
@@ -66,6 +65,12 @@ h1 {
     transition: opacity 0.4s;
   }
 
+/* 参照元 */
+.reference {
+  font-size: 12px;
+  text-align: center;
+  padding-bottom: 20px
+}
 /* レスポンシブ */
 
 @media (min-width: 1200px) {
