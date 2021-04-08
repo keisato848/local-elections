@@ -23,60 +23,60 @@
 
 <%# 議員情報 %>
 <div class='main'>
-    <%# 議員氏名 %>
-    <h1 class='council-name'><%= @assemblyman.name %></h1>
-    <div class='profile-area'>
-      <div class='profile-details'>
-        <%# 議員画像 %>
-        <% if @assemblyman.img_url && @assemblyman.img_url != ""%>
-          <%= image_tag @assemblyman.img_url, class: 'assemblyman-img' %>
-        <% else %>
-          <%= image_tag 'assemblyman-alt-img.png', class: 'assemblyman-img' %>
-        <% end %>
-        <%# 役職等 %>
-        <% if @assemblyman.position && @assemblyman.position != ""%>
-          <div class='profile-wrap'>
-            <span class='profile-heading'>役職等</span>
-            <span class='profile-text'><%= @assemblyman.position %></span>
-          </div>
-        <% end %>
-        <%# 生年月日 %>
-        <% if @assemblyman.birth_of_date && @assemblyman.birth_of_date != ""%>
-          <div class='profile-wrap'>
-            <span class='profile-heading'>生年月日</span>
-            <span class='profile-text'><%= l @assemblyman.birth_of_date %></span>
-          </div>
-        <% end %>
-        <%# 所属政党・会派等 %>
-        <% if @assemblyman.faction && @assemblyman.faction != ""%>
-          <div class='profile-wrap'>
-            <span class='profile-heading'>所属政党・会派等</span>
-            <span class='profile-text'><%= @assemblyman.faction %></span>
-          </div>
-        <% end %>
-        <%# 当選回数 %>
-        <% if @assemblyman.number_of_wins && @assemblyman.number_of_wins != ""%>
+  <%# 議員氏名 %>
+  <h1 class='council-name'><%= @assemblyman.name %></h1>
+  <div class='profile-area'>
+    <div class='profile-details'>
+      <%# 議員画像 %>
+      <% if @assemblyman.img_url && @assemblyman.img_url != ""%>
+        <%= image_tag @assemblyman.img_url, class: 'assemblyman-img' %>
+      <% else %>
+        <%= image_tag 'assemblyman-alt-img.png', class: 'assemblyman-img' %>
+      <% end %>
+      <%# 役職等 %>
+      <% if @assemblyman.position && @assemblyman.position != ""%>
         <div class='profile-wrap'>
-          <span class='profile-heading'>当選回数</span>
-          <span class='profile-text'><%= @assemblyman.number_of_wins %> 回</span>
+          <span class='profile-heading'>役職等</span>
+          <span class='profile-text'><%= @assemblyman.position %></span>
         </div>
-        <% end %>
-        <%# 職業 %>
-        <% if @assemblyman.job && @assemblyman.job != "" %>
-          <div class='profile-wrap'>
-            <span class='profile-heading'>職業</span>
-            <span class='profile-text'><%= @assemblyman.job %></span>
-          </div>
-        <% end %>
+      <% end %>
+      <%# 生年月日 %>
+      <% if @assemblyman.birth_of_date && @assemblyman.birth_of_date != ""%>
+        <div class='profile-wrap'>
+          <span class='profile-heading'>生年月日</span>
+          <span class='profile-text'><%= l @assemblyman.birth_of_date %></span>
+        </div>
+      <% end %>
+      <%# 所属政党・会派等 %>
+      <% if @assemblyman.faction && @assemblyman.faction != ""%>
+        <div class='profile-wrap'>
+          <span class='profile-heading'>所属政党・会派等</span>
+          <span class='profile-text'><%= @assemblyman.faction %></span>
+        </div>
+      <% end %>
+      <%# 当選回数 %>
+      <% if @assemblyman.number_of_wins && @assemblyman.number_of_wins != ""%>
+      <div class='profile-wrap'>
+        <span class='profile-heading'>当選回数</span>
+        <span class='profile-text'><%= @assemblyman.number_of_wins %> 回</span>
       </div>
-      <%# Twitterタイムライン %>
-      <% if @assemblyman.twitter_url && @assemblyman.twitter_url != ""%>
-        <div class='tweet-area'>
-          <a class="twitter-timeline" data-width='20vw' data-height='60vh' data-chrome='noheader nofooter noborders transparent' href="https://twitter.com/<%=@assemblyman.twitter_url%>"><%= @assemblyman.name %>さんのツイート</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <% end %>
+      <%# 職業 %>
+      <% if @assemblyman.job && @assemblyman.job != "" %>
+        <div class='profile-wrap'>
+          <span class='profile-heading'>職業</span>
+          <span class='profile-text'><%= @assemblyman.job %></span>
         </div>
       <% end %>
     </div>
-
+    <%# Twitterタイムライン %>
+    <% if @assemblyman.twitter_url && @assemblyman.twitter_url != ""%>
+      <div class='tweet-area'>
+        <a class="twitter-timeline" data-width='20vw' data-height='60vh' data-chrome='noheader nofooter noborders transparent' href="https://twitter.com/<%=@assemblyman.twitter_url%>"><%= @assemblyman.name %>さんのツイート</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    <% end %>
+  </div>
+  
   <%# コメントエリア %>
   <div class="comment-area">
     <%# コメントを一覧表示 %>
