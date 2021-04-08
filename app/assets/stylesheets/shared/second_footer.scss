@@ -1,28 +1,19 @@
 .second-footer {
   height: 50px;
   background: linear-gradient(-135deg,#666666, #313131);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: relative;
+  position: absolute;
   bottom: 0;
-}
-
-.second-footer-text {
-  color: #ffffff;
-  margin-top: 20px;
-}
-
-.twitter-icon {
-  width: 30px;
-  margin: 1vh 0;
-}
-
-/* レスポンシブ */
-$breakpoint-sm: 420px !default;
-
-@media (max-width: #{$breakpoint-sm}) {
-  .twitter-icon {
-    width: 25px;
+  .footer-contents {
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .footer-link {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    align-items: center;
   }
 }

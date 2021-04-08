@@ -2,17 +2,23 @@
   height: 80px;
   width: 100%;
   background: linear-gradient(-135deg,#92d9f3,#214b7d);
-  .logo-area {
+  .logo-text {
+    display: block;
+    text-align: center;
+    line-height: 80px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 400;
+  }
+  .footer-contents {
     display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
     align-items: center;
-    justify-content: center;
-    .logo-icon {
-      height: 70px;
-    }
-    .logo-text {
-      color: #fff;
-      font-size: 20px;
-      font-weight: 400;
-    }
   }
 }
