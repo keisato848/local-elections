@@ -29,52 +29,6 @@
     }
   }
 }
-
-.assemblymen-list {
-  margin: 2vh auto 0 auto;
-  display: flex;
-  justify-content: center;
-  align-content: space-between;
-  flex-wrap: wrap;  
-  a {
-    &:hover {
-      background-color: #dcdcdc;
-      transition: 0.4s;
-    }
-    .assemblyman-content {
-      width: 30vw;
-      max-height: 180px;
-      padding: 1vh 1vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .img-background {
-        text-align: center;
-        .assemblyman-img {
-          width: 80%;
-          height: 80%;
-          max-width: 150px;
-          max-height: 150px;
-        }
-        .reference {
-          padding: 0;
-        }
-      }
-      .profile-content {
-        width: 80%;
-        .council-name {
-          font-size: 90%;
-        }
-        .profile-faction {
-          margin-top: 1vh;
-          font-size: 90%;
-          font-weight: 400;
-          text-align: center;
-        }
-      }
-    }
-  }
-}
   
   // レスポンシブ
   $breakpoint-md: 550px !default;

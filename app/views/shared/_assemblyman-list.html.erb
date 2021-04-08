@@ -1,6 +1,10 @@
 <div class='assemblymen-list'>
   <% model.each do |assemblyman| %>
-    <a href=<%= "#{assemblyman.id}" %>>
+    <% if model == @assemblymen %>
+      <a href=<%= "assemblymen/#{assemblyman.id}" %>>
+    <% else %>
+      <a href=<%= "#{assemblyman.id}" %>>
+    <% end %>
       <div class='assemblyman-content'>
         <div class='img-background'>
           <% if assemblyman.img_url %>
