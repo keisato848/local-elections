@@ -55,12 +55,6 @@ Rspec
 ### エディタ
 VScode
 
-## 課題・今後実装したい機能
-（課題）
-- アプリのSSL化
-- マニュフェストに対して、非同期通信でリアクションできる機能
-- 投票期日をGoogleカレンダーAPIを利用して管理する機能
-
 ## DB設計
 ### users table
 |Column|Types|Options|
