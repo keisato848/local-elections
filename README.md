@@ -11,7 +11,7 @@ http://local-elections.site
 |アカウント名|email|password|
 |-|-|-|
 |test-user1|example1@example.com|testtest1|
-|test-user2|example@example.com|testtest2|
+|test-user2|example2@example.com|testtest2|
 
 ## 制作意図
 【背景】  
@@ -84,7 +84,7 @@ VScode
 - has_one :comments, dependent: :destroy
 - has_one :manifests, dependent: :destroy
 
-### sns_credentials
+### sns_credentials table
 |Column|Types|Options|
 |-|-|-|
 |provider|string|-|
@@ -94,7 +94,7 @@ VScode
 #### Association
 - belongs_to :user, optional: true
 
-### prefecture table
+### prefectures table
 |Column|Types|Options|
 |-|-|-|
 |name|string|null:false|
@@ -102,7 +102,7 @@ VScode
 #### Association
 - has_many :council
 
-### council table
+### councils table
 |Column|Types|Options|
 |-|-|-|
 |name|string|null:false|
@@ -133,7 +133,7 @@ VScode
 - belongs_to :user, optional: true
 - has_one :comments, dependent: :destroy
 
-### manifest table
+### manifests table
 |Column|Types|Options|
 |-|-|-|
 |title|string|null:false|
