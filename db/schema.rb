@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_234718) do
+ActiveRecord::Schema.define(version: 2021_04_28_060743) do
+
+  create_table "assemblyman_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "assemblyman_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["assemblyman_id"], name: "index_assemblyman_comments_on_assemblyman_id"
+    t.index ["user_id"], name: "index_assemblyman_comments_on_user_id"
+  end
 
   create_table "assemblymen", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -29,16 +39,6 @@ ActiveRecord::Schema.define(version: 2021_04_01_234718) do
     t.date "election_day"
     t.index ["council_id"], name: "index_assemblymen_on_council_id"
     t.index ["user_id"], name: "index_assemblymen_on_user_id"
-  end
-
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "assemblyman_id", null: false
-    t.text "comment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["assemblyman_id"], name: "index_comments_on_assemblyman_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "councils", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
