@@ -35,11 +35,6 @@ crumb :search_result do
   parent :search
 end
 
-crumb :comment do
-  link 'コメント', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/#{params[:assemblyman_id]}/edit"
-  parent :assemblyman
-end
-
 crumb :edit do
   link '編集', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/#{params[:assemblyman_id]}/edit"
   parent :assemblyman
