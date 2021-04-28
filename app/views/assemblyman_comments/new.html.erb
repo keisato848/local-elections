@@ -1,14 +1,12 @@
 <%= render "shared/header" %>
-<%= render 'shared/error_messages', model: @comment %>
-<%# パンくずリスト %>
-<% breadcrumb :comment %>
 <%= render 'shared/breadcrumbs' %>
 
 <div class='main'>
   <h1><%= @assemblyman.name %>さんへのコメント</h1>
+  <%= render 'shared/error_messages', model: @comment %>
   <div class="comments-form">
-    <%= form_with url: prefecture_council_assemblyman_comments_path(assemblyman_id: params[:assemblyman_id]), local: true do |f| %>
-        <%= f.text_area :comment , placeholder: 'コメントを書く(256字以内）', class: 'field' %>
+    <%= form_with model: @comment, url: prefecture_council_assemblyman_assemblyman_comments_path(assemblyman_id: params[:assemblyman_id]), local: true do |f| %>
+        <%= f.text_area :content , placeholder: 'コメントを書く(256字以内）', class: 'field' %>
         <div class='caution'>
           <h2 class='caution-title'>注意事項</h2>
           <p>

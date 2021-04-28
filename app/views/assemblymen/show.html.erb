@@ -3,7 +3,6 @@
 <%# パンくずリスト %>
 <% breadcrumb :assemblyman, @assemblyman %>
 <%= render 'shared/breadcrumbs' %>
-
 <%# 更新情報 %>
 <div class='update'>
   <div class='profile-heading'>更新日時：<%= l @assemblyman.updated_at %></div>
@@ -86,20 +85,15 @@
           <li class="comment-content">
             <div class='comment-user'>
               <%= comment.user.nickname %>
+              <%= link_to '編集', edit_prefecture_council_assemblyman_assemblyman_comment_path(assemblyman_id: params[:id], id: comment.id) %>
+              <%= link_to '削除', prefecture_council_assemblyman_assemblyman_comment_path(assemblyman_id: params[:id], id: comment.id), method: :delete, data: {message: '本当に削除しますか?'} %>
             </div>
-            <span class='comment-text'><%= comment.comment %></span>
+            <span class='comment-text'><%= comment.content %></span>
           </li>
         <% end %>
       </ul>
     <% end %>
-    <%# 投稿ページへのリンク（選挙期日当日は非表示） %>
-    <% if @assemblyman.election_day || @assemblyman.council.election_day %>
-      <% if @assemblyman.election_day != Date.current && @assemblyman.council.election_day != Date.current %>
-        <%= link_to 'コメントを書く', new_prefecture_council_assemblyman_comment_path(assemblyman_id: params[:id]), class: 'comment-link-btn' %>
-      <% end %>
-    <% else %>
-      <%= link_to 'コメントを書く', new_prefecture_council_assemblyman_comment_path(assemblyman_id: params[:id]), class: 'comment-link-btn' %>
-    <% end %>
+    <%= link_to 'コメントを書く', new_prefecture_council_assemblyman_assemblyman_comment_path(assemblyman_id: params[:id]), class: 'comment-link-btn' %>
   </div>
 </div>
 
