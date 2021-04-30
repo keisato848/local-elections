@@ -2,6 +2,8 @@
 ja:
   activerecord:
     attributes:
+      models:
+        assemblyman: 議員
       assemblyman:
         name: 氏名
         sex: 性別
@@ -12,8 +14,8 @@ ja:
         job: 職業
         img_url: 画像URL
         twitter_url: アカウント名
-      comment:
-        comment: コメント
+      assemblyman_comment:
+        content: コメント
       errors:
         messages:
           record_invalid: 'バリデーションに失敗しました: %{errors}'
