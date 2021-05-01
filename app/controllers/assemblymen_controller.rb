@@ -1,6 +1,6 @@
 class AssemblymenController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
-  before_action :find_assemblyman, only: [:show, :edit, :update]
+  before_action :set_assemblyman, only: [:show, :edit, :update]
 
   def index
     @council = Council.find(params[:council_id])
@@ -41,7 +41,7 @@ class AssemblymenController < ApplicationController
 
   private
 
-  def find_assemblyman
+  def set_assemblyman
     @assemblyman = Assemblyman.find(params[:id])
   end
 

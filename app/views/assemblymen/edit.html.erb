@@ -4,7 +4,7 @@
 <%= render 'shared/breadcrumbs' %>
 
 <%# 編集フォーム %>
-<%= form_with model: @assemblyman, url: prefecture_council_assemblyman_path(params[:id]), method: :patch, class: 'registration-main', local: true do |f| %>
+<%= form_with model: @assemblyman, url: prefecture_council_assemblyman_path(assemblyman_id: params[:id]), method: :patch, class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
     <h1 class='form-header-text'>
