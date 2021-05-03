@@ -1,6 +1,6 @@
 class AssemblymanCommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_assemblyman, only: [:new, :edit]
+  before_action :set_assemblyman, only: [:new]
 
   def new
     @comment = AssemblymanComment.new
@@ -16,24 +16,14 @@ class AssemblymanCommentsController < ApplicationController
     end
   end
 
-  def edit
-    @comment = AssemblymanComment.find(params[:id])
-  end
-
-  def update
-    @comment = AssemblymanComment.find(params[:id])
-    if @comment.update(comment_params)
-      redirect_to prefecture_council_assemblyman_path(id: params[:assemblyman_id])
-    else
-      set_assemblyman
-      render :edit
-    end
-  end
-
   def destroy
     comment = AssemblymanComment.find(params[:id])
-    comment.destroy!
-    redirect_to prefecture_council_assemblyman_path(id: params[:assemblyman_id])
+    if current_user.id == comment.user.id
+      comment.destroy!
+      redirect_to prefecture_council_assemblyman_path(id: params[:assemblyman_id])
+    else
+      redirect_to root_path
+    end
   end
 
   private
