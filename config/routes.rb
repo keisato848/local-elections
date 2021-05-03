@@ -12,7 +12,7 @@ Rails.application.routes.draw do
           get 'search'
           post 'search_result' 
         end
-        resources :assemblyman_comments, only: [:new, :create, :edit, :update, :destroy]
+        resources :assemblyman_comments, only: [:new, :create, :destroy]
       end
     end
   end
