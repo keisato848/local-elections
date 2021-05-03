@@ -85,8 +85,9 @@
           <li class="comment-content">
             <div class='comment-user'>
               <%= comment.user.nickname %>
-              <%= link_to '編集', edit_prefecture_council_assemblyman_assemblyman_comment_path(assemblyman_id: params[:id], id: comment.id) %>
-              <%= link_to '削除', prefecture_council_assemblyman_assemblyman_comment_path(assemblyman_id: params[:id], id: comment.id), method: :delete, data: {message: '本当に削除しますか?'} %>
+              <% if comment.user == current_user %>
+                <%= link_to '削除', prefecture_council_assemblyman_assemblyman_comment_path(assemblyman_id: params[:id], id: comment.id), method: :delete, class: 'delete-comment',data: { confirm: '本当に削除しますか?' } %>
+              <% end %>
             </div>
             <span class='comment-text'><%= comment.content %></span>
           </li>

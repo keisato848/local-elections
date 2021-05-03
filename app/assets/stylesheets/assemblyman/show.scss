@@ -76,6 +76,14 @@
         .comment-text {
           display: inline;  
         }
+        .delete-comment {
+          color: #ff0000;
+          margin-left: 20px;
+          font-weight: 300;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
     p {
