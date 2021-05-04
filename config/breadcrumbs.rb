@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :prefecture do |prefecture|
-  prefecture = Prefecture.find(params[:prefecture_id])
+  prefecture = Prefecture.find_by_id params[:prefecture_id]
   link prefecture.name, prefecture_councils_path(params[:prefecture_id])
   parent :root
 end
@@ -25,23 +25,13 @@ crumb :assemblyman do |assemblyman|
   parent :council
 end
 
-crumb :search do
-  link '検索', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/search"
-  parent :council
-end
-
-crumb :search_result do
-  link '検索結果', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/search_result"
-  parent :search
-end
-
 crumb :edit do
   link '編集', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/#{params[:assemblyman_id]}/edit"
   parent :assemblyman
 end
 
 crumb :tag do
-  link "タグ一覧", tags_path
+  link "タグ", tags_path
   parent :root
 end
 
