@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_060743) do
+ActiveRecord::Schema.define(version: 2021_05_03_083633) do
 
   create_table "assemblyman_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2021_04_28_060743) do
     t.datetime "updated_at", precision: 6
     t.date "election_day"
     t.index ["prefecture_id"], name: "index_councils_on_prefecture_id"
+  end
+
+  create_table "manifest_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "manifest_id", null: false
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manifest_id"], name: "index_manifest_comments_on_manifest_id"
+    t.index ["user_id"], name: "index_manifest_comments_on_user_id"
   end
 
   create_table "manifest_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -104,6 +114,8 @@ ActiveRecord::Schema.define(version: 2021_04_28_060743) do
 
   add_foreign_key "assemblymen", "councils"
   add_foreign_key "councils", "prefectures"
+  add_foreign_key "manifest_comments", "manifests"
+  add_foreign_key "manifest_comments", "users"
   add_foreign_key "manifest_tag_relations", "manifests"
   add_foreign_key "manifest_tag_relations", "tags"
   add_foreign_key "manifests", "users"
