@@ -1,6 +1,6 @@
 class ManifestCommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_manifest, only: :new 
+  before_action :set_manifest, only: :new
   def new
     @comment = ManifestComment.new
   end

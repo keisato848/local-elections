@@ -5,27 +5,12 @@ class AssemblymenController < ApplicationController
   def index
     @council = Council.find(params[:council_id])
     @assemblymen = Assemblyman.where(council_id: params[:council_id])
+    @factions = Assemblyman.setting_search(params[:council_id])
+    search_params
   end
 
   def show
     @comments = AssemblymanComment.where(assemblyman_id: params[:id]).order(:created_at)
-  end
-
-  def search
-    before_search
-    search_params
-  end
-
-  def search_result
-    if params[:faction].empty? && params[:sex].empty?
-      before_search
-      render 'search'
-      search_params
-    else
-      @both_match = Assemblyman.where(council_id: params[:council_id], faction: params[:faction], sex: params[:sex])
-      @faction_match = Assemblyman.where(council_id: params[:council_id], faction: params[:faction])
-      @sex_match = Assemblyman.where(council_id: params[:council_id], sex: params[:sex])
-    end
   end
 
   def edit
@@ -33,7 +18,7 @@ class AssemblymenController < ApplicationController
 
   def update
     if @assemblyman.update(assemblyman_params)
-      redirect_to "/prefectures/#{@assemblyman.council.prefecture.id}/councils/#{@assemblyman.council.id}/assemblymen/#{@assemblyman.id}"
+      redirect_to prefecture_council_assemblyman_path(assemblyman: @assemblyman)
     else
       render :edit
     end
@@ -50,15 +35,7 @@ class AssemblymenController < ApplicationController
                                         :twitter_url).merge(user_id: current_user.id)
   end
 
-  def before_search
-    @assemblymen = Assemblyman.where(council_id: params[:council_id])
-    @factions = []
-    @assemblymen.each do |assemblyman|
-      @factions << assemblyman.faction
-    end
-  end
-
   def search_params
-    params.permit(:prefecture_id, :id, :faction, :sex, :job)
+    params.permit(:prefecture_id, :council_id, :faction, :sex)
   end
 end

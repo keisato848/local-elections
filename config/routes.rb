@@ -8,14 +8,11 @@ Rails.application.routes.draw do
   resources :prefectures, only: [:index] do
     resources :councils, only: [:index, :show, :search] do
       resources :assemblymen, only: [:index, :show, :edit, :update] do
-        collection do
-          get 'search'
-          post 'search_result' 
-        end
         resources :assemblyman_comments, only: [:new, :create, :destroy]
       end
     end
   end
+  resources :searches, only: [:index]
 
   resources :manifests do
     collection do

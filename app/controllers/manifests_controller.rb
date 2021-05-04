@@ -50,6 +50,7 @@ class ManifestsController < ApplicationController
     end
   end
 
+  # タグ検索用のメソッド
   def search
     return nil if params[:keyword] == ''
 
