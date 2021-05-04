@@ -1,6 +1,6 @@
 class AssemblymanCommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_assemblyman, only: [:new]
+  before_action :set_assemblyman, only: :new
 
   def new
     @comment = AssemblymanComment.new
@@ -11,7 +11,6 @@ class AssemblymanCommentsController < ApplicationController
     if @comment.save
       redirect_to prefecture_council_assemblyman_path(id: params[:assemblyman_id])
     else
-      set_assemblyman
       render :new
     end
   end

@@ -8,7 +8,7 @@ class AssemblymenController < ApplicationController
   end
 
   def show
-    @comments = AssemblymanComment.where(assemblyman_id: params[:id])
+    @comments = AssemblymanComment.where(assemblyman_id: params[:id]).order(:created_at)
   end
 
   def search
