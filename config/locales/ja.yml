@@ -16,6 +16,8 @@ ja:
         twitter_url: アカウント名
       assemblyman_comment:
         content: コメント
+      manifest_comment:
+        content: コメント
       errors:
         messages:
           record_invalid: 'バリデーションに失敗しました: %{errors}'
