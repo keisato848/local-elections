@@ -10,7 +10,6 @@ body {
 }
 
 h1 {
-  width: 100%;
   margin: 0 auto;
   padding-bottom: 15px;
   text-align: center;
@@ -29,7 +28,6 @@ a {
   font-weight: 500;
   text-align: center;
   white-space: nowrap;
-  padding-right: 3vw;
 }
 
 /* 未更新ページのスタイリング */
