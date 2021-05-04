@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_234718) do
+ActiveRecord::Schema.define(version: 2021_05_03_083633) do
+
+  create_table "assemblyman_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "assemblyman_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["assemblyman_id"], name: "index_assemblyman_comments_on_assemblyman_id"
+    t.index ["user_id"], name: "index_assemblyman_comments_on_user_id"
+  end
 
   create_table "assemblymen", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,16 +41,6 @@ ActiveRecord::Schema.define(version: 2021_04_01_234718) do
     t.index ["user_id"], name: "index_assemblymen_on_user_id"
   end
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "assemblyman_id", null: false
-    t.text "comment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["assemblyman_id"], name: "index_comments_on_assemblyman_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
   create_table "councils", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "prefecture_id", null: false
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2021_04_01_234718) do
     t.datetime "updated_at", precision: 6
     t.date "election_day"
     t.index ["prefecture_id"], name: "index_councils_on_prefecture_id"
+  end
+
+  create_table "manifest_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "manifest_id", null: false
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manifest_id"], name: "index_manifest_comments_on_manifest_id"
+    t.index ["user_id"], name: "index_manifest_comments_on_user_id"
   end
 
   create_table "manifest_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -104,6 +114,8 @@ ActiveRecord::Schema.define(version: 2021_04_01_234718) do
 
   add_foreign_key "assemblymen", "councils"
   add_foreign_key "councils", "prefectures"
+  add_foreign_key "manifest_comments", "manifests"
+  add_foreign_key "manifest_comments", "users"
   add_foreign_key "manifest_tag_relations", "manifests"
   add_foreign_key "manifest_tag_relations", "tags"
   add_foreign_key "manifests", "users"

@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe '議員情報編集', type: :system do
   before do
     @user = create(:user)
-    @prefecture = create(:prefecture)
     prefectures = create_list(:prefecture, 46)
-    @council = create(:council, prefecture_id: @prefecture.id)
-    @assemblyman = create(:assemblyman, council_id: @council.id)
+    @prefecture = prefectures[0]
+    @council = create(:council, prefecture: @prefecture)
+    @assemblyman = create(:assemblyman, council: @council)
   end
 
   context '議員情報を編集できるとき' do
@@ -63,7 +63,7 @@ RSpec.describe '議員情報編集', type: :system do
       fill_in 'twitter_url', with: '@abcde0123456789'
       click_on('編集する')
       # 議員編集ページがレンダリングされたことを確認する
-      expect(current_path).to eq("/prefectures/#{@assemblyman.id}/councils/#{@council.id}/assemblymen/#{@assemblyman.id}")
+      expect(current_path).to eq("/prefectures/#{@prefecture.id}/councils/#{@council.id}/assemblymen/#{@assemblyman.id}")
       # エラーメッセージが出力されていることを確認する
       expect(page).to have_content('氏名を入力してください')
       expect(page).to have_content('性別は全角文字で入してください')

@@ -58,48 +58,6 @@
     padding-top: 5%;
     text-align: center;
   }
-  .comment-area {
-    margin: 3vh auto;
-    .comment-list{
-      width: 80vw;
-      margin: 2vw auto;
-      display: flex;
-      flex-direction: column-reverse; 
-      .comment-content{
-        margin: 0;
-        padding: 3vh 3vw 3vh 5vw;
-        border-top: 1px solid #666666;
-        .comment-user{
-          color: #214b7d;
-          font-weight: bolder;
-        }  
-        .comment-text {
-          display: inline;  
-        }
-      }
-    }
-    p {
-      background-color: #dcdcdc;
-      text-align: center;
-    }
-    .comment-link-btn {
-      width: 150px;
-      padding: 1vh 2vw;
-      margin: 0 auto;
-      color: #666666;
-      font-weight: 400;
-      text-decoration: none;
-      text-align: center;
-      white-space: nowrap;
-      border: 1px solid #666666;
-      border-radius: 4px;
-      display: block;
-      &:hover {
-        background-color: #dcdcdc;
-        transition: background-color 0.7s;
-      }
-    }
-  }
 }
 
 // レスポンシブ
@@ -130,9 +88,6 @@ $breakpoint-sl: 1200px !default;
       .edit-assemblyman-link {
         top: -6vh;
       }
-    }
-    .comment-link-btn {
-     width: 25%;
     }
   }
 } 

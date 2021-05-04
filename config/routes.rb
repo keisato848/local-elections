@@ -12,7 +12,7 @@ Rails.application.routes.draw do
           get 'search'
           post 'search_result' 
         end
-        resources :comments, only: [:new, :create]
+        resources :assemblyman_comments, only: [:new, :create, :destroy]
       end
     end
   end
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :manifest_comments, only: [:new, :create, :destroy]
   end
   resources :tags, only: [:index, :show]
 end

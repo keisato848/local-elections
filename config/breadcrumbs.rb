@@ -15,10 +15,10 @@ crumb :council do |council|
 end
 
 crumb :assemblyman do |assemblyman|
-  if controller_name == 'assemblymen'
+  if params[:id]
     assemblyman = Assemblyman.find(params[:id])
     link assemblyman.name, "/prefectures/#{assemblyman.council.prefecture.id}/councils/#{assemblyman.council.id}/assemblymen/#{assemblyman.id}"
-  else
+  elsif params[:assemblyman_id]
     assemblyman = Assemblyman.find(params[:assemblyman_id])
     link assemblyman.name, "/prefectures/#{assemblyman.council.prefecture.id}/councils/#{assemblyman.council.id}/assemblymen/#{assemblyman.id}"
   end
@@ -33,11 +33,6 @@ end
 crumb :search_result do
   link '検索結果', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/search_result"
   parent :search
-end
-
-crumb :comment do
-  link 'コメント', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/#{params[:assemblyman_id]}/edit"
-  parent :assemblyman
 end
 
 crumb :edit do

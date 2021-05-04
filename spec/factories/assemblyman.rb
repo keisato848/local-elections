@@ -9,6 +9,6 @@ FactoryBot.define do
     job { Faker::Job.title }
     img_url { Faker::Internet.url }
     twitter_url { 'gikaitarou' }
-    council_id { Faker::Number.number(digits: 2) }
+    council
   end
 end

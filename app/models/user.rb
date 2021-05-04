@@ -6,8 +6,9 @@ class User < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX }
   validates :nickname, presence: true, uniqueness: true
 
-  has_one :comments, dependent: :destroy
-  has_one :manifests, dependent: :destroy
+  has_many :assemblyman_comments, dependent: :destroy
+  has_many :manifests, dependent: :destroy
+  has_many :manifest_comments, dependent: :destroy
   has_many :sns_credentials
 
   def self.from_omniauth(auth)
