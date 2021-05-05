@@ -7,7 +7,7 @@
     <% end %>
       <div class='assemblyman-content'>
         <div class='img-background'>
-          <% if assemblyman.img_url %>
+          <% if assemblyman.img_url && assemblyman.img_url =! '' %>
             <%= image_tag assemblyman.img_url, class: 'assemblyman-img' %>
             <% if assemblyman.council.name.include?('知事・市長') %>
               <% if assemblyman.position.include?('知事') %>
