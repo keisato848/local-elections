@@ -9,24 +9,32 @@ crumb :prefecture do |prefecture|
 end
 
 crumb :council do |council|
-  council = Council.find(params[:council_id])
-  link council.name, "/prefectures/#{council.prefecture.id}/councils/#{council.id}/assemblymen"
+  if params[:council_id]
+    council = Council.find(params[:council_id])
+  else
+    council = Council.find(params[:council_id])
+  end
+  link council.name, prefecture_council_assemblymen_path(council: council)
   parent :prefecture
 end
 
 crumb :assemblyman do |assemblyman|
-  if params[:id]
-    assemblyman = Assemblyman.find(params[:id])
-    link assemblyman.name, "/prefectures/#{assemblyman.council.prefecture.id}/councils/#{assemblyman.council.id}/assemblymen/#{assemblyman.id}"
-  elsif params[:assemblyman_id]
+  if params[:assemblyman_id]
     assemblyman = Assemblyman.find(params[:assemblyman_id])
-    link assemblyman.name, "/prefectures/#{assemblyman.council.prefecture.id}/councils/#{assemblyman.council.id}/assemblymen/#{assemblyman.id}"
+  else
+    assemblyman = Assemblyman.find(params[:id])
   end
+  link assemblyman.name, prefecture_council_assemblyman_path(assemblyman: assemblyman)
   parent :council
 end
 
 crumb :edit do
-  link '編集', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/#{params[:assemblyman_id]}/edit"
+  if params[:assemblyman_id]
+    assemblyman = Assemblyman.find(params[:assemblyman_id])
+  else
+    assemblyman = Assemblyman.find(params[:id])
+  end
+  link '編集', edit_prefecture_council_assemblyman_path(assemblyman: assemblyman)
   parent :assemblyman
 end
 
