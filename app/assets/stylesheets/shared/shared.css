@@ -22,6 +22,16 @@ a {
   text-decoration: none;
 }
 
+/* フラッシュメッセージ */
+.flash-message {
+  width: calc(100% - 20px);
+  padding: 10px;
+  text-align: center;
+  color: #000;
+  font-weight: 500;
+  background-color: rgb(247, 184, 95);
+}
+
 /* 議会・議員名 */
 .council-name {
   width: 100%;

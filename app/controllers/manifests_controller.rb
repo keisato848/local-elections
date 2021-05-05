@@ -10,7 +10,7 @@ class ManifestsController < ApplicationController
     @manifest = ManifestTag.new(manifest_params)
     if @manifest.valid?
       @manifest.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'マニュフェストを投稿しました'
     else
       render :new
     end
@@ -31,7 +31,7 @@ class ManifestsController < ApplicationController
     @manifest = ManifestTag.new(manifest_params)
     if @manifest.valid?
       @manifest.update(params[:id])
-      redirect_to manifest_path(params[:id])
+      redirect_to manifest_path(params[:id]), notice: 'マニュフェストを更新しました'
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class ManifestsController < ApplicationController
   def destroy
     manifest = ManifestTag.new
     if manifest.destroy(params[:id])
-      redirect_to root_path
+      redirect_to root_path, notice: 'マニュフェストを削除しました'
     else
       render :show
     end

@@ -18,7 +18,7 @@ class AssemblymenController < ApplicationController
 
   def update
     if @assemblyman.update(assemblyman_params)
-      redirect_to prefecture_council_assemblyman_path(assemblyman: @assemblyman)
+      redirect_to prefecture_council_assemblyman_path(assemblyman: @assemblyman), notice: '議員情報を更新しました'
     else
       render :edit
     end
