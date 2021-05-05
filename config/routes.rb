@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'prefectures#index'
   resources :prefectures, only: [:index] do
-    resources :councils, only: [:index, :show, :search] do
+    resources :councils, only: [:index] do
       resources :assemblymen, only: [:index, :show, :edit, :update] do
         resources :assemblyman_comments, only: [:new, :create, :destroy]
       end
