@@ -9,6 +9,7 @@ require("channels")
 require("chartkick")
 require("chart.js")
 
+require('flash_message.js')
 require('header.js')
 require('index.js')
 require('search.js')
