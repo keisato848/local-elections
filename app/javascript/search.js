@@ -6,11 +6,11 @@ if (location.pathname.match('assemblymen')) {
     const closeBtn = document.getElementById('close-btn')
     searchBtn.addEventListener('click', () => {
       searchBtn.classList.add('search-btn-active');
-      searchForm.classList.remove('hidden');
+      searchForm.classList.remove('search-hidden');
     });
     closeBtn.addEventListener('click', () => {
       searchBtn.classList.remove('search-btn-active');
-      searchForm.classList.add('hidden');
+      searchForm.classList.add('search-hidden');
     });
   });
 };
