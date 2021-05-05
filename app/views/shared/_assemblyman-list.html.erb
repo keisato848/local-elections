@@ -7,14 +7,13 @@
     <% end %>
       <div class='assemblyman-content'>
         <div class='img-background'>
-          <% if assemblyman.img_url %>
+          <% if assemblyman.img_url && assemblyman.img_url.present?  %>
             <%= image_tag assemblyman.img_url, class: 'assemblyman-img' %>
-            <% if assemblyman.council.name.include?('知事・市長') %>
-              <% if assemblyman.position.include?('知事') %>
-                <p class='reference'>© <%= assemblyman.position.delete('知事') %></p>
-              <% elsif assemblyman.position.include?('長') %>
-                <p class='reference'>© <%= assemblyman.position.delete('長') %></p>
-              <% end %>
+            <%# 画像リンク元を表示 %>
+            <% if assemblyman.position.include?('知事') %>
+              <p class='reference'>© <%= assemblyman.position.delete('知事') %></p>
+            <% elsif assemblyman.position.include?('長') %>
+              <p class='reference'>© <%= assemblyman.position.delete('長') %></p>
             <% else %>
               <p class='reference'>© <%= assemblyman.council.name %></p>
             <% end %>

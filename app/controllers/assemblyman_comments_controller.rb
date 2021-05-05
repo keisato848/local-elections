@@ -9,7 +9,7 @@ class AssemblymanCommentsController < ApplicationController
   def create
     @comment = AssemblymanComment.new(comment_params)
     if @comment.save
-      redirect_to prefecture_council_assemblyman_path(id: params[:assemblyman_id])
+      redirect_to prefecture_council_assemblyman_path(id: params[:assemblyman_id]), notice: 'コメントを投稿しました'
     else
       render :new
     end
@@ -19,9 +19,9 @@ class AssemblymanCommentsController < ApplicationController
     comment = AssemblymanComment.find(params[:id])
     if current_user.id == comment.user.id
       comment.destroy!
-      redirect_to prefecture_council_assemblyman_path(id: params[:assemblyman_id])
+      redirect_to prefecture_council_assemblyman_path(id: params[:assemblyman_id]), notice: 'コメントを削除しました'
     else
-      redirect_to root_path
+      redirect_to root_path, notice: '投稿者以外のユーザーのため、トップページに戻りました。'
     end
   end
 

@@ -8,7 +8,7 @@ class ManifestCommentsController < ApplicationController
   def create
     @comment = ManifestComment.new(comment_params)
     if @comment.save
-      redirect_to manifest_path(params[:manifest_id])
+      redirect_to manifest_path(params[:manifest_id]), notice: 'コメントを投稿しました'
     else
       render :new
     end
@@ -18,7 +18,7 @@ class ManifestCommentsController < ApplicationController
     comment = ManifestComment.find(params[:id])
     if current_user.id == comment.user.id
       comment.destroy!
-      redirect_to manifest_path(params[:manifest_id])
+      redirect_to manifest_path(params[:manifest_id]), notice: 'コメントを削除しました'
     else
       redirect_to root_path
     end

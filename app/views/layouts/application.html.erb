@@ -17,6 +17,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
+    <% if flash.notice %>
+      <div class='flash-message' id='flash-message'>
+        <%= flash[:notice] %>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

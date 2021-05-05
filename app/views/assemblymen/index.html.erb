@@ -3,7 +3,7 @@
 <%= render 'shared/breadcrumbs' %>
 <div class='main'>
   <div class='search-btn' id='search-btn'>絞り込み検索</div>
-  <%# 検索フォーム   %>
+  <%# 検索フォーム %>
   <%= form_with model: @search_target, url: searches_path, method: :get, class: 'search-form search-hidden', id: 'search-form', local: true do |f| %>
     <div class="form-group">
       <div class='form-text-wrap'>
@@ -35,7 +35,15 @@
       <%= pie_chart @assemblymen .group(:faction).count, height: '150px', legend: 'bottom', donut: true, suffix: '人' %>
     </div>
   </div>
-  <p class='reference'>※グラフは<%= @council.name %>ホームページの情報を基に作成しています。</p>
+  <%# 参照元の表示 %>
+  <p class='reference'>
+    <% if @council.name.match('知事・市長') %>
+      ※グラフは各自治体ホームページの情報を基に作成。
+    <% else %>
+      ※グラフは<%= @council.name %>ホームページの情報を基に作成。
+    <% end %>
+  </p>
+  <%# 議員一覧 %>
   <% if @assemblymen %>
     <%= render 'shared/assemblyman-list', model: @assemblymen %>
   <% else %>
