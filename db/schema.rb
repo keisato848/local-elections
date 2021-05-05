@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_083633) do
+ActiveRecord::Schema.define(version: 2021_05_05_030509) do
 
   create_table "assemblyman_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2021_05_03_083633) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "election_day"
     t.index ["council_id"], name: "index_assemblymen_on_council_id"
     t.index ["user_id"], name: "index_assemblymen_on_user_id"
   end
@@ -46,8 +45,15 @@ ActiveRecord::Schema.define(version: 2021_05_03_083633) do
     t.bigint "prefecture_id", null: false
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
-    t.date "election_day"
     t.index ["prefecture_id"], name: "index_councils_on_prefecture_id"
+  end
+
+  create_table "elections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "day", null: false
+    t.bigint "council_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["council_id"], name: "index_elections_on_council_id"
   end
 
   create_table "manifest_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
