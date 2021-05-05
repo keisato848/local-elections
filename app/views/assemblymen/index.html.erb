@@ -2,7 +2,29 @@
 <% breadcrumb :council, @council %>
 <%= render 'shared/breadcrumbs' %>
 <div class='main'>
-  <%= link_to '議員検索', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/search", class: 'search-btn' %>
+  <div class='search-btn' id='search-btn'>絞り込み検索</div>
+  <%= form_with model: @search_target, url: searches_path, method: :get, class: 'search-form hidden', id: 'search-form', local: true do |f| %>
+    <%# <div> %>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">所属政党・会派</label>
+          <span class="indispensable">任意</span>
+        </div>
+        <%= f.select(:faction, @factions.uniq, {:prompt => "特になし"}, class: 'select_field') %>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">性別</label>
+          <span class="indispensable">任意</span>
+        </div>
+        <%= f.select(:sex, ['男性', '女性'], {:prompt => "特になし"}, class: 'select_field') %>
+      </div>
+      <%= f.hidden_field :prefecture_id, value: params[:prefecture_id] %>
+      <%= f.hidden_field :council_id, value: params[:council_id] %>
+      <%= f.submit '検索', class: 'search-btn' %>
+      <div class='close-btn' id='close-btn'><span class='material-icons' id='close-menu'>close</span></div>
+    <%# </div>   %>
+  <% end %>
   <h1 class='prefecture-name'><%= @council.name %>のデータ</h1>
   <div class='chart-area'>
     <div class='chart-content'>

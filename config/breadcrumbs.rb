@@ -3,45 +3,43 @@ crumb :root do
 end
 
 crumb :prefecture do |prefecture|
-  prefecture = Prefecture.find(params[:prefecture_id])
+  prefecture = Prefecture.find_by_id params[:prefecture_id]
   link prefecture.name, prefecture_councils_path(params[:prefecture_id])
   parent :root
 end
 
 crumb :council do |council|
-  council = Council.find(params[:council_id])
-  link council.name, "/prefectures/#{council.prefecture.id}/councils/#{council.id}/assemblymen"
+  if params[:council_id]
+    council = Council.find(params[:council_id])
+  else
+    council = Council.find(params[:council_id])
+  end
+  link council.name, prefecture_council_assemblymen_path(council: council)
   parent :prefecture
 end
 
 crumb :assemblyman do |assemblyman|
-  if params[:id]
-    assemblyman = Assemblyman.find(params[:id])
-    link assemblyman.name, "/prefectures/#{assemblyman.council.prefecture.id}/councils/#{assemblyman.council.id}/assemblymen/#{assemblyman.id}"
-  elsif params[:assemblyman_id]
+  if params[:assemblyman_id]
     assemblyman = Assemblyman.find(params[:assemblyman_id])
-    link assemblyman.name, "/prefectures/#{assemblyman.council.prefecture.id}/councils/#{assemblyman.council.id}/assemblymen/#{assemblyman.id}"
+  else
+    assemblyman = Assemblyman.find(params[:id])
   end
+  link assemblyman.name, prefecture_council_assemblyman_path(assemblyman: assemblyman)
   parent :council
-end
-
-crumb :search do
-  link '検索', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/search"
-  parent :council
-end
-
-crumb :search_result do
-  link '検索結果', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/search_result"
-  parent :search
 end
 
 crumb :edit do
-  link '編集', "/prefectures/#{params[:prefecture_id]}/councils/#{params[:council_id]}/assemblymen/#{params[:assemblyman_id]}/edit"
+  if params[:assemblyman_id]
+    assemblyman = Assemblyman.find(params[:assemblyman_id])
+  else
+    assemblyman = Assemblyman.find(params[:id])
+  end
+  link '編集', edit_prefecture_council_assemblyman_path(assemblyman: assemblyman)
   parent :assemblyman
 end
 
 crumb :tag do
-  link "タグ一覧", tags_path
+  link "タグ", tags_path
   parent :root
 end
 

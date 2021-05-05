@@ -10,9 +10,7 @@
     <ul class='council-list'>
       <% @councils.each_with_index do |council, i| %>
         <li class='council-content'>
-          <a href=<%= "/prefectures/#{council.prefecture.id}/councils/#{council.id}/assemblymen" %>>
-            <%= i + 1 %> . <%= council.name %>
-          </a>
+          <%= link_to "#{i + 1}.#{council.name}", prefecture_council_assemblymen_path(council_id: council.id) %>
         </li>
       <% end %>
     </ul>

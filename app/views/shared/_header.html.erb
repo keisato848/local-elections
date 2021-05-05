@@ -55,69 +55,84 @@
   <%# 地域選択タブ %>
 
   <%# 都道府県リスト %>
-  <% unless @prefectures == nil %>
-    <section id='content', class='hidden'>
-      <ul class='prefecture-list' id='hokkaido-tohoku-list'>
-        <% @prefectures[0..6].each do |prefecture| %>
-          <li>
-            <%= link_to prefecture.name, prefecture_councils_path(prefecture.id), class: 'prefecture-link' %>
-          </li>
-        <% end %>
-        <li class='close-btn'>
-            <span class='material-icons' id='close-menu'>close</span>
-        </li>
-      </ul>
-      <ul class='prefecture-list' id='kanto-list'>
-        <% @prefectures[7..13].each do |prefecture| %>
-          <li>
-            <%= link_to prefecture.name, prefecture_councils_path(prefecture.id), class: 'prefecture-link' %>
-          </li>
-        <% end %>
-        <li class='close-btn'>
-            <span class='material-icons' id='close-menu'>close</span>
-        </li>
-      </ul>
-      <ul class='prefecture-list' id='chubu-list'>
-        <% @prefectures[14..22].each do |prefecture| %>
-          <li>
-            <%= link_to prefecture.name, prefecture_councils_path(prefecture.id), class: 'prefecture-link' %>
-          </li>
-        <% end %>
-        <li class='close-btn'>
-            <span class='material-icons' id='close-menu'>close</span>
-        </li>
-      </ul>
-      <ul class='prefecture-list' id='kinki-list'>
-        <% @prefectures[23..29].each do |prefecture| %>
-          <li>
-            <%= link_to prefecture.name, prefecture_councils_path(prefecture.id), class: 'prefecture-link' %>
-          </li>
-        <% end %>
-        <li class='close-btn'>
-            <span class='material-icons' id='close-menu'>close</span>
-        </li>
-      </ul>
-      <ul class='prefecture-list' id='chugoku-shikoku-list'>
-        <% @prefectures[30..38].each do |prefecture| %>
-          <li>
-            <%= link_to prefecture.name, prefecture_councils_path(prefecture.id), class: 'prefecture-link' %>
-          </li>
-        <% end %>
-        <li class='close-btn'>
-            <span class='material-icons' id='close-menu'>close</span>
-        </li>
-      </ul>
-      <ul class='prefecture-list' id='kyushu-okinawa-list'>
-        <% @prefectures[39..46].each do |prefecture| %>
-          <li>
-            <%= link_to prefecture.name, prefecture_councils_path(prefecture.id), class: 'prefecture-link' %>
-          </li>
-        <% end %>
-        <li class='close-btn'>
-            <span class='material-icons' id='close-menu'>close</span>
-        </li>
-      </ul>
-    </section>
-  <% end %>
+  <section id='content' class='hidden'>
+    <%# 北海道・東北 %>
+    <ul class='prefecture-list' id='hokkaido-tohoku-list'>
+      <li><%= link_to '北海道', prefecture_councils_path(1), class: 'prefecture-link' %></li>
+      <li><%= link_to '青森', prefecture_councils_path(2), class: 'prefecture-link' %></li>
+      <li><%= link_to '岩手', prefecture_councils_path(3), class: 'prefecture-link' %></li>
+      <li><%= link_to '宮城', prefecture_councils_path(4), class: 'prefecture-link' %></li>
+      <li><%= link_to '秋田', prefecture_councils_path(5), class: 'prefecture-link' %></li>
+      <li><%= link_to '山形', prefecture_councils_path(6), class: 'prefecture-link' %></li>
+      <li><%= link_to '福島', prefecture_councils_path(7), class: 'prefecture-link' %></li>
+      <%# 閉じるボタン %>
+      <li class='close-btn'><span class='material-icons' id='close-menu'>close</span></li>
+    </ul>
+    <%# 関東 %>
+    <ul class='prefecture-list' id='kanto-list'>
+      <li><%= link_to '茨城', prefecture_councils_path(8), class: 'prefecture-link' %></li>
+      <li><%= link_to '栃木', prefecture_councils_path(9), class: 'prefecture-link' %></li>
+      <li><%= link_to '群馬', prefecture_councils_path(10), class: 'prefecture-link' %></li>
+      <li><%= link_to '埼玉', prefecture_councils_path(11), class: 'prefecture-link' %></li>
+      <li><%= link_to '千葉', prefecture_councils_path(12), class: 'prefecture-link' %></li>
+      <li><%= link_to '東京', prefecture_councils_path(13), class: 'prefecture-link' %></li>
+      <li><%= link_to '神奈川', prefecture_councils_path(14), class: 'prefecture-link' %></li>
+      <%# 閉じるボタン %>
+      <li class='close-btn'><span class='material-icons' id='close-menu'>close</span></li>
+    </ul>
+    <%# 中部 %>
+    <ul class='prefecture-list' id='chubu-list'>
+      <li><%= link_to '新潟', prefecture_councils_path(15), class: 'prefecture-link' %></li>
+      <li><%= link_to '富山', prefecture_councils_path(16), class: 'prefecture-link' %></li>
+      <li><%= link_to '石川', prefecture_councils_path(17), class: 'prefecture-link' %></li>
+      <li><%= link_to '福井', prefecture_councils_path(18), class: 'prefecture-link' %></li>
+      <li><%= link_to '山梨', prefecture_councils_path(19), class: 'prefecture-link' %></li>
+      <li><%= link_to '長野', prefecture_councils_path(20), class: 'prefecture-link' %></li>
+      <li><%= link_to '岐阜', prefecture_councils_path(21), class: 'prefecture-link' %></li>
+      <li><%= link_to '静岡', prefecture_councils_path(22), class: 'prefecture-link' %></li>
+      <li><%= link_to '愛知', prefecture_councils_path(23), class: 'prefecture-link' %></li>
+      <%# 閉じるボタン %>
+      <li class='close-btn'><span class='material-icons' id='close-menu'>close</span></li>
+    </ul>
+    <%# 近畿 %>
+    <ul class='prefecture-list' id='kinki-list'>
+      <li><%= link_to '三重', prefecture_councils_path(24), class: 'prefecture-link' %></li>
+      <li><%= link_to '滋賀', prefecture_councils_path(25), class: 'prefecture-link' %></li>
+      <li><%= link_to '京都', prefecture_councils_path(26), class: 'prefecture-link' %></li>
+      <li><%= link_to '大阪', prefecture_councils_path(27), class: 'prefecture-link' %></li>
+      <li><%= link_to '兵庫', prefecture_councils_path(28), class: 'prefecture-link' %></li>
+      <li><%= link_to '奈良', prefecture_councils_path(29), class: 'prefecture-link' %></li>
+      <li><%= link_to '和歌山', prefecture_councils_path(30), class: 'prefecture-link' %></li>
+      <%# 閉じるボタン %>
+      <li class='close-btn'><span class='material-icons' id='close-menu'>close</span></li>
+    </ul>
+    <%# 中国・四国 %>
+    <ul class='prefecture-list' id='chugoku-shikoku-list'>
+      <li><%= link_to '鳥取', prefecture_councils_path(31), class: 'prefecture-link' %></li>
+      <li><%= link_to '島根', prefecture_councils_path(32), class: 'prefecture-link' %></li>
+      <li><%= link_to '岡山', prefecture_councils_path(33), class: 'prefecture-link' %></li>
+      <li><%= link_to '広島', prefecture_councils_path(34), class: 'prefecture-link' %></li>
+      <li><%= link_to '山口', prefecture_councils_path(35), class: 'prefecture-link' %></li>
+      <li><%= link_to '徳島', prefecture_councils_path(36), class: 'prefecture-link' %></li>
+      <li><%= link_to '香川', prefecture_councils_path(37), class: 'prefecture-link' %></li>
+      <li><%= link_to '愛媛', prefecture_councils_path(38), class: 'prefecture-link' %></li>
+      <li><%= link_to '高知', prefecture_councils_path(39), class: 'prefecture-link' %></li>
+      <%# 閉じるボタン %>
+      <li class='close-btn'><span class='material-icons' id='close-menu'>close</span></li>
+    </ul>
+    <%# 九州・沖縄 %>
+    <ul class='prefecture-list' id='kyushu-okinawa-list'>
+      <li><%= link_to '福岡', prefecture_councils_path(40), class: 'prefecture-link' %></li>
+      <li><%= link_to '佐賀', prefecture_councils_path(41), class: 'prefecture-link' %></li>
+      <li><%= link_to '長崎', prefecture_councils_path(42), class: 'prefecture-link' %></li>
+      <li><%= link_to '熊本', prefecture_councils_path(43), class: 'prefecture-link' %></li>
+      <li><%= link_to '大分', prefecture_councils_path(44), class: 'prefecture-link' %></li>
+      <li><%= link_to '宮崎', prefecture_councils_path(45), class: 'prefecture-link' %></li>
+      <li><%= link_to '鹿児島', prefecture_councils_path(46), class: 'prefecture-link' %></li>
+      <li><%= link_to '沖縄', prefecture_councils_path(47), class: 'prefecture-link' %></li>
+      <%# 閉じるボタン %>
+      <li class='close-btn'><span class='material-icons' id='close-menu'>close</span></li>
+    </ul>
+  </section>
   <%# 都道府県リスト %>
 </header>

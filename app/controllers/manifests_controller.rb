@@ -24,11 +24,7 @@ class ManifestsController < ApplicationController
   def edit
     @manifest_tag = ManifestTag.new
     @manifest = Manifest.find(params[:id])
-    tags = Tag.find(@manifest.tag_ids)
-    @tag_names = []
-    tags.each do |tag|
-      @tag_names.append(tag.name)
-    end
+    @tag_names = Tag.find_tag(@manifest)
   end
 
   def update
@@ -50,6 +46,7 @@ class ManifestsController < ApplicationController
     end
   end
 
+  # タグ検索用のメソッド
   def search
     return nil if params[:keyword] == ''
 
