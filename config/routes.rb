@@ -20,5 +20,7 @@ Rails.application.routes.draw do
     end
     resources :manifest_comments, only: [:new, :create, :destroy]
   end
+  resources :questions
   resources :tags, only: [:index, :show]
+
 end
