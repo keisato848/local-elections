@@ -12,12 +12,13 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :searches, only: [:index]
+  resources :searches, only: [:index] do
+    collection do
+      get 'tag'
+    end
+  end
 
   resources :manifests do
-    collection do
-      get 'search'
-    end
     resources :manifest_comments, only: [:new, :create, :destroy]
   end
   resources :questions
