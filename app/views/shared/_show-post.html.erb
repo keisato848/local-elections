@@ -6,7 +6,7 @@
         <% if user_signed_in? %>
           <% if current_user.id == model.user.id %>
             <%= link_to '編集', "/#{controller}/#{params[:id]}/edit", class: 'edit-manifest-link' %>
-            <%= link_to '削除', "/#{controller}/#{params[:id]}", method: :delete, class: 'delete-manifest-link' %>
+            <%= link_to '削除', "/#{controller}/#{params[:id]}", method: :delete, data: { confirm: '本当に削除しますか' }, class: 'delete-manifest-link' %>
           <% end %>
         <% end %>
       </div>

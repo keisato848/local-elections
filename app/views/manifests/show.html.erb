@@ -4,51 +4,7 @@
 <% breadcrumb :manifest, @manifest %>
 <%= render 'shared/breadcrumbs' %>
 
-<div class='manifest-area'>
-  <div class='manifest-content'>
-    <div class='top-container'>
-      <p><%= @manifest.user.nickname %>が<%= l @manifest.updated_at %>に更新</p>
-      <div>
-        <% if user_signed_in? %>
-          <% if current_user.id == @manifest.user.id %>
-            <%= link_to '編集', edit_manifest_path(params[:id]), class: 'edit-manifest-link' %>
-            <%= link_to '削除', manifest_path(params[:id]), method: :delete, class: 'delete-manifest-link' %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <h1 class='prefecture-name'><%= @manifest.title %></h1>
-    <ul class='tag-list'>
-      <li><span class='material-icons'>label</span></li>
-      <% @manifest.tags.each do |tag| %>
-        <li><%= link_to tag.name, tag_path(tag.id), class: 'tag-link' %></li>
-      <% end %>
-    </ul>
-    <h2 class='council-name'>マニュフェストの説明</h2>
-    <div class='manifest-description'>
-      <%= safe_join(@manifest.description.split("\n"), tag(:br)) %>
-    </div>
-  </div>
-  <%# コメントエリア %>
-  <div class="comment-area">
-    <%# コメントを一覧表示 %>
-    <% if @comments %>
-      <ul class='comment-list'>
-        <% @comments.each do |comment| %> 
-          <li class="comment-content">
-            <div class='comment-top'>
-              <span class='comment-user'><%= comment.user.nickname %></span>
-              <%= l comment.created_at, format: :long %>
-              <% if comment.user == current_user %>
-                <%= link_to '削除', manifest_manifest_comment_path(params[:id]), method: :delete, class: 'delete-comment',data: { confirm: '本当に削除しますか?' } %>
-              <% end %>
-            </div>
-            <span class='comment-text'><%= comment.content %></span>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-    <%= link_to 'コメントを書く', new_manifest_manifest_comment_path(params[:id]), class: 'comment-link-btn' %>
-  </div>
-</div>
+<%# 投稿表示用の部分テンプレートを呼び出し %>
+<%= render 'shared/show-post', model: @manifest, controller: 'manifests' %>
+
 <%= render 'shared/footer' %>
