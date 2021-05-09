@@ -1,0 +1,26 @@
+<div class='manifest-area'>
+  <div class='manifest-content'>
+    <div class='top-container'>
+      <p><%= model.user.nickname %>が<%= l model.updated_at %>に更新</p>
+      <div>
+        <% if user_signed_in? %>
+          <% if current_user.id == model.user.id %>
+            <%= link_to '編集', "/#{controller}/#{params[:id]}/edit", class: 'edit-manifest-link' %>
+            <%= link_to '削除', "/#{controller}/#{params[:id]}", method: :delete, class: 'delete-manifest-link' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <h1 class='prefecture-name'><%= model.title %></h1>
+    <ul class='tag-list'>
+      <li><span class='material-icons'>label</span></li>
+      <% model.tags.each do |tag| %>
+        <li><%= link_to tag.name, tag_path(tag.id), class: 'tag-link' %></li>
+      <% end %>
+    </ul>
+    <div class='manifest-description'>
+      <%= safe_join(model.description.split("\n"), tag(:br)) %>
+    </div>
+  </div>
+
+</div>

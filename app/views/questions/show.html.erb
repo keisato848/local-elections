@@ -1,0 +1,10 @@
+<%= render "shared/second-header" %>
+
+<%# パンくずリスト %>
+<% breadcrumb :question, @question %>
+<%= render 'shared/breadcrumbs' %>
+
+<%# 投稿表示用の部分テンプレートを呼び出し %>
+<%= render 'shared/show-post', model: @question, controller: 'questions' %>
+
+<%= render 'shared/footer' %>
