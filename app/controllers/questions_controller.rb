@@ -27,14 +27,16 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @question_tag = QuestionTag.new
     @question = Question.find(params[:id])
+    @tag_names = Tag.find_tag(@question)
   end
 
   def update
-    @question = QuestionTag.mew(question_params)
+    @question = QuestionTag.new(question_params)
     if @question.valid?
       @question.update(params[:id])
-      redirect_to question_path(@question), notice: '質問を更新しました'
+      redirect_to question_path(params[:id]), notice: '質問を更新しました'
     else
       render :edit
     end
