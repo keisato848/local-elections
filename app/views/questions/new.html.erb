@@ -1,0 +1,7 @@
+<%= render 'shared/second-header' %>
+
+<%# 投稿フォーム %>
+<h1 class='form-header-text'>質問投稿</h1>
+<%= render 'shared/new-post', model: @question, url: questions_path, title_placeholder: "例）予算の見方がわからない", description_value: "以下、投稿テンプレート（適宜削除してご利用ください）\r【予算書の人件費について】\r下記リンクに掲載されている、富山市の「令和3年度15ヶ月予算」の3ページ目に記載されている、人件費には市立病院の医療従事者の人件費は含まれるのでしょうか？\r わかる方がいれば教えて下さい！\r【関連リンク】\rhttps://www.city.toyama.toyama.jp/data/open/cnt/3/2413/1/R0315kagetsuyosan.pdf?20210324103129" %>
+
+<%= render 'shared/footer' %>
