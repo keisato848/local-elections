@@ -1,0 +1,30 @@
+.main {
+  .tag-list {
+    margin-top: 3vh;
+    .tag-content {
+      width: 90%;
+      margin: 0 auto;
+      padding: 1.5%;
+      font-weight: 500;
+      display: block;
+      border-bottom: 1px solid #666;
+      &:first-child {
+        border-top: 1px solid #666;
+      }
+      &:hover {
+        background-color: #dcdcdc;
+        transition: background-color 0.4s;
+      }
+      .tag-description {
+        height: 20px;
+      }
+    }
+  }
+  .tag-link {
+    color: #000;
+    text-align: center;
+    text-decoration: underline;
+    display: block;
+    margin: 0 auto;
+  }
+}

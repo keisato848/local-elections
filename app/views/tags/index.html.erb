@@ -6,14 +6,10 @@
 
 <div class='main'>
   <h1>タグ一覧</h1>
-  <% @tags.each do |tag| %>
-    <ul class='manifest-list'>
-      <li class='manifest-content'>
-        <a href=<%= "/tags/#{tag.id}" %>>
-          <h2 class='council-name'><%= tag.name %></h2>
-        </a>
-      </li>
-    </ul>
-  <% end %>
+  <div class='tag-list'>
+    <% @tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag.id), class: 'tag-content' %>
+    <% end %>
+  </div>
 </div>
 <%= render 'shared/footer' %>
