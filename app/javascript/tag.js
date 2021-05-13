@@ -1,3 +1,5 @@
+'use strict';
+
 if (location.pathname.match('manifests|questions')){
   document.addEventListener('DOMContentLoaded', () => {
     const inputElement = document.getElementById('tag-name');

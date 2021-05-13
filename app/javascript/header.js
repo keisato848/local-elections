@@ -1,4 +1,5 @@
 'use strict';
+
 if (location.pathname === '/'){
   window.addEventListener('load', () => {
     
