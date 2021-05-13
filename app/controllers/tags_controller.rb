@@ -5,7 +5,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
-    @manifests = Manifest.all.includes(:tags)
-    @questions = Question.all.includes(:tags)
+    @manifests = Manifest.all.includes(:tags).order(updated_at: 'DESC')
+    @questions = Question.all.includes(:tags).order(updated_at: 'DESC')
   end
 end
