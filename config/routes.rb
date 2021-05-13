@@ -18,10 +18,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :manifests do
+  resources :manifests, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :manifest_comments, only: [:new, :create, :destroy]
   end
-  resources :questions
+  resources :questions, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :tags, only: [:index, :show]
 
 end
