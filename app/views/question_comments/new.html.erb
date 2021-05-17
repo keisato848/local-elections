@@ -1,0 +1,22 @@
+<%= render "shared/header" %>
+<%= render 'shared/breadcrumbs' %>
+
+<div class='main'>
+  <h1><%= @question.title %>へのコメント</h1>
+  <%= render 'shared/error_messages', model: @comment %>
+  <div class="comments-form">
+    <%= form_with model: @comment, url: question_question_comments_path(question_id: params[:question_id]), local: true do |f| %>
+        <%= f.text_area :content , placeholder: 'コメントを書く(256字以内）', class: 'field' %>
+        <div class='caution'>
+          <h2 class='caution-title'>注意事項</h2>
+          <p>
+            ※犯罪予告や犯罪示唆、誹謗中傷、性的な出会いを目的とした書き込みでないか今一度確認してください。
+          </p>
+          <p>
+            ※投稿者は、投稿に関して発生する責任が全て投稿者に帰すことを承諾します。
+          </p>
+        <%= f.submit "送信する", class: 'form__btn' %>
+    <% end %>
+  </div>
+</div>
+<%= render 'shared/footer' %>
