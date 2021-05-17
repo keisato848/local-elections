@@ -18,7 +18,7 @@ class ManifestsController < ApplicationController
 
   def show
     @manifest = Manifest.find(params[:id])
-    @comments = @manifest.manifest_comments.includes(:user)
+    @comments = @manifest.manifest_comments
   end
 
   def edit
