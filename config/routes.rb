@@ -17,11 +17,13 @@ Rails.application.routes.draw do
       get 'tag'
     end
   end
-
+  
   resources :manifests, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :manifest_comments, only: [:new, :create, :destroy]
   end
-  resources :questions, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :questions, only: [:new, :create, :show, :edit, :update, :destroy] do
+    resources :question_comments, only: [:new, :create, :destroy]
+  end
   resources :tags, only: [:index, :show]
 
 end

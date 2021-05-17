@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    # コメント用の記述
+    @comments = @question.question_comments
   end
 
   def edit
