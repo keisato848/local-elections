@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe ManifestComment, type: :model do
+RSpec.describe QuestionComment, type: :model do
   before do
     @user = create(:user)
-    @manifest = create(:manifest)
-    @comment = build(:manifest_comment, user: @user, manifest: @manifest)
+    @question = create(:question)
+    @comment = build(:question_comment, user: @user, question: @question)
   end
 
   describe 'コメントが投稿できるとき' do
