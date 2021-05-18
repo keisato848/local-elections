@@ -19,8 +19,7 @@ RSpec.describe User, type: :model do
     end
     it 'すでに存在するemailは登録できない' do
       @user.save
-      another_user = build(:user)
-      another_user.nickname = '議会次郎'
+      another_user = build(:user, email: @user.email)
       another_user.valid?
       expect(another_user.errors.full_messages).to include('メールアドレスはすでに存在します')
     end
@@ -48,8 +47,7 @@ RSpec.describe User, type: :model do
     end
     it 'すでに存在するnicknameは登録できない' do
       @user.save
-      another_user = build(:user)
-      another_user.email = 'exmaple2@example.com'
+      another_user = build(:user, nickname: @user.nickname)
       another_user.valid?
       expect(another_user.errors.full_messages).to include('ニックネームはすでに存在します')
     end

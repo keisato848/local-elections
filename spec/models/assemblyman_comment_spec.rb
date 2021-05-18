@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe AssemblymanComment, type: :model do
   before do
     @user = create(:user)
-    @prefecture = create(:prefecture)
     @council = create(:council)
     @assemblyman = create(:assemblyman)
     @comment = build(:assemblyman_comment, user: @user, assemblyman: @assemblyman)
