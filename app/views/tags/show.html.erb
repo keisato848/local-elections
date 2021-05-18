@@ -16,7 +16,7 @@
     <ul class='manifest-list active-list' id='manifest-list'>
       <% if @manifests.any? %>
         <% @manifests.each do |manifest| %>
-          <li class='manifest-content'>
+          <li>
             <a href=<%= "/manifests/#{manifest.id}" %>>
               <p><%= l manifest.updated_at %></p>
               <p>@<%= manifest.user.nickname %></p>
@@ -34,7 +34,7 @@
     <% if @questions.any? %>
       <% @questions.each do |question| %>
         <ul class='question-list' id='question-list'>
-          <li class='question-content'>
+          <li>
             <a href=<%= "/questions/#{question.id}" %>>
               <p><%= l question.updated_at %></p>
               <p>@<%= question.user.nickname %></p>

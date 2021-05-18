@@ -9,8 +9,6 @@
       margin: 0 5vw;
       border: 1px solid #313131;
       border-top: none;
-      position: relative;
-      top: -28px;
       display: block;
       li {
         margin: auto 0;
@@ -36,7 +34,7 @@
   }
   .tag-tab {
     width: 90vw;
-    margin: 2vh 5vw;
+    margin: 2vh 5vw 0 5vw;
     color: #313131;
     background-color: #ffffff;
     border: 1px solid #313131;
