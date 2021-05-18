@@ -82,9 +82,12 @@ VScode
 |nickname|string|null:false|
 
 #### Association
-- has_many :assemblymen
-- has_one :comments, dependent: :destroy
-- has_one :manifests, dependent: :destroy
+- has_many :sns_credentials
+- has_many :assemblyman_comments, dependent: :destroy
+- has_many :manifests, dependent: :destroy
+- has_many :manifest_comments, dependent: :destroy
+- has_many :questions
+- has_many :question_comments
 
 ### sns_credentials table
 |Column|Types|Options|
@@ -96,22 +99,14 @@ VScode
 #### Association
 - belongs_to :user, optional: true
 
-### prefectures table
-|Column|Types|Options|
-|-|-|-|
-|name|string|null:false|
-
-#### Association
-- has_many :council
-
 ### councils table
 |Column|Types|Options|
 |-|-|-|
 |name|string|null:false|
-|prefecture|references|null:false, foreign_key: true|
+|prefecture|integer|null:false|
 
 #### Association
-- belongs_to :prefecture
+- belongs_to_active_hash :prefecture
 - has_many :assemblymen
 - has_many :election
 
@@ -133,7 +128,7 @@ VScode
 #### Association
 - belongs_to :council
 - belongs_to :user, optional: true
-- has_many :comments, dependent: :destroy
+- has_many :assemblyman_comments, dependent: :destroy
 
 ### manifests table
 |Column|Types|Options|
@@ -143,22 +138,38 @@ VScode
 |user|references|null:false, foreign_key:true|
 
 #### Association
-- belongs_to :user
 - has_many :manifest_tag_relations
 - has_many :tags, through: :manifest_tag_relations
+- belongs_to :user
+- has_many :manifest_comments, dependent: :destroy
+
+### question table
+|Column|Types|Options|
+|-|-|-|
+|title|string|null:false|
+|description|text|null:false|
+|user|references|null:false, foreign_key:true|
+
+#### Association
+- has_many :question_tag_relations
+- has_many :tags, through: :question_tag_relations
+- belongs_to :user
+- has_many :question_comments, dependent: :destroy
 
 ### tags table
 |Column|Types|Options|
-|-|-|
+|-|-|-|
 |name|string|null:false, uniqueness: true|
 
 #### Association
 - has_many :manifest_tag_relations
 - has_many :manifests, through: :manifest_tag_relations
+- has_many :question_tag_relations
+- has_many :questions, through: :question_tag_relations
 
 ### manifest_tag_relations table
 |Column|Types|Options|
-|-|-|
+|-|-|-|
 |manifest|references|foreign_key: true|
 |tag|references|foreign_key: true|
 
@@ -166,7 +177,17 @@ VScode
 - belongs_to :manifest
 - belongs_to :tag 
 
-### comments table
+### question_tag_relations table
+|Column|Types|Options|
+|-|-|-|
+|question|references|foreign_key: true|
+|tag|references|foreign_key: true|
+
+#### Association
+- belongs_to :question
+- belongs_to :tag 
+
+### assemblyman_comments table
 |Column|Types|Options|
 |-|-|-|
 |comment|text|null:false|
@@ -176,6 +197,28 @@ VScode
 #### Association
 - belongs_to :user
 - belongs_to :assemblyman
+
+### manifest_comments table
+|Column|Types|Options|
+|-|-|-|
+|comment|text|null:false|
+|user|references|foreign_key: true|
+|manifest|references|foreign_key: true|
+
+#### Association
+- belongs_to :user
+- belongs_to :manifest
+
+### question_comments table
+|Column|Types|Options|
+|-|-|-|
+|comment|text|null:false|
+|user|references|foreign_key: true|
+|question|references|foreign_key: true|
+
+#### Association
+- belongs_to :user
+- belongs_to :question
 
 ### elections table
 |Column|Types|Options|
