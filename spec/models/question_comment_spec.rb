@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe AssemblymanComment, type: :model do
+RSpec.describe QuestionComment, type: :model do
   before do
     @user = create(:user)
-    @council = create(:council)
-    @assemblyman = create(:assemblyman)
-    @comment = build(:assemblyman_comment, user: @user, assemblyman: @assemblyman)
+    @question = create(:question)
+    @comment = build(:question_comment, user: @user, question: @question)
   end
 
   describe 'コメントが投稿できるとき' do

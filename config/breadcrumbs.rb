@@ -60,7 +60,18 @@ crumb :manifest do |manifest|
   parent :show_tag
 end
 
+crumb :question do |question|
+  question = Question.find(params[:id])
+  link question.title, question_path(params[:id])
+  parent :show_tag
+end
+
 crumb :edit_manifest do
   link '編集', edit_manifest_path(params[:id])
   parent :manifest
+end
+
+crumb :edit_question do
+  link '編集', edit_question_path(params[:id])
+  parent :question
 end

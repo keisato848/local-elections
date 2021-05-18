@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe ManifestComment, type: :model do
   before do
     @user = create(:user)
-    @prefecture = create(:prefecture)
-    @council = create(:council)
     @manifest = create(:manifest)
     @comment = build(:manifest_comment, user: @user, manifest: @manifest)
   end

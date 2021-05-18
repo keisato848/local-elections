@@ -41,8 +41,9 @@
   padding: 0;
   .update-title {
     width: 100%;
-    color: #ffffff;
-    background-color: #214b7d;
+    color: #313131;
+    background-color: #ffffff;
+    border-bottom: 1px solid #313131;
     display: flex;
     justify-content: space-between;
     li {
@@ -60,13 +61,12 @@
 }
 
 .update-active {
-  background-color: #ffffff;
-  color: #313131;
+  color: #ffffff;
+  background-color: #214b7d;
   font-weight: 400;
-  border-bottom: 1px solid #313131;
 }
 
-#new-content {
+#manifest-content {
   display: block;
 }
 

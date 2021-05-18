@@ -2,9 +2,13 @@
   <div class='top-container'>
     <%= link_to 'Local Elections', '/', class: 'logo-text' %>
     <div class='user-session'>
-      <div class='manifest-session'>
+      <div class='manifest-session' id='manifest-session'>
         <span class='material-icons'>edit_note</span>
-        <%= link_to '投稿する', new_manifest_path, class:'post-link' %>
+        <p class='post-link-btn' id='post-link-btn'>投稿する</p>
+        <div class='post-link' id='post-link' >
+          <%= link_to 'マニュフェスト', new_manifest_path, class: 'post-link-text' %>
+          <%= link_to '質問', new_question_path, class: 'post-link-text' %>
+        </div>
       </div>
       <% if user_signed_in? %>
         <p class='registration-link'><%= current_user.nickname %></p>

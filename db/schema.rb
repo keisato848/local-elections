@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_030509) do
+ActiveRecord::Schema.define(version: 2021_05_17_060342) do
 
   create_table "assemblyman_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -42,10 +42,9 @@ ActiveRecord::Schema.define(version: 2021_05_05_030509) do
 
   create_table "councils", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "prefecture_id", null: false
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
-    t.index ["prefecture_id"], name: "index_councils_on_prefecture_id"
+    t.integer "prefecture_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "elections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -84,10 +83,32 @@ ActiveRecord::Schema.define(version: 2021_05_05_030509) do
     t.index ["user_id"], name: "index_manifests_on_user_id"
   end
 
-  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "question_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "question_id", null: false
+    t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_question_comments_on_question_id"
+    t.index ["user_id"], name: "index_question_comments_on_user_id"
+  end
+
+  create_table "question_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "question_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_question_tag_relations_on_question_id"
+    t.index ["tag_id"], name: "index_question_tag_relations_on_tag_id"
+  end
+
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -119,11 +140,15 @@ ActiveRecord::Schema.define(version: 2021_05_05_030509) do
   end
 
   add_foreign_key "assemblymen", "councils"
-  add_foreign_key "councils", "prefectures"
   add_foreign_key "manifest_comments", "manifests"
   add_foreign_key "manifest_comments", "users"
   add_foreign_key "manifest_tag_relations", "manifests"
   add_foreign_key "manifest_tag_relations", "tags"
   add_foreign_key "manifests", "users"
+  add_foreign_key "question_comments", "questions"
+  add_foreign_key "question_comments", "users"
+  add_foreign_key "question_tag_relations", "questions"
+  add_foreign_key "question_tag_relations", "tags"
+  add_foreign_key "questions", "users"
   add_foreign_key "sns_credentials", "users"
 end

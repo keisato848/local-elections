@@ -6,10 +6,12 @@ class User < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX }
   validates :nickname, presence: true, uniqueness: true
 
+  has_many :sns_credentials
   has_many :assemblyman_comments, dependent: :destroy
   has_many :manifests, dependent: :destroy
   has_many :manifest_comments, dependent: :destroy
-  has_many :sns_credentials
+  has_many :questions
+  has_many :question_comments
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create

@@ -7,18 +7,19 @@
   <p class='fadein app-description'>
      Local Electionsは地方議会に関する悩みを解決するサービスです。<br />
      議員情報を参照したり、あなただけのマニュフェストを投稿しましょう！
-  <p>
+  </p>
 </div>
 
 <%# 新着リスト %>
 <div class='top-main'>
   <div class='update-lists'>
     <ul class='update-title'>
-      <li class='update-active' id='new'>マニュフェスト</li>
+      <li class='update-active' id='manifest'>マニュフェスト</li>
+      <li id='question'>質問</li>
       <li id='info'>お知らせ</li>
-      <li id='election'>選挙情報</li>
     </ul>
-    <ul class='update-content' id='new-content'>
+    <%# マニュフェスト %>
+    <ul class='update-content' id='manifest-content'>
       <% if @manifests.any? %>
         <% @manifests.each do |manifest| %>
           <li class='manifest-content'>
@@ -27,7 +28,7 @@
                 <%= l manifest.updated_at %>
               </span>
               <span class='posted-user'>
-                <%= manifest.user.nickname %>
+                @<%= manifest.user.nickname %>
               </span>
               <span>
                 <%= "「#{manifest.title}」" %>
@@ -46,6 +47,36 @@
         </li>
       <% end %>
     </ul>
+    <%# 質問 %>
+    <ul class='update-content' id='question-content'>
+      <% if @questions %>
+        <% @questions.each do |question| %>
+          <li class='manifest-content'>
+            <a href="/questions/<%= question.id %>" class='show-manifest-link' id='manifest-link'>
+              <span class='update-date'>
+                <%= l question.updated_at %>
+              </span>
+              <span class='posted-user'>
+                @<%= question.user.nickname %>
+              </span>
+              <span>
+                <%= "「#{question.title}」" %>
+              </span>
+              <% question.tags.each do |tag| %>
+                <%= link_to tag.name, tag_path(tag.id), class: 'tag-link' %>
+              <% end %>
+            </a>
+          </li>
+        <% end %>
+      <% else %>
+        <li class='manifest-content'>
+          <a href='/questions/new' class='show-manifest-link'>
+            新規投稿する
+          </a>
+        </li>
+      <% end %>
+    </ul>
+    <%# お知らせ %>
     <ul class='update-content' id='info-content'>
       <li class='manifest-content'>
         <a href='/prefectures/16/councils' class='show-manifest-link'>
@@ -63,13 +94,6 @@
         <a href='/prefectures/16/councils/2/assemblymen' class='show-manifest-link'>
           <span class='update-date'>2021年03月14日</span>
           <span class='update-text'>富山県議会議員の情報を更新</span>
-        </a>
-      </li>
-    </ul>
-    <ul class='update-content' id='election-content'>
-      <li class='manifest-content'>
-        <a href='#' class='show-manifest-link'>
-          <span class='update-text'>更新までしばらくお待ちください</span>
         </a>
       </li>
     </ul>

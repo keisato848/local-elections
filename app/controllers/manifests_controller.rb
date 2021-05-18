@@ -18,7 +18,7 @@ class ManifestsController < ApplicationController
 
   def show
     @manifest = Manifest.find(params[:id])
-    @comments = ManifestComment.where(manifest_id: params[:id]).order(:created_at)
+    @comments = @manifest.manifest_comments
   end
 
   def edit
@@ -44,14 +44,6 @@ class ManifestsController < ApplicationController
     else
       render :show
     end
-  end
-
-  # タグ検索用のメソッド
-  def search
-    return nil if params[:keyword] == ''
-
-    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"])
-    render json: { keyword: tag }
   end
 
   private

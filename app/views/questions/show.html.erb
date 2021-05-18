@@ -1,11 +1,11 @@
 <%= render "shared/second-header" %>
 
 <%# パンくずリスト %>
-<% breadcrumb :manifest, @manifest %>
+<% breadcrumb :question, @question %>
 <%= render 'shared/breadcrumbs' %>
 
 <%# 投稿表示用の部分テンプレートを呼び出し %>
-<%= render 'shared/show-post', model: @manifest, controller: 'manifests' %>
+<%= render 'shared/show-post', model: @question, controller: 'questions' %>
 
 <%# コメントエリア %>
 <div class="comment-area">
@@ -18,7 +18,7 @@
             <span class='comment-user'><%= comment.user.nickname %></span>
             <%= l comment.created_at, format: :long %>
             <% if comment.user == current_user %>
-              <%= link_to '削除', manifest_manifest_comment_path(id: comment.id, manifest_id: params[:id]), method: :delete, class: 'delete-comment',data: { confirm: '本当に削除しますか?' } %>
+              <%= link_to '削除', question_question_comment_path(id: comment.id, question_id: params[:id]), method: :delete, class: 'delete-comment',data: { confirm: '本当に削除しますか?' } %>
             <% end %>
           </div>
           <span class='comment-text'><%= comment.content %></span>
@@ -26,7 +26,7 @@
       <% end %>
     </ul>
   <% end %>
-  <%= link_to 'コメントを書く', new_manifest_manifest_comment_path(params[:id]), class: 'comment-link-btn' %>
+  <%= link_to 'コメントを書く', new_question_question_comment_path(params[:id]), class: 'comment-link-btn' %>
 </div>
 
 <%= render 'shared/footer' %>

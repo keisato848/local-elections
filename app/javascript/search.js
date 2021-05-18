@@ -1,4 +1,5 @@
 'use strict';
+
 if (location.pathname.match('assemblymen')) {
   window.addEventListener('load', () => {
     const searchBtn = document.getElementById('search-btn');

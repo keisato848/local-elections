@@ -9,4 +9,11 @@ class SearchesController < ApplicationController
                   notice: '検索条件を指定してください'
     end
   end
+
+  def tag
+    return nil if params[:keyword] == ''
+
+    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"])
+    render json: { keyword: tag }
+  end
 end

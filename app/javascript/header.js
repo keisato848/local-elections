@@ -1,111 +1,130 @@
 'use strict';
+
 if (location.pathname === '/'){
   window.addEventListener('load', () => {
     
+    // 投稿リンク
+    const manifestSession = document.getElementById('manifest-session');
+    const postLinkBtn = document.getElementById('post-link-btn');
+    const postLink = document.getElementById('post-link');
+
+    manifestSession.addEventListener('mouseover', () => {
+      // postLink.classList.add('post-link-active');
+      console.log('hoge');
+      postLink.classList.add('post-link-active');
+    });
+
+    manifestSession.addEventListener('mouseout', () => {
+      // postLink.classList.add('post-link-active');
+      console.log('hoge');
+      postLink.classList.remove('post-link-active');
+    });
+
+
     // ハンバーガーメニュー
-    const open_menu = document.getElementById('open-menu')
-    const close_menu = document.getElementById('close-menu')
-    const menu_list = document.getElementById('hidden-menu-list')
+    const openMenu = document.getElementById('open-menu');
+    const closeMenu = document.getElementById('close-menu');
+    const menuList = document.getElementById('hidden-menu-list');
     
-    open_menu.addEventListener('click', () => {
-      menu_list.setAttribute('style', 'display: block')
+    openMenu.addEventListener('click', () => {
+      menuList.setAttribute('style', 'display: block');
     });
     
-    close_menu.addEventListener('click', () => {
-      menu_list.removeAttribute('style', 'display: block')
+    closeMenu.addEventListener('click', () => {
+      menuList.removeAttribute('style', 'display: block');
     });
     
     // 地域選択タブ
-    const prefecture_link = document.querySelectorAll('.region-tab li')
+    const prefectureLink = document.querySelectorAll('.region-tab li');
     
-    prefecture_link.forEach(clickedItem => {
+    prefectureLink.forEach(clickedItem => {
       clickedItem.addEventListener('click',() => {
-        prefecture_link.forEach(item => {
-          item.classList.remove('active')
+        prefectureLink.forEach(item => {
+          item.classList.remove('active');
         });
         clickedItem.classList.add('active');
       });
     });
     
     // 都道府県リスト
-    const prefecture_list = document.querySelectorAll('.hidden ul')
+    const prefectureList = document.querySelectorAll('.hidden ul');
     
     // 北海道・東北
     const hokkaido = document.getElementById('hokkaido-tohoku');
-    const hokkaido_tohoku_list = document.getElementById('hokkaido-tohoku-list');
+    const hokkaidoTohokuList = document.getElementById('hokkaido-tohoku-list');
     
     hokkaido.addEventListener('click', () => {
-      prefecture_list.forEach(item => {
-        item.setAttribute('style', 'display: none')
+      prefectureList.forEach(item => {
+        item.setAttribute('style', 'display: none');
       });
-      hokkaido_tohoku_list.setAttribute('style', 'display: flex')
+      hokkaidoTohokuList.setAttribute('style', 'display: flex');
     });
     
     // 関東
     const kanto = document.getElementById('kanto');
-    const kanto_list = document.getElementById('kanto-list');
+    const kantoList = document.getElementById('kanto-list');
     
     kanto.addEventListener('click', () => {
-      prefecture_list.forEach(item => {
-        item.setAttribute('style', 'display: none')
+      prefectureList.forEach(item => {
+        item.setAttribute('style', 'display: none');
       });
-      kanto_list.setAttribute('style', 'display: flex')
+      kantoList.setAttribute('style', 'display: flex');
     });
     
     // 中部
     const chubu = document.getElementById('chubu');
-    const chubu_list = document.getElementById('chubu-list');
+    const chubuList = document.getElementById('chubu-list');
     
     chubu.addEventListener('click', () => {
-      prefecture_list.forEach(item => {
-        item.setAttribute('style', 'display: none')
+      prefectureList.forEach(item => {
+        item.setAttribute('style', 'display: none');
       });
-      chubu_list.setAttribute('style', 'display: flex')
+      chubuList.setAttribute('style', 'display: flex');
     });
     
     // 近畿
     const kinki = document.getElementById('kinki');
-    const kinki_list = document.getElementById('kinki-list');
+    const kinkiList = document.getElementById('kinki-list');
     
     kinki.addEventListener('click', () => {
-      prefecture_list.forEach(item => {
-        item.setAttribute('style', 'display: none')
+      prefectureList.forEach(item => {
+        item.setAttribute('style', 'display: none');
       });
-      kinki_list.setAttribute('style', 'display: flex')
+      kinkiList.setAttribute('style', 'display: flex');
     });
     
     //  四国
-    const chugoku_shikoku = document.getElementById('chugoku-shikoku');
-    const chugoku_shikoku_list = document.getElementById('chugoku-shikoku-list');
+    const chugokuShikoku = document.getElementById('chugoku-shikoku');
+    const chugokuShikokuList = document.getElementById('chugoku-shikoku-list');
     
-    chugoku_shikoku.addEventListener('click', () => {
-      prefecture_list.forEach(item => {
-        item.setAttribute('style', 'display: none')
+    chugokuShikoku.addEventListener('click', () => {
+      prefectureList.forEach(item => {
+        item.setAttribute('style', 'display: none');
       });
-      chugoku_shikoku_list.setAttribute('style', 'display: flex')
+      chugokuShikokuList.setAttribute('style', 'display: flex');
     });
     
     // 九州・沖縄
-    const kyushu_okinawa = document.getElementById('kyushu-okinawa');
-    const kyushu_okinawa_list = document.getElementById('kyushu-okinawa-list');
+    const kyushuOkinawa = document.getElementById('kyushu-okinawa');
+    const kyushuOkinawaList = document.getElementById('kyushu-okinawa-list');
     
-    kyushu_okinawa.addEventListener('click', () => {
-      prefecture_list.forEach(item => {
-        item.setAttribute('style', 'display: none')
+    kyushuOkinawa.addEventListener('click', () => {
+      prefectureList.forEach(item => {
+        item.setAttribute('style', 'display: none');
       });
-      kyushu_okinawa_list.setAttribute('style', 'display: flex')
+      kyushuOkinawaList.setAttribute('style', 'display: flex');
     });
     
     // 閉じるボタン
-    const close_btn = document.querySelectorAll('.close-btn');
+    const closeBtn = document.querySelectorAll('.close-btn');
     
-    close_btn.forEach(btn => {
+    closeBtn.forEach(btn => {
       btn.addEventListener('click', () => {
-        prefecture_link.forEach(item => {
-          item.classList.remove('active')
+        prefectureLink.forEach(item => {
+          item.classList.remove('active');
         });
-        prefecture_list.forEach(item => {
-          item.setAttribute('style', 'display: none')
+        prefectureList.forEach(item => {
+          item.setAttribute('style', 'display: none');
         });
       });
     });

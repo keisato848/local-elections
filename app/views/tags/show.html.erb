@@ -4,23 +4,49 @@
 <% breadcrumb :show_tag %>
 <%= render 'shared/breadcrumbs' %>
 
-<div class='main'>
-  <h1 class='prefecture-name'><%= @tag.name %>に関連するマニュフェスト
-</h1>
-  <% if @manifests.any? %>
-    <% @manifests.each do |manifest| %>
-      <ul class='manifest-list'>
-        <li class='manifest-content'>
-          <a href=<%= "/manifests/#{manifest.id}" %>>
-            <p><%= manifest.user.nickname %>が更新</p>
-            <h2 class='council-name'><%= manifest.title %></h2>
-          </a>
-        </li>
-      </ul>
+<div class='tag-main'>
+  <h1 class='prefecture-name'><%= @tag.name %>に関する投稿</h1>
+  <ul class=tag-tab id=tag-tab>
+    <li class='tag-manifest-tab active-tab' id='tag-manifest-tab'>マニュフェスト</li>
+    <li class='tag-question-tab' id='tag-question-tab'>質問</li>
+  </ul>
+
+  <div class='relation-list'>
+  <%# マニュフェスト一覧を表示 %>
+    <ul class='manifest-list active-list' id='manifest-list'>
+      <% if @manifests.any? %>
+        <% @manifests.each do |manifest| %>
+          <li>
+            <a href=<%= "/manifests/#{manifest.id}" %>>
+              <p><%= l manifest.updated_at %></p>
+              <p>@<%= manifest.user.nickname %></p>
+              <h3 class='council-name'><%= manifest.title %></h3>
+            </a>
+          </li>
+        <% end %>
+      <% else %>
+        <p>マニュフェストはありません。</p>
+        <%= link_to '新規投稿する', new_manifest_path, class: 'manifest-link' %>
     <% end %>
-  <% else %>
-    <h2>関連マニュフェストはありません。</h2>
-    <%= link_to '新規投稿する', new_manifest_path, class: 'manifest-link' %>
-  <% end %>
+    </ul>
+
+    <%# 質問一覧を表示 %>
+    <% if @questions.any? %>
+      <% @questions.each do |question| %>
+        <ul class='question-list' id='question-list'>
+          <li>
+            <a href=<%= "/questions/#{question.id}" %>>
+              <p><%= l question.updated_at %></p>
+              <p>@<%= question.user.nickname %></p>
+              <h3 class='council-name'><%= question.title %></h3>
+            </a>
+          </li>
+        </ul>
+      <% end %>
+    <% else %>
+      <p>マニュフェストはありません。</p>
+      <%= link_to '新規投稿する', new_question_path, class: 'manifest-link' %>
+    <% end %>
+  </div>
 </div>
 <%= render 'shared/footer' %>

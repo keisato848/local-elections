@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :council do
-    prefecture
     name { Faker::Team.name }
+    prefecture_id { 1 }
   end
 end
