@@ -1,6 +1,7 @@
 <header class='top-page-header'>
   <div class='top-container'>
     <%= link_to 'Local Elections', '/', class: 'logo-text' %>
+    <%# 投稿、ユーザー管理メニュー %>
     <div class='user-session'>
       <div class='manifest-session' id='manifest-session'>
         <span class='material-icons'>edit_note</span>
@@ -39,6 +40,12 @@
             </li>
           <% end %>
           <li>
+            <%= link_to 'マニュフェスト', new_manifest_path, class: 'hidden-post-link-text' %>
+          </li>
+            <%= link_to '質問', new_question_path, class: 'hidden-post-link-text' %>
+          <li>
+          </li>
+          <li>
             <span class='material-icons' id='close-menu'>close</span>
           </li>
         </ul>
@@ -48,6 +55,9 @@
   <%# ハンバーガ−メニュー %>
 
   <%# 地域選択タブ %>
+  <div class='function-info'>
+    議員情報を見る（富山県の情報のみ更新）
+  </div>
   <ul class='region-tab'>
     <li class="hokkaido-tohoku" id='hokkaido-tohoku'>北海道・東北</li>
     <li class="kanto" id='kanto'>関東</li>

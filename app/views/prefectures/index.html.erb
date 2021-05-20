@@ -31,7 +31,7 @@
                 @<%= manifest.user.nickname %>
               </span>
               <span>
-                <%= "「#{manifest.title}」" %>
+                <%= "「#{manifest.title.truncate(10)}」" %>
               </span>
               <% manifest.tags.each do |tag| %>
                 <%= link_to tag.name, tag_path(tag.id), class: 'tag-link' %>
@@ -60,7 +60,7 @@
                 @<%= question.user.nickname %>
               </span>
               <span>
-                <%= "「#{question.title}」" %>
+                <%= "「#{question.title.truncate(20)}」" %>
               </span>
               <% question.tags.each do |tag| %>
                 <%= link_to tag.name, tag_path(tag.id), class: 'tag-link' %>
