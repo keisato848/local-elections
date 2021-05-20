@@ -11,7 +11,6 @@ http://local-elections.site
 |アカウント名|email|password|
 |-|-|-|
 |test-user1|example1@example.com|testtest1|
-|test-user2|example2@example.com|testtest2|
 
 ## 制作意図
 【背景】  
