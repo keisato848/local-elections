@@ -1,4 +1,4 @@
-<%= render 'shared/second-header' %>
+<%= render 'shared/header' %>
 
 <%# パンくずリスト %>
 <% breadcrumb :show_tag %>
@@ -25,15 +25,14 @@
           </li>
         <% end %>
       <% else %>
-        <p>マニュフェストはありません。</p>
-        <%= link_to '新規投稿する', new_manifest_path, class: 'manifest-link' %>
+        <li><%= link_to '新規投稿する', new_manifest_path, class: 'manifest-link' %></li>
     <% end %>
     </ul>
 
     <%# 質問一覧を表示 %>
-    <% if @questions.any? %>
-      <% @questions.each do |question| %>
-        <ul class='question-list' id='question-list'>
+    <ul class='question-list' id='question-list'>
+      <% if @questions.any? %>
+        <% @questions.each do |question| %>
           <li>
             <a href=<%= "/questions/#{question.id}" %>>
               <p><%= l question.updated_at %></p>
@@ -41,12 +40,11 @@
               <h3 class='council-name'><%= question.title %></h3>
             </a>
           </li>
-        </ul>
+        <% end %>
+      <% else %>
+        <li><%= link_to '新規投稿する', new_question_path, class: 'manifest-link' %></li>
       <% end %>
-    <% else %>
-      <p>マニュフェストはありません。</p>
-      <%= link_to '新規投稿する', new_question_path, class: 'manifest-link' %>
-    <% end %>
+    </ul>
   </div>
 </div>
 <%= render 'shared/footer' %>

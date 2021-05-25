@@ -31,7 +31,7 @@
                 @<%= manifest.user.nickname %>
               </span>
               <span>
-                <%= "「#{manifest.title}」" %>
+                <%= "「#{manifest.title.truncate(10)}」" %>
               </span>
               <% manifest.tags.each do |tag| %>
                 <%= link_to tag.name, tag_path(tag.id), class: 'tag-link' %>
@@ -49,7 +49,7 @@
     </ul>
     <%# 質問 %>
     <ul class='update-content' id='question-content'>
-      <% if @questions %>
+      <% if @questions.any? %>
         <% @questions.each do |question| %>
           <li class='manifest-content'>
             <a href="/questions/<%= question.id %>" class='show-manifest-link' id='manifest-link'>
@@ -60,7 +60,7 @@
                 @<%= question.user.nickname %>
               </span>
               <span>
-                <%= "「#{question.title}」" %>
+                <%= "「#{question.title.truncate(20)}」" %>
               </span>
               <% question.tags.each do |tag| %>
                 <%= link_to tag.name, tag_path(tag.id), class: 'tag-link' %>
