@@ -24,12 +24,17 @@ a {
 
 /* フラッシュメッセージ */
 .flash-message {
-  width: calc(100% - 20px);
+  width: 30vw;
+  margin: 0 auto;
   padding: 10px;
   text-align: center;
-  color: #000;
+  color: #fff;
   font-weight: 500;
-  background-color: rgb(247, 184, 95);
+  border-radius: 4px;
+  background-color: #333;
+  position: absolute;
+  top: 20vh;
+  left: calc((100vw - 30vw) / 2);
 }
 
 /* 議会・議員名 */
