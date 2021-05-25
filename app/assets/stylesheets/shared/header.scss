@@ -22,7 +22,7 @@
     vertical-align: center;
     border-radius: 4px;
     &:hover {
-      background-color: #111;
+      background-color: rgb(37, 30, 30);
       transition: background-color 0.4s;
     }
     .material-icons {
@@ -51,7 +51,7 @@
       align-items: center;
       flex-wrap: wrap;
       position: absolute;
-      right: calc(220px + 5vw);
+      right: calc(205px + 5vw);
       top: 48px;
       .post-link-text {
         color: #fff;
