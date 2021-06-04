@@ -64,6 +64,30 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      
+      - run:
+          name: install packages
+          command: npm install
+      
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+      - run :
+          name: run test
+          command: npm test
+
+      - run:
+          name: post coverage
+          command: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
+     
+      - run:
+          name: run list
+          command: npm run list
+
       # run rubocop
       - run:
           name: run rubocop
