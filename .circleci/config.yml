@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - checkout
-
+      - run: gem install bundler:2.2.11
       # Download and cache dependencies
       - restore_cache:
           keys:
