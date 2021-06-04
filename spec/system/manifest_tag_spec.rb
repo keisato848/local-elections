@@ -8,7 +8,6 @@ RSpec.describe 'manifest_tag', type: :system do
 
   context 'マニュフェストを投稿できるとき' do
     it '正しい情報を入力すればマニュフェストが投稿でき、トップページに移動する' do
-      @manifest_tag = build(:manifest_tag, user_id: @user.id)
       # ログイン
       sign_in(@user)
       # マニフェスト投稿ページへ遷移
@@ -24,14 +23,13 @@ RSpec.describe 'manifest_tag', type: :system do
       expect(current_path).to eq(root_path)
       # トップページに投稿したマニュフェストが表示されていることを確認
       expect(page).to have_content(@user.nickname)
-      expect(page).to have_content(@manifest_tag.title)
+      expect(page).to have_content(@manifest_tag.title.truncate(10))
       expect(page).to have_content(@manifest_tag.name)
     end
   end
 
   context 'マニュフェストを投稿できないとき' do
     it 'データを入力しなければマニュフェストを登録できず、投稿ページがレンダリングされ、エラーメッセージが出力される' do
-      @manifest_tag = build(:manifest_tag, user_id: @user.id)
       # ログイン
       sign_in(@user)
       # マニフェスト投稿ページへ遷移
@@ -73,7 +71,7 @@ RSpec.describe 'manifest_tag', type: :system do
       # トップページに遷移
       visit root_path
       # 編集後のデータが表示されていることを確認
-      expect(page).to have_content(@edited_manifest_tag.title)
+      expect(page).to have_content(@edited_manifest_tag.title.truncate(10))
     end
   end
 

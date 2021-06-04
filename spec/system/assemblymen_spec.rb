@@ -3,9 +3,7 @@ require 'rails_helper'
 RSpec.describe '議員情報編集', type: :system do
   before do
     @user = create(:user)
-    prefectures = create_list(:prefecture, 46)
-    @prefecture = prefectures[0]
-    @council = create(:council, prefecture: @prefecture)
+    @council = create(:council)
     @assemblyman = create(:assemblyman, council: @council)
   end
 
@@ -14,12 +12,12 @@ RSpec.describe '議員情報編集', type: :system do
       # ログイン
       sign_in(@user)
       # 議員詳細ページへ移動
-      visit "/prefectures/#{@prefecture.id}/councils/#{@council.id}/assemblymen/#{@assemblyman.id}"
+      visit "/prefectures/1/councils/#{@council.id}/assemblymen/#{@assemblyman.id}"
       # 議員情報編集ページへ遷移するリンクがあることを確認しクリックする
       expect(page).to have_content('編集')
       click_on('編集')
       # 議員情報編集ページに遷移したことを確認する
-      expect(current_path).to eq("/prefectures/#{@prefecture.id}/councils/#{@council.id}/assemblymen/#{@assemblyman.id}/edit")
+      expect(current_path).to eq("/prefectures/1/councils/#{@council.id}/assemblymen/#{@assemblyman.id}/edit")
       # 編集後のデータをフォームに入力し、編集をクリックする
       @edited_assemblyman = build(:assemblyman, council_id: @council.id)
       fill_in 'name', with: @edited_assemblyman.name
@@ -33,7 +31,7 @@ RSpec.describe '議員情報編集', type: :system do
       fill_in 'twitter_url', with: @edited_assemblyman.twitter_url
       click_on('編集する')
       # 議員詳細ページに遷移したことを確認する
-      visit "/prefectures/#{@prefecture.id}/councils/#{@council.id}/assemblymen/#{@assemblyman.id}"
+      visit "/prefectures/1/councils/#{@council.id}/assemblymen/#{@assemblyman.id}"
       # 編集内容が反映されていることを確認する
       expect(page).to have_content(@edited_assemblyman.name)
       expect(page).to have_content(@edited_assemblyman.position)
@@ -48,12 +46,12 @@ RSpec.describe '議員情報編集', type: :system do
       # ログイン
       sign_in(@user)
       # 議員詳細ページへ移動
-      visit "/prefectures/#{@prefecture.id}/councils/#{@council.id}/assemblymen/#{@assemblyman.id}"
+      visit "/prefectures/1/councils/#{@council.id}/assemblymen/#{@assemblyman.id}"
       # 議員情報編集ページへ遷移するリンクがあることを確認しクリックする
       expect(page).to have_content('編集')
       click_on('編集')
       # 議員情報編集ページに遷移したことを確認する
-      expect(current_path).to eq("/prefectures/#{@prefecture.id}/councils/#{@council.id}/assemblymen/#{@assemblyman.id}/edit")
+      expect(current_path).to eq("/prefectures/1/councils/#{@council.id}/assemblymen/#{@assemblyman.id}/edit")
       # 編集後のデータをフォームに入力し編集をクリックする
       fill_in 'name', with: ''
       fill_in 'sex', with: '123'
@@ -63,7 +61,7 @@ RSpec.describe '議員情報編集', type: :system do
       fill_in 'twitter_url', with: '@abcde0123456789'
       click_on('編集する')
       # 議員編集ページがレンダリングされたことを確認する
-      expect(current_path).to eq("/prefectures/#{@prefecture.id}/councils/#{@council.id}/assemblymen/#{@assemblyman.id}")
+      expect(current_path).to eq("/prefectures/1/councils/#{@council.id}/assemblymen/#{@assemblyman.id}")
       # エラーメッセージが出力されていることを確認する
       expect(page).to have_content('氏名を入力してください')
       expect(page).to have_content('性別は全角文字で入してください')
