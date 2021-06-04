@@ -46,6 +46,12 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
+      # yarn install
+      - run:
+          name: yarn Install
+          command: yarn install
+      - run: bundle exec bin/webpack
+      
       # run tests!
       - run:
           name: execute tests

@@ -11,6 +11,7 @@ class AssemblymanCommentsController < ApplicationController
     if @comment.save
       redirect_to prefecture_council_assemblyman_path(id: params[:assemblyman_id]), notice: 'コメントを投稿しました'
     else
+      set_assemblyman
       render :new
     end
   end
@@ -28,7 +29,7 @@ class AssemblymanCommentsController < ApplicationController
   private
 
   def set_assemblyman
-    @assemblyman = Assemblyman.find_by(id: params[:assemblyman_id])
+    @assemblyman = Assemblyman.find(params[:assemblyman_id])
   end
 
   def comment_params

@@ -4,7 +4,7 @@ RSpec.describe AssemblymanComment, type: :model do
   before do
     @user = create(:user)
     @council = create(:council)
-    @assemblyman = create(:assemblyman)
+    @assemblyman = create(:assemblyman, council: @council)
     @comment = build(:assemblyman_comment, user: @user, assemblyman: @assemblyman)
   end
 
