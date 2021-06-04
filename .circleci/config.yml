@@ -17,10 +17,11 @@ jobs:
       - image: circleci/mysql:5.7
 
     working_directory: ~/local-elections
-
+    
     steps:
       - checkout
       - run: gem install bundler:2.2.11
+      - image: circleci/node:8.11.4
       # Download and cache dependencies
       - restore_cache:
           keys:
