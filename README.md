@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/keisato848/local-elections.svg?style=shield&circle-token=361b0b3bf0560fc284f2f8c5485ad684da37ed1d)](https://circleci.com/gh/keisato848/local-elections)
+
 ## アプリ名
 Local Elections（ローカルエレクションズ）
 
