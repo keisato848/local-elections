@@ -9,8 +9,8 @@ class ManifestsController < ApplicationController
   def create
     @manifest = ManifestTag.new(manifest_params)
     if @manifest.valid?
-      @manifest.save
-      redirect_to root_path, notice: 'マニュフェストを投稿しました'
+      created_id = @manifest.save
+      redirect_to manifest_path(created_id), notice: 'マニュフェストを投稿しました'
     else
       render :new
     end
