@@ -13,9 +13,8 @@ class QuestionsController < ApplicationController
   def create
     @question = QuestionTag.new(question_params)
     if @question.valid?
-      @question.save
-      created_question = Question.find_by(title: @question.title)
-      redirect_to question_path(created_question), notice: '質問を投稿しました'
+      created_id = @question.save
+      redirect_to question_path(created_id), notice: '質問を投稿しました'
     else
       render :new
     end

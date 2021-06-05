@@ -28,7 +28,7 @@
                 <%= l manifest.updated_at %>
               </span>
               <span class='posted-user'>
-                @<%= manifest.user.nickname %>
+                <%= "@#{manifest.user.nickname}" %>
               </span>
               <span>
                 <%= "「#{manifest.title.truncate(10)}」" %>
@@ -57,7 +57,7 @@
                 <%= l question.updated_at %>
               </span>
               <span class='posted-user'>
-                @<%= question.user.nickname %>
+                <%= "@#{question.user.nickname}" %>
               </span>
               <span>
                 <%= "「#{question.title.truncate(20)}」" %>

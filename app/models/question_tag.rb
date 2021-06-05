@@ -13,8 +13,8 @@ class QuestionTag
     question = Question.create(title: title, description: description, user_id: user_id)
     tag = Tag.where(name: name).first_or_initialize
     tag.save
-
     QuestionTagRelation.create(question_id: question.id, tag_id: tag.id)
+    question.id
   end
 
   def update(question_id)
