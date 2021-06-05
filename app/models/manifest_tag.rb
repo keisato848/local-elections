@@ -3,7 +3,7 @@ class ManifestTag
   attr_accessor :title, :description, :name, :user_id
 
   with_options presence: true do
-    validates :title
+    validates :title, uniqueness: true
     validates :description
     validates :name
     validates :user_id
