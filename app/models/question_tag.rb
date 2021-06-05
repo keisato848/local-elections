@@ -3,7 +3,7 @@ class QuestionTag
   attr_accessor :title, :description, :name, :user_id
 
   with_options presence: true do
-    validates :title
+    validates :title, uniqueness: true
     validates :description
     validates :name
     validates :user_id
@@ -13,7 +13,6 @@ class QuestionTag
     question = Question.create(title: title, description: description, user_id: user_id)
     tag = Tag.where(name: name).first_or_initialize
     tag.save
-
     QuestionTagRelation.create(question_id: question.id, tag_id: tag.id)
   end
 
