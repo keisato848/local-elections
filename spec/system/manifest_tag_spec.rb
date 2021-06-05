@@ -22,7 +22,7 @@ RSpec.describe 'manifest_tag', type: :system do
       # 投稿が完了し、投稿内容が表示されていることを確認
       expect(page).to have_content('マニュフェストを投稿しました')
       expect(page).to have_content(@user.nickname)
-      expect(page).to have_content(@manifest_tag.title.truncate(10))
+      expect(page).to have_content(@manifest_tag.title)
       expect(page).to have_content(@manifest_tag.name)
       # トップページに投稿したマニュフェストが表示されていることを確認
       visit root_path
