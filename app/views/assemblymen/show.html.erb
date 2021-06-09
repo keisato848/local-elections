@@ -1,3 +1,6 @@
+<%# ページごとにmetaタグを設定 %>
+<% set_meta_tags title: "#{@assemblyman.name}さんの情報" %>
+
 <%= render "shared/header" %>
 
 <%# パンくずリスト %>
@@ -10,10 +13,9 @@
     <div class='profile-heading'>更新者：<%= @assemblyman.user.nickname%></div>
   <% end %>
   <%# 編集ボタン%>
-  <%# 選挙期日以外は表示  %>
   <% if @assemblyman.council.election && @assemblyman.council.election.day == Date.current %>
     <p>本日は選挙期日当日のため、更新できません。</p>
-  <% else %>
+  <% else %>  <%# 選挙期日以外は表示 %>
     <%= link_to '編集', "#{params[:id]}/edit", class: 'edit-assemblyman-link' %>
   <% end %>
 </div>

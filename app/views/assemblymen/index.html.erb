@@ -1,6 +1,11 @@
+<%# ページごとにmetaタグを設定 %>
+<% set_meta_tags title: "#{@council.name}の議員情報" %>
+
 <%= render "shared/header" %>
+<%# パンくずリスト %>
 <% breadcrumb :council, @council %>
 <%= render 'shared/breadcrumbs' %>
+
 <div class='main'>
   <div class='search-btn' id='search-btn'>絞り込み検索</div>
   <%# 検索フォーム %>
